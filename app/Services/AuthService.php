@@ -2,10 +2,11 @@
 
 namespace App\Services;
 
+use App\Mail\OtpMail;
 use App\Models\Administrator;
 use App\Models\OtpCode;
-use App\Notifications\OtpCodeNotification;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\ValidationException;
 
 class AuthService
@@ -216,8 +217,12 @@ class AuthService
     protected function sendOtpViaEmail(string $email, string $code, string $language, Administrator $administrator): void
     {
         try {
-            // Send email notification to the administrator
-            $administrator->notify(new OtpCodeNotification($code, $language));
+            // Send email using OtpMail mailable
+            Mail::to($email)->send(new OtpMail(
+                otpCode: $code,
+                language: $language,
+                recipientName: $administrator->full_name ?? ''
+            ));
 
             Log::info("OTP email sent to {$email}", [
                 'administrator_id' => $administrator->id,

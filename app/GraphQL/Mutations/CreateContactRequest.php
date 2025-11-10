@@ -15,7 +15,6 @@ final class CreateContactRequest
     {
         // Create contact request
         $contactRequest = ContactRequest::create([
-            'application_id' => $args['application_id'],
             'first_name' => $args['first_name'],
             'last_name' => $args['last_name'],
             'email' => $args['email'],

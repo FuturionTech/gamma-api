@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Models\ContactRequest;
 use App\Mail\ContactRequestReceived;
+use App\Mail\ContactRequestConfirmation;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -27,10 +28,16 @@ class SendContactRequestNotification implements ShouldQueue
      */
     public function handle(): void
     {
-        $adminEmail = env('ADMIN_EMAIL', 'admin@gammaneutral.com');
+        $adminEmail = env('ADMIN_EMAIL', 'acompaore@futurion.tech');
 
+        // Send notification to admin
         Mail::to($adminEmail)->send(
             new ContactRequestReceived($this->contactRequest)
+        );
+
+        // Send confirmation to user
+        Mail::to($this->contactRequest->email)->send(
+            new ContactRequestConfirmation($this->contactRequest)
         );
     }
 }

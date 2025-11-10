@@ -19,9 +19,13 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => explode(',', env('CORS_ALLOWED_ORIGINS', 'http://localhost:3001,http://localhost:3000,https://gamma.ngrok.app')),
+    'allowed_origins' => [],
 
-    'allowed_origins_patterns' => [],
+    'allowed_origins_patterns' => [
+        '/^http:\/\/localhost(:\d+)?$/',  // Allow localhost with any port
+        '/^http:\/\/127\.0\.0\.1(:\d+)?$/',  // Allow 127.0.0.1 with any port
+        '/^https:\/\/.*\.ngrok\.app$/',  // Allow any ngrok subdomain
+    ],
 
     'allowed_headers' => ['*'],
 
