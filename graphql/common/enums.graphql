@@ -1,0 +1,51 @@
+enum JobType {
+    FULL_TIME @enum(value: "full_time")
+    PART_TIME @enum(value: "part_time")
+    CONTRACT @enum(value: "contract")
+}
+
+enum JobStatus {
+    ACTIVE @enum(value: "active")
+    CLOSED @enum(value: "closed")
+}
+
+enum ContactRequestStatus {
+    NEW @enum(value: "new")
+    IN_PROGRESS @enum(value: "in_progress")
+    RESOLVED @enum(value: "resolved")
+}
+
+enum PostStatus {
+    DRAFT @enum(value: "draft")
+    PUBLISHED @enum(value: "published")
+}
+
+enum OtpDeliveryMethod {
+    EMAIL @enum(value: "EMAIL")
+    SMS @enum(value: "SMS")
+}
+
+enum AdministratorStatus {
+    ACTIVE @enum(value: "active")
+    INACTIVE @enum(value: "inactive")
+    SUSPENDED @enum(value: "suspended")
+}
+
+enum ServiceCategory {
+    TECHNOLOGY @enum(value: "Technology")
+    SECURITY @enum(value: "Security")
+    ANALYTICS @enum(value: "Analytics")
+    INFRASTRUCTURE @enum(value: "Infrastructure")
+    MANAGEMENT @enum(value: "Management")
+}
+
+enum IndustryCategory {
+    FINANCIAL_SERVICES @enum(value: "FINANCIAL_SERVICES")
+    HEALTHCARE @enum(value: "HEALTHCARE")
+    GOVERNMENT @enum(value: "GOVERNMENT")
+    EDUCATION @enum(value: "EDUCATION")
+    MANUFACTURING @enum(value: "MANUFACTURING")
+    RETAIL @enum(value: "RETAIL")
+    NGO @enum(value: "NGO")
+}
+

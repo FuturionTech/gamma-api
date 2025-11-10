@@ -1,0 +1,63 @@
+type Administrator {
+    id: ID!
+    employee_number: String!
+    email: String!
+    first_name: String!
+    last_name: String!
+    full_name: String!
+    phone_number: String
+    status: AdministratorStatus!
+    email_verified_at: DateTime
+    phone_verified_at: DateTime
+    two_factor_enabled: Boolean!
+    last_login_at: DateTime
+    last_login_ip: String
+    failed_login_attempts: Int!
+    locked_until: DateTime
+    created_at: DateTime!
+    updated_at: DateTime!
+    created_by: ID
+    updated_by: ID
+}
+
+type AuthPayload {
+    token: String!
+    administrator: Administrator!
+    expires_at: DateTime!
+}
+
+type OtpResponse {
+    success: Boolean!
+    message: String!
+}
+
+input RequestOtpInput {
+    identifier: String! @rules(apply: ["required"])
+    method: OtpDeliveryMethod!
+    language: String! @rules(apply: ["required", "in:FR,EN"])
+}
+
+input VerifyOtpInput {
+    identifier: String! @rules(apply: ["required"])
+    otp_code: String! @rules(apply: ["required", "size:6"])
+    method: OtpDeliveryMethod!
+}
+
+extend type Query {
+    me: Administrator @guard(with: ["sanctum"])
+}
+
+extend type Mutation {
+    "Request OTP for administrator login"
+    requestOtp(input: RequestOtpInput! @spread): OtpResponse!
+
+    "Verify OTP and login administrator"
+    verifyOtp(input: VerifyOtpInput! @spread): AuthPayload!
+
+    "Logout administrator (revoke token)"
+    logout: LogoutResponse! @guard(with: ["sanctum"])
+
+    "Refresh authentication token"
+    refreshToken: AuthPayload! @guard(with: ["sanctum"])
+}
+

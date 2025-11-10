@@ -1,0 +1,52 @@
+type Testimonial {
+    id: ID!
+    name: String!
+    content: String!
+    image_url: String
+    position: String
+    company: String
+    rating: Int!
+    order: Int!
+    is_active: Boolean!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreateTestimonialInput {
+    name: String! @rules(apply: ["required", "max:255"])
+    content: String! @rules(apply: ["required"])
+    image: String
+    image_url: String
+    position: String
+    company: String
+    rating: Int @rules(apply: ["min:1", "max:5"])
+    order: Int
+    is_active: Boolean
+}
+
+input UpdateTestimonialInput {
+    name: String @rules(apply: ["max:255"])
+    content: String
+    image: String
+    image_url: String
+    position: String
+    company: String
+    rating: Int @rules(apply: ["min:1", "max:5"])
+    order: Int
+    is_active: Boolean
+}
+
+extend type Query {
+    testimonials(
+        is_active: Boolean @eq
+        first: Int = 10
+        page: Int
+    ): [Testimonial!]! @paginate
+}
+
+extend type Mutation {
+    createTestimonial(input: CreateTestimonialInput!): Testimonial! @field(resolver: "App\\GraphQL\\Mutations\\CreateTestimonial") @guard(with: ["sanctum"])
+    updateTestimonial(id: ID!, input: UpdateTestimonialInput!): Testimonial! @field(resolver: "App\\GraphQL\\Mutations\\UpdateTestimonial") @guard(with: ["sanctum"])
+    deleteTestimonial(id: ID!): DeleteResponse! @delete(model: "Testimonial") @guard(with: ["sanctum"])
+}
+

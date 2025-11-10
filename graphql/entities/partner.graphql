@@ -1,0 +1,44 @@
+type Partner {
+    id: ID!
+    name: String!
+    logo_url: String
+    website_url: String
+    order: Int!
+    is_active: Boolean!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreatePartnerInput {
+    name: String! @rules(apply: ["required", "max:255"])
+    logo: String
+    logo_url: String
+    website_url: String
+    order: Int
+    is_active: Boolean
+}
+
+input UpdatePartnerInput {
+    name: String @rules(apply: ["max:255"])
+    logo: String
+    logo_url: String
+    website_url: String
+    order: Int
+    is_active: Boolean
+}
+
+extend type Query {
+    partner(id: ID! @eq): Partner @find
+    partners(
+        is_active: Boolean @eq
+        first: Int = 15
+        page: Int
+    ): [Partner!]! @paginate
+}
+
+extend type Mutation {
+    createPartner(input: CreatePartnerInput!): Partner! @field(resolver: "App\\GraphQL\\Mutations\\CreatePartner") @guard(with: ["sanctum"])
+    updatePartner(id: ID!, input: UpdatePartnerInput!): Partner! @field(resolver: "App\\GraphQL\\Mutations\\UpdatePartner") @guard(with: ["sanctum"])
+    deletePartner(id: ID!): DeleteResponse! @delete(model: "Partner") @guard(with: ["sanctum"])
+}
+

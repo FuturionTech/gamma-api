@@ -1,0 +1,10 @@
+type DeleteResponse {
+    success: Boolean!
+    message: String
+}
+
+type LogoutResponse {
+    success: Boolean!
+    message: String
+}
+

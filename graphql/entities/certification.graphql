@@ -1,0 +1,49 @@
+type Certification {
+    id: ID!
+    title: String!
+    file_url: String
+    certification_category_id: ID
+    issued_date: DateTime
+    is_active: Boolean!
+    created_at: DateTime!
+    updated_at: DateTime!
+    category: CertificationCategory @belongsTo
+}
+
+type CertificationCategory {
+    id: ID!
+    name: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreateCertificationInput {
+    title: String! @rules(apply: ["required", "max:255"])
+    file_url: String
+    certification_category_id: ID @rules(apply: ["exists:certification_categories,id"])
+    issued_date: DateTime
+    is_active: Boolean
+}
+
+input UpdateCertificationInput {
+    title: String @rules(apply: ["max:255"])
+    file_url: String
+    certification_category_id: ID @rules(apply: ["exists:certification_categories,id"])
+    issued_date: DateTime
+    is_active: Boolean
+}
+
+extend type Query {
+    certifications(
+        is_active: Boolean @eq
+        first: Int = 15
+        page: Int
+    ): [Certification!]! @paginate
+}
+
+extend type Mutation {
+    createCertification(input: CreateCertificationInput! @spread): Certification! @create @guard(with: ["sanctum"])
+    updateCertification(id: ID!, input: UpdateCertificationInput! @spread): Certification! @update @guard(with: ["sanctum"])
+    deleteCertification(id: ID!): DeleteResponse! @delete(model: "Certification") @guard(with: ["sanctum"])
+}
+

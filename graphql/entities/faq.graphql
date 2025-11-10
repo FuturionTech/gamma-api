@@ -1,0 +1,41 @@
+type FAQ {
+    id: ID!
+    question: String!
+    answer: String!
+    category: String
+    order: Int!
+    is_active: Boolean!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreateFAQInput {
+    question: String! @rules(apply: ["required"])
+    answer: String! @rules(apply: ["required"])
+    category: String
+    order: Int
+    is_active: Boolean
+}
+
+input UpdateFAQInput {
+    question: String
+    answer: String
+    category: String
+    order: Int
+    is_active: Boolean
+}
+
+extend type Query {
+    faqs(
+        category: String @eq
+        is_active: Boolean @eq
+        limit: Int @rules(apply: ["max:100"])
+    ): [FAQ!]! @all
+}
+
+extend type Mutation {
+    createFAQ(input: CreateFAQInput! @spread): FAQ! @create @guard(with: ["sanctum"])
+    updateFAQ(id: ID!, input: UpdateFAQInput! @spread): FAQ! @update @guard(with: ["sanctum"])
+    deleteFAQ(id: ID!): DeleteResponse! @delete(model: "FAQ") @guard(with: ["sanctum"])
+}
+

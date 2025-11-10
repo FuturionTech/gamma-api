@@ -1,0 +1,72 @@
+type Team {
+    id: ID!
+    name: String!
+    role: String
+    email: String
+    contact: String
+    biography: String
+    profile_picture_url: String
+    order: Int!
+    is_active: Boolean!
+    created_at: DateTime!
+    updated_at: DateTime!
+    socialMediaLinks: [TeamSocialMediaLink!]! @hasMany
+}
+
+type TeamSocialMediaLink {
+    id: ID!
+    team_id: ID!
+    platform_id: ID!
+    url: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+    platform: SocialMediaPlatform @belongsTo
+}
+
+type SocialMediaPlatform {
+    id: ID!
+    name: String!
+    icon: String
+    base_url: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreateTeamInput {
+    name: String! @rules(apply: ["required", "max:255"])
+    role: String
+    email: String @rules(apply: ["email"])
+    contact: String
+    biography: String
+    profile_picture: String
+    profile_picture_url: String
+    order: Int
+    is_active: Boolean
+}
+
+input UpdateTeamInput {
+    name: String @rules(apply: ["max:255"])
+    role: String
+    email: String @rules(apply: ["email"])
+    contact: String
+    biography: String
+    profile_picture: String
+    profile_picture_url: String
+    order: Int
+    is_active: Boolean
+}
+
+extend type Query {
+    teams(
+        is_active: Boolean @eq
+        first: Int = 15
+        page: Int
+    ): [Team!]! @paginate
+}
+
+extend type Mutation {
+    createTeam(input: CreateTeamInput!): Team! @field(resolver: "App\\GraphQL\\Mutations\\CreateTeam") @guard(with: ["sanctum"])
+    updateTeam(id: ID!, input: UpdateTeamInput!): Team! @field(resolver: "App\\GraphQL\\Mutations\\UpdateTeam") @guard(with: ["sanctum"])
+    deleteTeam(id: ID!): DeleteResponse! @delete(model: "Team") @guard(with: ["sanctum"])
+}
+

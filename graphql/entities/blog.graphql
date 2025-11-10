@@ -1,0 +1,61 @@
+type BlogPost {
+    id: ID!
+    title: String!
+    slug: String!
+    excerpt: String
+    content: String!
+    featured_image_url: String
+    author_id: ID
+    category: String
+    tags: JSON
+    status: PostStatus!
+    published_at: DateTime
+    view_count: Int!
+    created_at: DateTime!
+    updated_at: DateTime!
+    author: Team @belongsTo
+}
+
+input CreateBlogPostInput {
+    title: String! @rules(apply: ["required", "max:255"])
+    slug: String
+    excerpt: String
+    content: String! @rules(apply: ["required"])
+    featured_image: String
+    featured_image_url: String
+    author_id: ID @rules(apply: ["exists:teams,id"])
+    category: String
+    tags: JSON
+    status: PostStatus
+    published_at: DateTime
+}
+
+input UpdateBlogPostInput {
+    title: String @rules(apply: ["max:255"])
+    slug: String
+    excerpt: String
+    content: String
+    featured_image: String
+    featured_image_url: String
+    author_id: ID @rules(apply: ["exists:teams,id"])
+    category: String
+    tags: JSON
+    status: PostStatus
+    published_at: DateTime
+}
+
+extend type Query {
+    blogPosts(
+        status: PostStatus @eq
+        limit: Int @rules(apply: ["max:100"])
+    ): [BlogPost!]! @all
+
+    blogPost(slug: String! @eq): BlogPost @find
+}
+
+extend type Mutation {
+    createBlogPost(input: CreateBlogPostInput!): BlogPost! @field(resolver: "App\\GraphQL\\Mutations\\CreateBlogPost") @guard(with: ["sanctum"])
+    updateBlogPost(id: ID!, input: UpdateBlogPostInput!): BlogPost! @field(resolver: "App\\GraphQL\\Mutations\\UpdateBlogPost") @guard(with: ["sanctum"])
+    deleteBlogPost(id: ID!): DeleteResponse! @delete(model: "BlogPost") @guard(with: ["sanctum"])
+}
+

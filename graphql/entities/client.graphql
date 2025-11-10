@@ -1,0 +1,45 @@
+type Client {
+    id: ID!
+    name: String!
+    logo_url: String
+    industry: String
+    website_url: String
+    order: Int!
+    is_active: Boolean!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreateClientInput {
+    name: String! @rules(apply: ["required", "max:255"])
+    logo: String
+    logo_url: String
+    industry: String
+    website_url: String
+    order: Int
+    is_active: Boolean
+}
+
+input UpdateClientInput {
+    name: String @rules(apply: ["max:255"])
+    logo: String
+    logo_url: String
+    industry: String
+    website_url: String
+    order: Int
+    is_active: Boolean
+}
+
+extend type Query {
+    clients(
+        is_active: Boolean @eq
+        limit: Int @rules(apply: ["max:100"])
+    ): [Client!]! @all
+}
+
+extend type Mutation {
+    createClient(input: CreateClientInput!): Client! @field(resolver: "App\\GraphQL\\Mutations\\CreateClient") @guard(with: ["sanctum"])
+    updateClient(id: ID!, input: UpdateClientInput!): Client! @field(resolver: "App\\GraphQL\\Mutations\\UpdateClient") @guard(with: ["sanctum"])
+    deleteClient(id: ID!): DeleteResponse! @delete(model: "Client") @guard(with: ["sanctum"])
+}
+

@@ -1,0 +1,75 @@
+type JobPosition {
+    id: ID!
+    title: String!
+    department: String
+    location: String
+    job_type: JobType!
+    is_remote: Boolean!
+    salary_range: String
+    experience_required: String
+    summary: String
+    description: String
+    responsibilities: JSON
+    requirements: JSON
+    nice_to_have: JSON
+    benefits: JSON
+    skills: JSON
+    posted_date: DateTime
+    status: JobStatus!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreateJobPositionInput {
+    title: String! @rules(apply: ["required", "max:255"])
+    department: String
+    location: String
+    job_type: JobType
+    is_remote: Boolean
+    salary_range: String
+    experience_required: String
+    summary: String
+    description: String
+    responsibilities: JSON
+    requirements: JSON
+    nice_to_have: JSON
+    benefits: JSON
+    skills: JSON
+    posted_date: DateTime
+    status: JobStatus
+}
+
+input UpdateJobPositionInput {
+    title: String @rules(apply: ["max:255"])
+    department: String
+    location: String
+    job_type: JobType
+    is_remote: Boolean
+    salary_range: String
+    experience_required: String
+    summary: String
+    description: String
+    responsibilities: JSON
+    requirements: JSON
+    nice_to_have: JSON
+    benefits: JSON
+    skills: JSON
+    posted_date: DateTime
+    status: JobStatus
+}
+
+extend type Query {
+    jobPositions(
+        status: JobStatus @eq
+        limit: Int @rules(apply: ["max:100"])
+    ): [JobPosition!]! @all
+
+    jobPosition(id: ID! @eq): JobPosition @find
+}
+
+extend type Mutation {
+    createJobPosition(input: CreateJobPositionInput! @spread): JobPosition! @create @guard(with: ["sanctum"])
+    updateJobPosition(id: ID!, input: UpdateJobPositionInput! @spread): JobPosition! @update @guard(with: ["sanctum"])
+    deleteJobPosition(id: ID!): DeleteResponse! @delete(model: "JobPosition") @guard(with: ["sanctum"])
+}
+

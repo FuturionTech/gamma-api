@@ -1,0 +1,41 @@
+type ContactRequest {
+    id: ID!
+    first_name: String!
+    last_name: String!
+    email: String!
+    phone: String
+    subject: String
+    message: String!
+    status: ContactRequestStatus!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreateContactRequestInput {
+    first_name: String! @rules(apply: ["required", "max:255"])
+    last_name: String! @rules(apply: ["required", "max:255"])
+    email: String! @rules(apply: ["required", "email"])
+    phone: String
+    subject: String
+    message: String! @rules(apply: ["required"])
+}
+
+input UpdateContactRequestInput {
+    status: ContactRequestStatus
+}
+
+extend type Query {
+    contactRequests(
+        status: ContactRequestStatus @eq
+        limit: Int @rules(apply: ["max:100"])
+    ): [ContactRequest!]! @all
+
+    contactRequest(id: ID! @eq): ContactRequest @find
+}
+
+extend type Mutation {
+    createContactRequest(input: CreateContactRequestInput! @spread): ContactRequest! @create
+    updateContactRequest(id: ID!, input: UpdateContactRequestInput! @spread): ContactRequest! @update @guard(with: ["sanctum"])
+    deleteContactRequest(id: ID!): DeleteResponse! @delete(model: "ContactRequest") @guard(with: ["sanctum"])
+}
+

@@ -1,0 +1,56 @@
+type Industry {
+    id: ID!
+    title: String!
+    description: String
+    short_description: String
+    icon: String
+    icon_color: String
+    category: IndustryCategory
+    slug: String!
+    order: Int!
+    is_active: Boolean!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreateIndustryInput {
+    title: String! @rules(apply: ["required", "max:255"])
+    description: String
+    short_description: String
+    icon: String
+    icon_color: String
+    category: IndustryCategory
+    slug: String
+    order: Int
+    is_active: Boolean
+}
+
+input UpdateIndustryInput {
+    title: String @rules(apply: ["max:255"])
+    description: String
+    short_description: String
+    icon: String
+    icon_color: String
+    category: IndustryCategory
+    slug: String
+    order: Int
+    is_active: Boolean
+}
+
+extend type Query {
+    industries(
+        is_active: Boolean @eq
+        category: IndustryCategory @eq
+        limit: Int @rules(apply: ["max:100"])
+    ): [Industry!]! @all(scopes: ["ordered"])
+
+    industry(id: ID! @eq): Industry @find
+
+    industryBySlug(slug: String! @eq): Industry @find
+}
+
+extend type Mutation {
+    createIndustry(input: CreateIndustryInput! @spread): Industry! @create @guard(with: ["sanctum"])
+    updateIndustry(id: ID!, input: UpdateIndustryInput! @spread): Industry! @update @guard(with: ["sanctum"])
+    deleteIndustry(id: ID!): DeleteResponse! @field(resolver: "App\\GraphQL\\Mutations\\DeleteIndustry") @guard(with: ["sanctum"])
+}

@@ -1,0 +1,43 @@
+type Stat {
+    id: ID!
+    label: String!
+    value: String!
+    unit: String
+    icon: String
+    order: Int!
+    is_active: Boolean!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreateStatInput {
+    label: String! @rules(apply: ["required", "max:255"])
+    value: String! @rules(apply: ["required"])
+    unit: String
+    icon: String
+    order: Int
+    is_active: Boolean
+}
+
+input UpdateStatInput {
+    label: String @rules(apply: ["max:255"])
+    value: String
+    unit: String
+    icon: String
+    order: Int
+    is_active: Boolean
+}
+
+extend type Query {
+    stats(
+        is_active: Boolean @eq
+        limit: Int @rules(apply: ["max:100"])
+    ): [Stat!]! @all
+}
+
+extend type Mutation {
+    createStat(input: CreateStatInput! @spread): Stat! @create @guard(with: ["sanctum"])
+    updateStat(id: ID!, input: UpdateStatInput! @spread): Stat! @update @guard(with: ["sanctum"])
+    deleteStat(id: ID!): DeleteResponse! @delete(model: "Stat") @guard(with: ["sanctum"])
+}
+

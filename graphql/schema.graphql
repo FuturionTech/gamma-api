@@ -1,0 +1,5 @@
+# Import common types
+#import common/*.graphql
+
+# Import entity schemas
+#import entities/*.graphql

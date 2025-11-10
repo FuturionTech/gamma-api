@@ -1,0 +1,13 @@
+type Application {
+    id: ID!
+    name: String!
+    logo_url: String
+    settings: JSON
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+extend type Query {
+    application(id: ID! @eq): Application @find
+}
+

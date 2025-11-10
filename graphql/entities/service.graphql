@@ -1,0 +1,118 @@
+type Service {
+    id: ID!
+    title: String!
+    description: String
+    short_description: String
+    icon: String
+    icon_color: String
+    category: String
+    slug: String!
+    order: Int!
+    is_active: Boolean!
+    created_at: DateTime!
+    updated_at: DateTime!
+    features: [ServiceFeature!]! @hasMany
+    benefits: [ServiceBenefit!]! @hasMany
+}
+
+type ServiceFeature {
+    id: ID!
+    service_id: ID!
+    title: String!
+    description: String
+    icon: String
+    order: Int!
+    created_at: DateTime!
+    updated_at: DateTime!
+    service: Service @belongsTo
+}
+
+type ServiceBenefit {
+    id: ID!
+    service_id: ID!
+    title: String!
+    description: String
+    icon: String
+    order: Int!
+    created_at: DateTime!
+    updated_at: DateTime!
+    service: Service @belongsTo
+}
+
+input CreateServiceInput {
+    title: String! @rules(apply: ["required", "max:255"])
+    description: String
+    short_description: String
+    icon: String
+    icon_color: String
+    category: String
+    slug: String
+    order: Int
+    is_active: Boolean
+}
+
+input UpdateServiceInput {
+    title: String @rules(apply: ["max:255"])
+    description: String
+    short_description: String
+    icon: String
+    icon_color: String
+    category: String
+    slug: String
+    order: Int
+    is_active: Boolean
+}
+
+input CreateServiceFeatureInput {
+    service_id: ID! @rules(apply: ["required", "exists:services,id"])
+    title: String! @rules(apply: ["required", "max:255"])
+    description: String
+    icon: String
+    order: Int
+}
+
+input UpdateServiceFeatureInput {
+    title: String @rules(apply: ["max:255"])
+    description: String
+    icon: String
+    order: Int
+}
+
+input CreateServiceBenefitInput {
+    service_id: ID! @rules(apply: ["required", "exists:services,id"])
+    title: String! @rules(apply: ["required", "max:255"])
+    description: String
+    icon: String
+    order: Int
+}
+
+input UpdateServiceBenefitInput {
+    title: String @rules(apply: ["max:255"])
+    description: String
+    icon: String
+    order: Int
+}
+
+extend type Query {
+    services(
+        is_active: Boolean @eq
+        limit: Int @rules(apply: ["max:100"])
+    ): [Service!]! @all
+
+    service(id: ID! @eq): Service @find
+}
+
+extend type Mutation {
+    createService(input: CreateServiceInput! @spread): Service! @create @guard(with: ["sanctum"])
+    updateService(id: ID!, input: UpdateServiceInput! @spread): Service! @update @guard(with: ["sanctum"])
+    deleteService(id: ID!): DeleteResponse! @delete(model: "Service") @guard(with: ["sanctum"])
+
+    createServiceFeature(input: CreateServiceFeatureInput! @spread): ServiceFeature! @create @guard(with: ["sanctum"])
+    updateServiceFeature(id: ID!, input: UpdateServiceFeatureInput! @spread): ServiceFeature! @update @guard(with: ["sanctum"])
+    deleteServiceFeature(id: ID!): DeleteResponse! @delete(model: "ServiceFeature") @guard(with: ["sanctum"])
+
+    createServiceBenefit(input: CreateServiceBenefitInput! @spread): ServiceBenefit! @create @guard(with: ["sanctum"])
+    updateServiceBenefit(id: ID!, input: UpdateServiceBenefitInput! @spread): ServiceBenefit! @update @guard(with: ["sanctum"])
+    deleteServiceBenefit(id: ID!): DeleteResponse! @delete(model: "ServiceBenefit") @guard(with: ["sanctum"])
+}
+

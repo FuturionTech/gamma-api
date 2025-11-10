@@ -1,0 +1,121 @@
+type Solution {
+    id: ID!
+    title: String!
+    subtitle: String
+    description: String
+    slug: String!
+    industry_category: IndustryCategory
+    icon: String
+    icon_color: String
+    hero_image_url: String
+    order: Int!
+    is_active: Boolean!
+    created_at: DateTime!
+    updated_at: DateTime!
+    features: [SolutionFeature!]! @hasMany
+    benefits: [SolutionBenefit!]! @hasMany
+}
+
+type SolutionFeature {
+    id: ID!
+    solution_id: ID!
+    title: String!
+    description: String
+    icon: String
+    order: Int!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type SolutionBenefit {
+    id: ID!
+    solution_id: ID!
+    title: String!
+    description: String
+    icon: String
+    order: Int!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreateSolutionInput {
+    title: String! @rules(apply: ["required", "max:255"])
+    subtitle: String
+    description: String
+    slug: String
+    industry_category: IndustryCategory
+    icon: String
+    icon_color: String
+    hero_image: String
+    hero_image_url: String
+    order: Int
+    is_active: Boolean
+}
+
+input UpdateSolutionInput {
+    title: String @rules(apply: ["max:255"])
+    subtitle: String
+    description: String
+    slug: String
+    industry_category: IndustryCategory
+    icon: String
+    icon_color: String
+    hero_image: String
+    hero_image_url: String
+    order: Int
+    is_active: Boolean
+}
+
+input CreateSolutionFeatureInput {
+    solution_id: ID! @rules(apply: ["required", "exists:solutions,id"])
+    title: String! @rules(apply: ["required", "max:255"])
+    description: String
+    icon: String
+    order: Int
+}
+
+input UpdateSolutionFeatureInput {
+    title: String @rules(apply: ["max:255"])
+    description: String
+    icon: String
+    order: Int
+}
+
+input CreateSolutionBenefitInput {
+    solution_id: ID! @rules(apply: ["required", "exists:solutions,id"])
+    title: String! @rules(apply: ["required", "max:255"])
+    description: String
+    icon: String
+    order: Int
+}
+
+input UpdateSolutionBenefitInput {
+    title: String @rules(apply: ["max:255"])
+    description: String
+    icon: String
+    order: Int
+}
+
+extend type Query {
+    solutions(
+        is_active: Boolean @eq
+        limit: Int @rules(apply: ["max:100"])
+    ): [Solution!]! @all
+
+    solution(slug: String! @eq): Solution @find
+}
+
+extend type Mutation {
+    createSolution(input: CreateSolutionInput!): Solution! @field(resolver: "App\\GraphQL\\Mutations\\CreateSolution") @guard(with: ["sanctum"])
+    updateSolution(id: ID!, input: UpdateSolutionInput!): Solution! @field(resolver: "App\\GraphQL\\Mutations\\UpdateSolution") @guard(with: ["sanctum"])
+    deleteSolution(id: ID!): DeleteResponse! @delete(model: "Solution") @guard(with: ["sanctum"])
+
+    createSolutionFeature(input: CreateSolutionFeatureInput! @spread): SolutionFeature! @create @guard(with: ["sanctum"])
+    updateSolutionFeature(id: ID!, input: UpdateSolutionFeatureInput! @spread): SolutionFeature! @update @guard(with: ["sanctum"])
+    deleteSolutionFeature(id: ID!): DeleteResponse! @delete(model: "SolutionFeature") @guard(with: ["sanctum"])
+
+    createSolutionBenefit(input: CreateSolutionBenefitInput! @spread): SolutionBenefit! @create @guard(with: ["sanctum"])
+    updateSolutionBenefit(id: ID!, input: UpdateSolutionBenefitInput! @spread): SolutionBenefit! @update @guard(with: ["sanctum"])
+    deleteSolutionBenefit(id: ID!): DeleteResponse! @delete(model: "SolutionBenefit") @guard(with: ["sanctum"])
+}
+

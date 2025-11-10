@@ -1,0 +1,85 @@
+type ProcessStep {
+    id: ID!
+    title: String!
+    description: String
+    short_description: String
+    step_number: Int!
+    icon: String
+    icon_color: String
+    slug: String!
+    order: Int!
+    is_active: Boolean!
+    created_at: DateTime!
+    updated_at: DateTime!
+    items: [ProcessStepItem!]! @hasMany
+}
+
+type ProcessStepItem {
+    id: ID!
+    process_step_id: ID!
+    title: String!
+    description: String
+    icon: String
+    order: Int!
+    created_at: DateTime!
+    updated_at: DateTime!
+    processStep: ProcessStep @belongsTo
+}
+
+input CreateProcessStepInput {
+    title: String! @rules(apply: ["required", "max:255"])
+    description: String
+    short_description: String
+    step_number: Int!
+    icon: String
+    icon_color: String
+    slug: String
+    order: Int
+    is_active: Boolean
+}
+
+input UpdateProcessStepInput {
+    title: String @rules(apply: ["max:255"])
+    description: String
+    short_description: String
+    step_number: Int
+    icon: String
+    icon_color: String
+    slug: String
+    order: Int
+    is_active: Boolean
+}
+
+input CreateProcessStepItemInput {
+    process_step_id: ID! @rules(apply: ["required", "exists:process_steps,id"])
+    title: String! @rules(apply: ["required", "max:255"])
+    description: String
+    icon: String
+    order: Int
+}
+
+input UpdateProcessStepItemInput {
+    title: String @rules(apply: ["max:255"])
+    description: String
+    icon: String
+    order: Int
+}
+
+extend type Query {
+    processSteps(
+        is_active: Boolean @eq
+        limit: Int @rules(apply: ["max:100"])
+    ): [ProcessStep!]! @all(scopes: ["ordered"])
+
+    processStep(id: ID! @eq): ProcessStep @find
+}
+
+extend type Mutation {
+    createProcessStep(input: CreateProcessStepInput! @spread): ProcessStep! @create @guard(with: ["sanctum"])
+    updateProcessStep(id: ID!, input: UpdateProcessStepInput! @spread): ProcessStep! @update @guard(with: ["sanctum"])
+    deleteProcessStep(id: ID!): DeleteResponse! @field(resolver: "App\\GraphQL\\Mutations\\DeleteProcessStep") @guard(with: ["sanctum"])
+
+    createProcessStepItem(input: CreateProcessStepItemInput! @spread): ProcessStepItem! @create @guard(with: ["sanctum"])
+    updateProcessStepItem(id: ID!, input: UpdateProcessStepItemInput! @spread): ProcessStepItem! @update @guard(with: ["sanctum"])
+    deleteProcessStepItem(id: ID!): DeleteResponse! @field(resolver: "App\\GraphQL\\Mutations\\DeleteProcessStepItem") @guard(with: ["sanctum"])
+}
