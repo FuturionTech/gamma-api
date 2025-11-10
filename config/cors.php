@@ -25,6 +25,7 @@ return [
         '/^http:\/\/localhost(:\d+)?$/',  // Allow localhost with any port
         '/^http:\/\/127\.0\.0\.1(:\d+)?$/',  // Allow 127.0.0.1 with any port
         '/^https:\/\/.*\.ngrok\.app$/',  // Allow any ngrok subdomain
+        '/^https:\/\/(.*\.)?gammaneutral\.com$/',  // Allow gammaneutral.com and subdomains
     ],
 
     'allowed_headers' => ['*'],
