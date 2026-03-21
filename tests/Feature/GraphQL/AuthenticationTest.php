@@ -4,81 +4,76 @@ namespace Tests\Feature\GraphQL;
 
 use App\Models\Administrator;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
 class AuthenticationTest extends TestCase
 {
     use RefreshDatabase;
 
+    protected Administrator $admin;
+
     protected function setUp(): void
     {
         parent::setUp();
-        
+
         // Create an administrator for testing
-        Administrator::create([
-            'name' => 'Test Admin',
+        $this->admin = Administrator::create([
+            'employee_number' => 'EMP-TEST-001',
             'email' => 'test@example.com',
-            'password' => Hash::make('password123'),
+            'first_name' => 'Test',
+            'last_name' => 'Admin',
+            'status' => 'active',
+            'email_verified_at' => now(),
         ]);
     }
 
-    public function test_can_login_with_valid_credentials(): void
+    public function test_can_query_me_with_valid_token(): void
     {
+        $token = $this->admin->createToken('test-token')->plainTextToken;
+
         $query = '
-            mutation {
-                login(input: {
-                    email: "test@example.com"
-                    password: "password123"
-                }) {
-                    token
-                    administrator {
-                        id
-                        name
-                        email
-                    }
+            query {
+                me {
+                    id
+                    email
+                    first_name
+                    last_name
                 }
             }
         ';
 
-        $response = $this->graphQL($query);
+        $response = $this->graphQL($query, [], ['Authorization' => "Bearer {$token}"]);
 
         $response->assertJson([
             'data' => [
-                'login' => [
-                    'administrator' => [
-                        'name' => 'Test Admin',
-                        'email' => 'test@example.com',
-                    ],
+                'me' => [
+                    'email' => 'test@example.com',
+                    'first_name' => 'Test',
+                    'last_name' => 'Admin',
                 ],
             ],
         ]);
-
-        $this->assertArrayHasKey('token', $response->json('data.login'));
     }
 
-    public function test_cannot_login_with_invalid_credentials(): void
+    public function test_cannot_query_me_without_token(): void
     {
         $query = '
-            mutation {
-                login(input: {
-                    email: "test@example.com"
-                    password: "wrong_password"
-                }) {
-                    token
+            query {
+                me {
+                    id
+                    email
                 }
             }
         ';
 
         $response = $this->graphQL($query);
 
-        $response->assertGraphQLErrorMessage('Invalid credentials');
+        $this->assertNull($response->json('data.me'));
     }
 
     public function test_can_logout_with_valid_token(): void
     {
-        $admin = Administrator::where('email', 'test@example.com')->first();
-        $token = $admin->createToken('test-token')->plainTextToken;
+        $token = $this->admin->createToken('test-token')->plainTextToken;
 
         $query = '
             mutation {
@@ -111,4 +106,3 @@ class AuthenticationTest extends TestCase
         ], $headers);
     }
 }
-

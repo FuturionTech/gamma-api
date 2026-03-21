@@ -23,7 +23,6 @@ class ServiceFactory extends Factory
         $title = fake()->words(3, true);
         
         return [
-            'application_id' => 1,
             'title' => $title,
             'description' => fake()->paragraph(),
             'icon' => fake()->randomElement(['chart', 'database', 'shield', 'cloud', 'brain']),

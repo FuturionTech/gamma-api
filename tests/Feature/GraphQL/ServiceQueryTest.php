@@ -2,7 +2,6 @@
 
 namespace Tests\Feature\GraphQL;
 
-use App\Models\Application;
 use App\Models\Service;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -11,24 +10,14 @@ class ServiceQueryTest extends TestCase
 {
     use RefreshDatabase;
 
-    protected function setUp(): void
-    {
-        parent::setUp();
-        
-        // Create application
-        Application::create([
-            'name' => 'Test Application',
-        ]);
-    }
-
     public function test_can_query_services(): void
     {
         // Create test services
-        Service::factory()->count(3)->create(['application_id' => 1]);
+        Service::factory()->count(3)->create();
 
         $query = '
             query {
-                services(application_id: 1, is_active: true) {
+                services(is_active: true) {
                     id
                     title
                     description
@@ -61,12 +50,12 @@ class ServiceQueryTest extends TestCase
     public function test_can_filter_services_by_active_status(): void
     {
         // Create active and inactive services
-        Service::factory()->count(2)->create(['application_id' => 1, 'is_active' => true]);
-        Service::factory()->count(1)->inactive()->create(['application_id' => 1]);
+        Service::factory()->count(2)->create(['is_active' => true]);
+        Service::factory()->count(1)->inactive()->create();
 
         $query = '
             query {
-                services(application_id: 1, is_active: true) {
+                services(is_active: true) {
                     id
                     is_active
                 }
@@ -76,7 +65,7 @@ class ServiceQueryTest extends TestCase
         $response = $this->graphQL($query);
 
         $response->assertJsonCount(2, 'data.services');
-        
+
         foreach ($response->json('data.services') as $service) {
             $this->assertTrue($service['is_active']);
         }
@@ -84,7 +73,7 @@ class ServiceQueryTest extends TestCase
 
     public function test_can_query_single_service_by_id(): void
     {
-        $service = Service::factory()->create(['application_id' => 1, 'title' => 'Test Service']);
+        $service = Service::factory()->create(['title' => 'Test Service']);
 
         $query = '
             query($id: ID!) {
@@ -119,4 +108,3 @@ class ServiceQueryTest extends TestCase
         ], $headers);
     }
 }
-
