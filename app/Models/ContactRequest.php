@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Jobs\SendContactRequestNotification;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -19,6 +20,13 @@ class ContactRequest extends Model
         'message',
         'status',
     ];
+
+    protected static function booted(): void
+    {
+        static::created(function (ContactRequest $contactRequest) {
+            SendContactRequestNotification::dispatch($contactRequest);
+        });
+    }
 
     public function scopeByStatus(Builder $query, string $status): void
     {
