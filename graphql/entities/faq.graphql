@@ -31,6 +31,8 @@ extend type Query {
         is_active: Boolean @eq
         limit: Int @rules(apply: ["max:100"])
     ): [FAQ!]! @all
+
+    faq(id: ID! @eq): FAQ @find
 }
 
 extend type Mutation {

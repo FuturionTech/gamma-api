@@ -103,6 +103,8 @@ extend type Query {
     ): [Solution!]! @all
 
     solution(slug: String! @eq): Solution @find
+
+    solutionById(id: ID! @eq): Solution @find
 }
 
 extend type Mutation {
