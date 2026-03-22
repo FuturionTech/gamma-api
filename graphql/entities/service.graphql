@@ -1,8 +1,11 @@
 type Service {
     id: ID!
     title: String!
+    title_fr: String
     description: String
+    description_fr: String
     short_description: String
+    short_description_fr: String
     icon: String
     icon_color: String
     category: String
@@ -41,8 +44,11 @@ type ServiceBenefit {
 
 input CreateServiceInput {
     title: String! @rules(apply: ["required", "max:255"])
+    title_fr: String @rules(apply: ["max:255"])
     description: String
+    description_fr: String
     short_description: String
+    short_description_fr: String
     icon: String
     icon_color: String
     category: String
@@ -53,8 +59,11 @@ input CreateServiceInput {
 
 input UpdateServiceInput {
     title: String @rules(apply: ["max:255"])
+    title_fr: String @rules(apply: ["max:255"])
     description: String
+    description_fr: String
     short_description: String
+    short_description_fr: String
     icon: String
     icon_color: String
     category: String
@@ -115,4 +124,3 @@ extend type Mutation {
     updateServiceBenefit(id: ID!, input: UpdateServiceBenefitInput! @spread): ServiceBenefit! @update @guard(with: ["sanctum"])
     deleteServiceBenefit(id: ID!): DeleteResponse! @delete(model: "ServiceBenefit") @guard(with: ["sanctum"])
 }
-

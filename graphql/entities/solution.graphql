@@ -1,8 +1,11 @@
 type Solution {
     id: ID!
     title: String!
+    title_fr: String
     subtitle: String
+    subtitle_fr: String
     description: String
+    description_fr: String
     slug: String!
     industry_category: IndustryCategory
     icon: String
@@ -40,8 +43,11 @@ type SolutionBenefit {
 
 input CreateSolutionInput {
     title: String! @rules(apply: ["required", "max:255"])
+    title_fr: String @rules(apply: ["max:255"])
     subtitle: String
+    subtitle_fr: String
     description: String
+    description_fr: String
     slug: String
     industry_category: IndustryCategory
     icon: String
@@ -54,8 +60,11 @@ input CreateSolutionInput {
 
 input UpdateSolutionInput {
     title: String @rules(apply: ["max:255"])
+    title_fr: String @rules(apply: ["max:255"])
     subtitle: String
+    subtitle_fr: String
     description: String
+    description_fr: String
     slug: String
     industry_category: IndustryCategory
     icon: String
@@ -120,4 +129,3 @@ extend type Mutation {
     updateSolutionBenefit(id: ID!, input: UpdateSolutionBenefitInput! @spread): SolutionBenefit! @update @guard(with: ["sanctum"])
     deleteSolutionBenefit(id: ID!): DeleteResponse! @delete(model: "SolutionBenefit") @guard(with: ["sanctum"])
 }
-

@@ -16,8 +16,11 @@ class Solution extends Model
 
     protected $fillable = [
         'title',
+        'title_fr',
         'subtitle',
+        'subtitle_fr',
         'description',
+        'description_fr',
         'slug',
         'industry_category',
         'icon',
@@ -53,8 +56,8 @@ class Solution extends Model
     protected function heroImageUrl(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => $value && !filter_var($value, FILTER_VALIDATE_URL) 
-                ? Storage::disk('s3')->url($value) 
+            get: fn ($value) => $value && !filter_var($value, FILTER_VALIDATE_URL)
+                ? Storage::disk('s3')->url($value)
                 : $value,
         );
     }
@@ -69,4 +72,3 @@ class Solution extends Model
         });
     }
 }
-

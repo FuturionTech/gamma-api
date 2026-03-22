@@ -14,8 +14,11 @@ class Service extends Model
 
     protected $fillable = [
         'title',
+        'title_fr',
         'description',
+        'description_fr',
         'short_description',
+        'short_description_fr',
         'icon',
         'icon_color',
         'category',
@@ -56,4 +59,3 @@ class Service extends Model
         });
     }
 }
-
