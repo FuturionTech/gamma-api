@@ -16,8 +16,11 @@ class Solution extends Model
 
     protected $fillable = [
         'title',
+        'title_fr',
         'subtitle',
+        'subtitle_fr',
         'description',
+        'description_fr',
         'slug',
         'industry_category',
         'icon',
