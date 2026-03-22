@@ -16,12 +16,15 @@ class ServiceSeeder extends Seeder
     {
         $services = [
             [
-                'title' => 'AI & Machine Learning',
-                'title_fr' => 'IA et Apprentissage Automatique',
-                'short_description' => 'Deploy intelligent systems that automate processes, predict outcomes, and unlock insights from your data.',
-                'short_description_fr' => 'Déployez des systèmes intelligents qui automatisent les processus, prédisent les résultats et révèlent des insights à partir de vos données.',
-                'description' => 'Custom AI models, predictive analytics, and intelligent automation. Developing intelligent systems that automate processes and provide predictive insights.',
-                'description_fr' => 'Modèles d\'IA personnalisés, analytique prédictive et automatisation intelligente. Développement de systèmes intelligents qui automatisent les processus et fournissent des insights prédictifs.',
+                'title' => ['en' => 'AI & Machine Learning', 'fr' => 'IA et Apprentissage Automatique'],
+                'short_description' => [
+                    'en' => 'Deploy intelligent systems that automate processes, predict outcomes, and unlock insights from your data.',
+                    'fr' => 'Déployez des systèmes intelligents qui automatisent les processus, prédisent les résultats et révèlent des informations à partir de vos données.',
+                ],
+                'description' => [
+                    'en' => 'Custom AI models, predictive analytics, and intelligent automation. Developing intelligent systems that automate processes and provide predictive insights.',
+                    'fr' => 'Modèles d\'IA personnalisés, analyses prédictives et automatisation intelligente. Développement de systèmes intelligents qui automatisent les processus et fournissent des informations prédictives.',
+                ],
                 'icon' => 'brain',
                 'icon_color' => '#8B5CF6',
                 'category' => 'Technology',
@@ -33,12 +36,15 @@ class ServiceSeeder extends Seeder
                 ],
             ],
             [
-                'title' => 'Data Engineering',
-                'title_fr' => 'Ingénierie des Données',
-                'short_description' => 'Build robust data pipelines and architectures that ensure seamless data flow across your organization.',
-                'short_description_fr' => 'Construisez des pipelines de données robustes et des architectures qui assurent un flux de données fluide à travers votre organisation.',
-                'description' => 'Scalable pipelines, ETL processes, and real-time data infrastructure. Designing and building robust data architectures to ensure seamless data flow and accessibility.',
-                'description_fr' => 'Pipelines évolutifs, processus ETL et infrastructure de données en temps réel. Conception et construction d\'architectures de données robustes pour assurer un flux et une accessibilité sans faille.',
+                'title' => ['en' => 'Data Engineering', 'fr' => 'Ingénierie des Données'],
+                'short_description' => [
+                    'en' => 'Build robust data pipelines and architectures that ensure seamless data flow across your organization.',
+                    'fr' => 'Construisez des pipelines de données robustes et des architectures qui assurent un flux de données fluide à travers votre organisation.',
+                ],
+                'description' => [
+                    'en' => 'Scalable pipelines, ETL processes, and real-time data infrastructure. Designing and building robust data architectures to ensure seamless data flow and accessibility.',
+                    'fr' => 'Pipelines évolutifs, processus ETL et infrastructure de données en temps réel. Conception et construction d\'architectures de données robustes pour assurer un flux de données fluide et accessible.',
+                ],
                 'icon' => 'database',
                 'icon_color' => '#3B82F6',
                 'category' => 'Technology',
@@ -50,12 +56,15 @@ class ServiceSeeder extends Seeder
                 ],
             ],
             [
-                'title' => 'Cloud Computing',
-                'title_fr' => 'Infonuagique',
-                'short_description' => 'Migrate and optimize your infrastructure with scalable cloud solutions from AWS, Azure, and GCP.',
-                'short_description_fr' => 'Migrez et optimisez votre infrastructure avec des solutions cloud évolutives sur AWS, Azure et GCP.',
-                'description' => 'Cloud migration, architecture design, and cost-optimized deployment. Providing scalable and flexible cloud solutions that enhance collaboration and efficiency.',
-                'description_fr' => 'Migration vers le cloud, conception d\'architecture et déploiement optimisé en coûts. Des solutions cloud évolutives et flexibles qui améliorent la collaboration et l\'efficacité.',
+                'title' => ['en' => 'Cloud Computing', 'fr' => 'Infonuagique'],
+                'short_description' => [
+                    'en' => 'Migrate and optimize your infrastructure with scalable cloud solutions from AWS, Azure, and GCP.',
+                    'fr' => 'Migrez et optimisez votre infrastructure avec des solutions infonuagiques évolutives d\'AWS, Azure et GCP.',
+                ],
+                'description' => [
+                    'en' => 'Cloud migration, architecture design, and cost-optimized deployment. Providing scalable and flexible cloud solutions that enhance collaboration and efficiency.',
+                    'fr' => 'Migration infonuagique, conception d\'architecture et déploiement optimisé en coûts. Des solutions infonuagiques évolutives et flexibles qui améliorent la collaboration et l\'efficacité.',
+                ],
                 'icon' => 'cloud',
                 'icon_color' => '#10B981',
                 'category' => 'Infrastructure',
@@ -67,12 +76,15 @@ class ServiceSeeder extends Seeder
                 ],
             ],
             [
-                'title' => 'Cybersecurity',
-                'title_fr' => 'Cybersécurité',
-                'short_description' => 'Protect your data assets with enterprise-grade security solutions and compliance frameworks.',
-                'short_description_fr' => 'Protégez vos actifs de données avec des solutions de sécurité de niveau entreprise et des cadres de conformité.',
-                'description' => 'Threat detection, risk mitigation, and compliance-driven security frameworks. Implementing advanced security measures to protect data integrity and privacy.',
-                'description_fr' => 'Détection des menaces, atténuation des risques et cadres de sécurité axés sur la conformité. Mise en œuvre de mesures de sécurité avancées pour protéger l\'intégrité et la confidentialité des données.',
+                'title' => ['en' => 'Cybersecurity', 'fr' => 'Cybersécurité'],
+                'short_description' => [
+                    'en' => 'Protect your data assets with enterprise-grade security solutions and compliance frameworks.',
+                    'fr' => 'Protégez vos actifs de données avec des solutions de sécurité de niveau entreprise et des cadres de conformité.',
+                ],
+                'description' => [
+                    'en' => 'Threat detection, risk mitigation, and compliance-driven security frameworks. Implementing advanced security measures to protect data integrity and privacy.',
+                    'fr' => 'Détection des menaces, atténuation des risques et cadres de sécurité axés sur la conformité. Mise en œuvre de mesures de sécurité avancées pour protéger l\'intégrité et la confidentialité des données.',
+                ],
                 'icon' => 'shield',
                 'icon_color' => '#EF4444',
                 'category' => 'Security',
@@ -84,12 +96,15 @@ class ServiceSeeder extends Seeder
                 ],
             ],
             [
-                'title' => 'Business Intelligence',
-                'title_fr' => 'Intelligence d\'Affaires',
-                'short_description' => 'Transform raw data into actionable insights with interactive dashboards and reports.',
-                'short_description_fr' => 'Transformez les données brutes en insights exploitables grâce à des tableaux de bord interactifs et des rapports.',
-                'description' => 'Dashboards, reporting tools, and strategic insights for smarter decisions. Transforming data into actionable insights through advanced analytics and reporting tools.',
-                'description_fr' => 'Tableaux de bord, outils de reporting et insights stratégiques pour des décisions plus éclairées. Transformation des données en insights exploitables grâce à des outils d\'analytique avancée.',
+                'title' => ['en' => 'Business Intelligence', 'fr' => 'Intelligence d\'Affaires'],
+                'short_description' => [
+                    'en' => 'Transform raw data into actionable insights with interactive dashboards and reports.',
+                    'fr' => 'Transformez les données brutes en informations exploitables grâce à des tableaux de bord et des rapports interactifs.',
+                ],
+                'description' => [
+                    'en' => 'Dashboards, reporting tools, and strategic insights for smarter decisions. Transforming data into actionable insights through advanced analytics and reporting tools.',
+                    'fr' => 'Tableaux de bord, outils de rapport et informations stratégiques pour des décisions plus éclairées. Transformation des données en informations exploitables grâce à des analyses avancées et des outils de rapport.',
+                ],
                 'icon' => 'chart',
                 'icon_color' => '#F59E0B',
                 'category' => 'Analytics',
@@ -101,12 +116,15 @@ class ServiceSeeder extends Seeder
                 ],
             ],
             [
-                'title' => 'Big Data Solutions',
-                'title_fr' => 'Solutions de Données Massives',
-                'short_description' => 'Process and analyze massive datasets with distributed computing and advanced analytics.',
-                'short_description_fr' => 'Traitez et analysez des ensembles de données massifs grâce au calcul distribué et à l\'analytique avancée.',
-                'description' => 'High-volume data processing, distributed systems, and analytics at scale. Leveraging large datasets to uncover trends and patterns that inform strategic decisions.',
-                'description_fr' => 'Traitement de données à haut volume, systèmes distribués et analytique à grande échelle. Exploitation de grands ensembles de données pour découvrir des tendances et des modèles qui éclairent les décisions stratégiques.',
+                'title' => ['en' => 'Big Data Solutions', 'fr' => 'Solutions de Mégadonnées'],
+                'short_description' => [
+                    'en' => 'Process and analyze massive datasets with distributed computing and advanced analytics.',
+                    'fr' => 'Traitez et analysez des ensembles de données massifs avec l\'informatique distribuée et l\'analytique avancée.',
+                ],
+                'description' => [
+                    'en' => 'High-volume data processing, distributed systems, and analytics at scale. Leveraging large datasets to uncover trends and patterns that inform strategic decisions.',
+                    'fr' => 'Traitement de données à haut volume, systèmes distribués et analytique à grande échelle. Exploitation de grands ensembles de données pour découvrir les tendances et les modèles qui éclairent les décisions stratégiques.',
+                ],
                 'icon' => 'server',
                 'icon_color' => '#8B5CF6',
                 'category' => 'Technology',
@@ -123,33 +141,25 @@ class ServiceSeeder extends Seeder
             $features = $serviceData['features'] ?? [];
             unset($serviceData['features']);
 
-            $service = Service::updateOrCreate(
-                ['slug' => Str::slug($serviceData['title'])],
-                [
-                    'title' => $serviceData['title'],
-                    'title_fr' => $serviceData['title_fr'],
-                    'description' => $serviceData['description'],
-                    'description_fr' => $serviceData['description_fr'],
-                    'short_description' => $serviceData['short_description'],
-                    'short_description_fr' => $serviceData['short_description_fr'],
-                    'icon' => $serviceData['icon'],
-                    'icon_color' => $serviceData['icon_color'],
-                    'category' => $serviceData['category'],
-                    'order' => $serviceData['order'],
-                    'is_active' => true,
-                ]
-            );
+            $service = Service::create([
+                'title' => $serviceData['title'],
+                'description' => $serviceData['description'],
+                'short_description' => $serviceData['short_description'],
+                'icon' => $serviceData['icon'],
+                'icon_color' => $serviceData['icon_color'],
+                'category' => $serviceData['category'],
+                'slug' => Str::slug($serviceData['title']['en']),
+                'order' => $serviceData['order'],
+                'is_active' => true,
+            ]);
 
-            // Only create features if they don't exist yet
-            if ($service->features()->count() === 0) {
-                foreach ($features as $feature) {
-                    ServiceFeature::create([
-                        'service_id' => $service->id,
-                        'title' => $feature['title'],
-                        'icon' => $feature['icon'],
-                        'order' => $feature['order'],
-                    ]);
-                }
+            foreach ($features as $feature) {
+                ServiceFeature::create([
+                    'service_id' => $service->id,
+                    'title' => $feature['title'],
+                    'icon' => $feature['icon'],
+                    'order' => $feature['order'],
+                ]);
             }
         }
     }

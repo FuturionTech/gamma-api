@@ -9,18 +9,19 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Spatie\Translatable\HasTranslations;
 
 class Solution extends Model
 {
     use HasFactory;
+    use HasTranslations;
+
+    public array $translatable = ['title', 'subtitle', 'description'];
 
     protected $fillable = [
         'title',
-        'title_fr',
         'subtitle',
-        'subtitle_fr',
         'description',
-        'description_fr',
         'slug',
         'industry_category',
         'icon',
@@ -67,7 +68,7 @@ class Solution extends Model
     {
         static::creating(function (Solution $solution) {
             if (empty($solution->slug)) {
-                $solution->slug = Str::slug($solution->title);
+                $solution->slug = Str::slug($solution->getTranslation('title', 'en'));
             }
         });
     }

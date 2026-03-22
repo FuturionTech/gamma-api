@@ -17,12 +17,15 @@ class SolutionSeeder extends Seeder
     {
         $solutions = [
             [
-                'title' => 'Financial Services',
-                'title_fr' => 'Services Financiers',
-                'subtitle' => 'Transform your financial operations with intelligent data solutions',
-                'subtitle_fr' => 'Transformez vos opérations financières grâce à des solutions de données intelligentes',
-                'description' => 'Our comprehensive suite of financial data solutions helps banks, investment firms, and fintech companies leverage advanced analytics to enhance decision-making, reduce risk, and improve operational efficiency.',
-                'description_fr' => 'Notre suite complète de solutions de données financières aide les banques, les sociétés d\'investissement et les fintechs à tirer parti de l\'analytique avancée pour améliorer la prise de décision, réduire les risques et améliorer l\'efficacité opérationnelle.',
+                'title' => ['en' => 'Financial Services', 'fr' => 'Services Financiers'],
+                'subtitle' => [
+                    'en' => 'Transform your financial operations with intelligent data solutions',
+                    'fr' => 'Transformez vos opérations financières avec des solutions de données intelligentes',
+                ],
+                'description' => [
+                    'en' => 'Our comprehensive suite of financial data solutions helps banks, investment firms, and fintech companies leverage advanced analytics to enhance decision-making, reduce risk, and improve operational efficiency.',
+                    'fr' => 'Notre gamme complète de solutions de données financières aide les banques, les sociétés d\'investissement et les entreprises fintech à tirer parti de l\'analytique avancée pour améliorer la prise de décision, réduire les risques et améliorer l\'efficacité opérationnelle.',
+                ],
                 'industry_category' => 'FINANCIAL_SERVICES',
                 'icon' => 'bank',
                 'icon_color' => '#10B981',
@@ -41,12 +44,15 @@ class SolutionSeeder extends Seeder
                 ],
             ],
             [
-                'title' => 'Smart Government',
-                'title_fr' => 'Gouvernement Intelligent',
-                'subtitle' => 'Empowering public services with data-driven insights',
-                'subtitle_fr' => 'Renforcer les services publics grâce aux insights basés sur les données',
-                'description' => 'Transform government operations with secure, scalable data infrastructures that improve citizen services, enhance transparency, and optimize resource allocation across public sector organizations.',
-                'description_fr' => 'Transformez les opérations gouvernementales avec des infrastructures de données sécurisées et évolutives qui améliorent les services aux citoyens, renforcent la transparence et optimisent l\'allocation des ressources dans les organisations du secteur public.',
+                'title' => ['en' => 'Smart Government', 'fr' => 'Gouvernement Intelligent'],
+                'subtitle' => [
+                    'en' => 'Empowering public services with data-driven insights',
+                    'fr' => 'Renforcer les services publics grâce à des informations basées sur les données',
+                ],
+                'description' => [
+                    'en' => 'Transform government operations with secure, scalable data infrastructures that improve citizen services, enhance transparency, and optimize resource allocation across public sector organizations.',
+                    'fr' => 'Transformez les opérations gouvernementales avec des infrastructures de données sécurisées et évolutives qui améliorent les services aux citoyens, renforcent la transparence et optimisent l\'allocation des ressources dans les organisations du secteur public.',
+                ],
                 'industry_category' => 'GOVERNMENT',
                 'icon' => 'landmark',
                 'icon_color' => '#3B82F6',
@@ -62,12 +68,15 @@ class SolutionSeeder extends Seeder
                 ],
             ],
             [
-                'title' => 'Healthcare Analytics',
-                'title_fr' => 'Analytique en Santé',
-                'subtitle' => 'Revolutionizing patient care with data and AI',
-                'subtitle_fr' => 'Révolutionner les soins aux patients grâce aux données et à l\'IA',
-                'description' => 'Leverage AI and big data solutions to improve patient outcomes, optimize clinical operations, and reduce healthcare costs while maintaining the highest standards of data security and privacy.',
-                'description_fr' => 'Tirez parti de l\'IA et des solutions de données massives pour améliorer les résultats des patients, optimiser les opérations cliniques et réduire les coûts de santé tout en maintenant les plus hauts standards de sécurité et de confidentialité des données.',
+                'title' => ['en' => 'Healthcare Analytics', 'fr' => 'Analytique en Santé'],
+                'subtitle' => [
+                    'en' => 'Revolutionizing patient care with data and AI',
+                    'fr' => 'Révolutionner les soins aux patients grâce aux données et à l\'IA',
+                ],
+                'description' => [
+                    'en' => 'Leverage AI and big data solutions to improve patient outcomes, optimize clinical operations, and reduce healthcare costs while maintaining the highest standards of data security and privacy.',
+                    'fr' => 'Tirez parti de l\'IA et des solutions de mégadonnées pour améliorer les résultats des patients, optimiser les opérations cliniques et réduire les coûts des soins de santé tout en maintenant les normes les plus élevées de sécurité et de confidentialité des données.',
+                ],
                 'industry_category' => 'HEALTHCARE',
                 'icon' => 'hospital',
                 'icon_color' => '#EC4899',
@@ -83,12 +92,15 @@ class SolutionSeeder extends Seeder
                 ],
             ],
             [
-                'title' => 'Education Analytics',
-                'title_fr' => 'Analytique en Éducation',
-                'subtitle' => 'AI-powered platforms for personalized learning',
-                'subtitle_fr' => 'Plateformes alimentées par l\'IA pour un apprentissage personnalisé',
-                'description' => 'Transform education with adaptive learning technologies, performance analytics, and data-driven insights that help educators create personalized learning experiences and improve student outcomes.',
-                'description_fr' => 'Transformez l\'éducation avec des technologies d\'apprentissage adaptatif, des analyses de performance et des insights basés sur les données qui aident les éducateurs à créer des expériences d\'apprentissage personnalisées et à améliorer les résultats des étudiants.',
+                'title' => ['en' => 'Education Analytics', 'fr' => 'Analytique en Éducation'],
+                'subtitle' => [
+                    'en' => 'AI-powered platforms for personalized learning',
+                    'fr' => 'Plateformes propulsées par l\'IA pour un apprentissage personnalisé',
+                ],
+                'description' => [
+                    'en' => 'Transform education with adaptive learning technologies, performance analytics, and data-driven insights that help educators create personalized learning experiences and improve student outcomes.',
+                    'fr' => 'Transformez l\'éducation avec des technologies d\'apprentissage adaptatif, des analyses de performance et des informations basées sur les données qui aident les éducateurs à créer des expériences d\'apprentissage personnalisées et à améliorer les résultats des étudiants.',
+                ],
                 'industry_category' => 'EDUCATION',
                 'icon' => 'graduation-cap',
                 'icon_color' => '#8B5CF6',
@@ -104,12 +116,15 @@ class SolutionSeeder extends Seeder
                 ],
             ],
             [
-                'title' => 'Manufacturing 4.0',
-                'title_fr' => 'Industrie 4.0',
-                'subtitle' => 'Smart manufacturing through predictive analytics',
-                'subtitle_fr' => 'Fabrication intelligente grâce à l\'analytique prédictive',
-                'description' => 'Enable Industry 4.0 transformation with IoT integration, predictive maintenance, supply chain optimization, and real-time production monitoring to maximize efficiency and reduce downtime.',
-                'description_fr' => 'Facilitez la transformation Industrie 4.0 avec l\'intégration IoT, la maintenance prédictive, l\'optimisation de la chaîne d\'approvisionnement et la surveillance de production en temps réel pour maximiser l\'efficacité et réduire les temps d\'arrêt.',
+                'title' => ['en' => 'Manufacturing 4.0', 'fr' => 'Fabrication 4.0'],
+                'subtitle' => [
+                    'en' => 'Smart manufacturing through predictive analytics',
+                    'fr' => 'Fabrication intelligente grâce à l\'analytique prédictive',
+                ],
+                'description' => [
+                    'en' => 'Enable Industry 4.0 transformation with IoT integration, predictive maintenance, supply chain optimization, and real-time production monitoring to maximize efficiency and reduce downtime.',
+                    'fr' => 'Permettez la transformation Industrie 4.0 avec l\'intégration IoT, la maintenance prédictive, l\'optimisation de la chaîne d\'approvisionnement et la surveillance de production en temps réel pour maximiser l\'efficacité et réduire les temps d\'arrêt.',
+                ],
                 'industry_category' => 'MANUFACTURING',
                 'icon' => 'cog',
                 'icon_color' => '#F59E0B',
@@ -125,12 +140,15 @@ class SolutionSeeder extends Seeder
                 ],
             ],
             [
-                'title' => 'Retail Intelligence',
-                'title_fr' => 'Intelligence du Commerce de Détail',
-                'subtitle' => 'Data-driven retail optimization',
-                'subtitle_fr' => 'Optimisation du commerce de détail basée sur les données',
-                'description' => 'Transform retail operations with customer analytics, inventory optimization, and personalized shopping experiences that drive sales, improve customer satisfaction, and maximize profitability.',
-                'description_fr' => 'Transformez les opérations de vente au détail avec l\'analytique client, l\'optimisation des stocks et des expériences d\'achat personnalisées qui stimulent les ventes, améliorent la satisfaction client et maximisent la rentabilité.',
+                'title' => ['en' => 'Retail Intelligence', 'fr' => 'Intelligence du Commerce de Détail'],
+                'subtitle' => [
+                    'en' => 'Data-driven retail optimization',
+                    'fr' => 'Optimisation du commerce de détail basée sur les données',
+                ],
+                'description' => [
+                    'en' => 'Transform retail operations with customer analytics, inventory optimization, and personalized shopping experiences that drive sales, improve customer satisfaction, and maximize profitability.',
+                    'fr' => 'Transformez les opérations de vente au détail avec l\'analytique client, l\'optimisation des inventaires et des expériences d\'achat personnalisées qui stimulent les ventes, améliorent la satisfaction client et maximisent la rentabilité.',
+                ],
                 'industry_category' => 'RETAIL',
                 'icon' => 'shopping-cart',
                 'icon_color' => '#EF4444',
@@ -152,47 +170,38 @@ class SolutionSeeder extends Seeder
             $benefits = $solutionData['benefits'] ?? [];
             unset($solutionData['features'], $solutionData['benefits']);
 
-            $solution = Solution::updateOrCreate(
-                ['slug' => Str::slug($solutionData['title'])],
-                [
-                    'title' => $solutionData['title'],
-                    'title_fr' => $solutionData['title_fr'],
-                    'subtitle' => $solutionData['subtitle'],
-                    'subtitle_fr' => $solutionData['subtitle_fr'],
-                    'description' => $solutionData['description'],
-                    'description_fr' => $solutionData['description_fr'],
-                    'industry_category' => $solutionData['industry_category'],
-                    'icon' => $solutionData['icon'],
-                    'icon_color' => $solutionData['icon_color'],
-                    'order' => $solutionData['order'],
-                    'is_active' => true,
-                ]
-            );
+            $solution = Solution::create([
+                'title' => $solutionData['title'],
+                'subtitle' => $solutionData['subtitle'],
+                'description' => $solutionData['description'],
+                'slug' => Str::slug($solutionData['title']['en']),
+                'industry_category' => $solutionData['industry_category'],
+                'icon' => $solutionData['icon'],
+                'icon_color' => $solutionData['icon_color'],
+                'order' => $solutionData['order'],
+                'is_active' => true,
+            ]);
 
-            // Only create features if they don't exist yet
-            if ($solution->features()->count() === 0) {
-                foreach ($features as $feature) {
-                    SolutionFeature::create([
-                        'solution_id' => $solution->id,
-                        'title' => $feature['title'],
-                        'description' => $feature['description'],
-                        'icon' => $feature['icon'],
-                        'order' => $feature['order'],
-                    ]);
-                }
+            // Create features
+            foreach ($features as $feature) {
+                SolutionFeature::create([
+                    'solution_id' => $solution->id,
+                    'title' => $feature['title'],
+                    'description' => $feature['description'],
+                    'icon' => $feature['icon'],
+                    'order' => $feature['order'],
+                ]);
             }
 
-            // Only create benefits if they don't exist yet
-            if ($solution->benefits()->count() === 0) {
-                foreach ($benefits as $benefit) {
-                    SolutionBenefit::create([
-                        'solution_id' => $solution->id,
-                        'title' => $benefit['title'],
-                        'description' => $benefit['description'],
-                        'icon' => $benefit['icon'],
-                        'order' => $benefit['order'],
-                    ]);
-                }
+            // Create benefits
+            foreach ($benefits as $benefit) {
+                SolutionBenefit::create([
+                    'solution_id' => $solution->id,
+                    'title' => $benefit['title'],
+                    'description' => $benefit['description'],
+                    'icon' => $benefit['icon'],
+                    'order' => $benefit['order'],
+                ]);
             }
         }
     }

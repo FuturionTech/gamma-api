@@ -1,11 +1,8 @@
 type Service {
     id: ID!
     title: String!
-    title_fr: String
     description: String
-    description_fr: String
     short_description: String
-    short_description_fr: String
     icon: String
     icon_color: String
     category: String

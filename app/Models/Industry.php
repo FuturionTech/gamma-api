@@ -6,10 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
+use Spatie\Translatable\HasTranslations;
 
 class Industry extends Model
 {
     use HasFactory;
+    use HasTranslations;
+
+    public array $translatable = ['title', 'description', 'short_description'];
 
     protected $fillable = [
         'title',
@@ -44,7 +48,7 @@ class Industry extends Model
     {
         static::creating(function (Industry $industry) {
             if (empty($industry->slug)) {
-                $industry->slug = Str::slug($industry->title);
+                $industry->slug = Str::slug($industry->getTranslation('title', 'en'));
             }
         });
     }

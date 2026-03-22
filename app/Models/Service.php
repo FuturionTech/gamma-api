@@ -7,18 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
+use Spatie\Translatable\HasTranslations;
 
 class Service extends Model
 {
     use HasFactory;
+    use HasTranslations;
+
+    public array $translatable = ['title', 'description', 'short_description'];
 
     protected $fillable = [
         'title',
-        'title_fr',
         'description',
-        'description_fr',
         'short_description',
-        'short_description_fr',
         'icon',
         'icon_color',
         'category',
@@ -54,7 +55,7 @@ class Service extends Model
     {
         static::creating(function (Service $service) {
             if (empty($service->slug)) {
-                $service->slug = Str::slug($service->title);
+                $service->slug = Str::slug($service->getTranslation('title', 'en'));
             }
         });
     }

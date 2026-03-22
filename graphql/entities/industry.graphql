@@ -39,10 +39,11 @@ input UpdateIndustryInput {
 
 extend type Query {
     industries(
-        is_active: Boolean @eq
-        category: IndustryCategory @eq
+        is_active: Boolean
+        category: IndustryCategory
         limit: Int @rules(apply: ["max:100"])
-    ): [Industry!]! @all(scopes: ["ordered"])
+        locale: String @rules(apply: ["in:en,fr"])
+    ): [Industry!]! @field(resolver: "App\\GraphQL\\Queries\\LocalizedIndustries")
 
     industry(id: ID! @eq): Industry @find
 
