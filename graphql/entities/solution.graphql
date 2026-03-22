@@ -43,11 +43,8 @@ type SolutionBenefit {
 
 input CreateSolutionInput {
     title: String! @rules(apply: ["required", "max:255"])
-    title_fr: String @rules(apply: ["max:255"])
     subtitle: String
-    subtitle_fr: String
     description: String
-    description_fr: String
     slug: String
     industry_category: IndustryCategory
     icon: String
@@ -60,11 +57,8 @@ input CreateSolutionInput {
 
 input UpdateSolutionInput {
     title: String @rules(apply: ["max:255"])
-    title_fr: String @rules(apply: ["max:255"])
     subtitle: String
-    subtitle_fr: String
     description: String
-    description_fr: String
     slug: String
     industry_category: IndustryCategory
     icon: String
@@ -107,9 +101,10 @@ input UpdateSolutionBenefitInput {
 
 extend type Query {
     solutions(
-        is_active: Boolean @eq
+        is_active: Boolean
         limit: Int @rules(apply: ["max:100"])
-    ): [Solution!]! @all
+        locale: String @rules(apply: ["in:en,fr"])
+    ): [Solution!]! @field(resolver: "App\\GraphQL\\Queries\\LocalizedSolutions")
 
     solution(slug: String! @eq): Solution @find
 

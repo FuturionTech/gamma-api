@@ -44,11 +44,8 @@ type ServiceBenefit {
 
 input CreateServiceInput {
     title: String! @rules(apply: ["required", "max:255"])
-    title_fr: String @rules(apply: ["max:255"])
     description: String
-    description_fr: String
     short_description: String
-    short_description_fr: String
     icon: String
     icon_color: String
     category: String
@@ -59,11 +56,8 @@ input CreateServiceInput {
 
 input UpdateServiceInput {
     title: String @rules(apply: ["max:255"])
-    title_fr: String @rules(apply: ["max:255"])
     description: String
-    description_fr: String
     short_description: String
-    short_description_fr: String
     icon: String
     icon_color: String
     category: String
@@ -104,9 +98,10 @@ input UpdateServiceBenefitInput {
 
 extend type Query {
     services(
-        is_active: Boolean @eq
+        is_active: Boolean
         limit: Int @rules(apply: ["max:100"])
-    ): [Service!]! @all
+        locale: String @rules(apply: ["in:en,fr"])
+    ): [Service!]! @field(resolver: "App\\GraphQL\\Queries\\LocalizedServices")
 
     service(id: ID! @eq): Service @find
 }
