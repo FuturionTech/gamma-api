@@ -95,10 +95,9 @@ input UpdateServiceBenefitInput {
 
 extend type Query {
     services(
-        is_active: Boolean
-        limit: Int @rules(apply: ["max:100"])
-        locale: String @rules(apply: ["in:en,fr"])
-    ): [Service!]! @field(resolver: "App\\GraphQL\\Queries\\LocalizedServices")
+        is_active: Boolean @eq
+        limit: Int @limit(builder: true) @rules(apply: ["max:100"])
+    ): [Service!]! @all(scopes: ["ordered"])
 
     service(id: ID! @eq): Service @find
 }

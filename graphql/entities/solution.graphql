@@ -98,10 +98,9 @@ input UpdateSolutionBenefitInput {
 
 extend type Query {
     solutions(
-        is_active: Boolean
-        limit: Int @rules(apply: ["max:100"])
-        locale: String @rules(apply: ["in:en,fr"])
-    ): [Solution!]! @field(resolver: "App\\GraphQL\\Queries\\LocalizedSolutions")
+        is_active: Boolean @eq
+        limit: Int @limit(builder: true) @rules(apply: ["max:100"])
+    ): [Solution!]! @all(scopes: ["ordered"])
 
     solution(slug: String! @eq): Solution @find
 

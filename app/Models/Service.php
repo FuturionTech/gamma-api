@@ -50,6 +50,11 @@ class Service extends Model
         $query->where('is_active', true);
     }
 
+    public function scopeOrdered(Builder $query): void
+    {
+        $query->orderBy('order');
+    }
+
     // Events
     protected static function booted(): void
     {
