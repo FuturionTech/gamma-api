@@ -13,10 +13,34 @@ class StatSeeder extends Seeder
     public function run(): void
     {
         $stats = [
-            ['label' => 'Projects Completed', 'value' => '150', 'unit' => '+', 'icon' => 'folder', 'order' => 1],
-            ['label' => 'Happy Clients', 'value' => '50', 'unit' => '+', 'icon' => 'users', 'order' => 2],
-            ['label' => 'Years Experience', 'value' => '10', 'unit' => '+', 'icon' => 'calendar', 'order' => 3],
-            ['label' => 'Client Satisfaction', 'value' => '98', 'unit' => '%', 'icon' => 'star', 'order' => 4],
+            [
+                'label' => ['en' => 'Projects Completed', 'fr' => 'Projets réalisés'],
+                'value' => '150',
+                'unit' => '+',
+                'icon' => 'folder',
+                'order' => 1,
+            ],
+            [
+                'label' => ['en' => 'Happy Clients', 'fr' => 'Clients satisfaits'],
+                'value' => '50',
+                'unit' => '+',
+                'icon' => 'users',
+                'order' => 2,
+            ],
+            [
+                'label' => ['en' => 'Years Experience', 'fr' => 'Années d\'expérience'],
+                'value' => '10',
+                'unit' => '+',
+                'icon' => 'calendar',
+                'order' => 3,
+            ],
+            [
+                'label' => ['en' => 'Client Satisfaction', 'fr' => 'Satisfaction des clients'],
+                'value' => '98',
+                'unit' => '%',
+                'icon' => 'star',
+                'order' => 4,
+            ],
         ];
 
         foreach ($stats as $stat) {
@@ -24,4 +48,3 @@ class StatSeeder extends Seeder
         }
     }
 }
-

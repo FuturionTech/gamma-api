@@ -7,10 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
+use Spatie\Translatable\HasTranslations;
 
 class ProcessStep extends Model
 {
     use HasFactory;
+    use HasTranslations;
+
+    public array $translatable = ['title', 'description', 'short_description'];
 
     protected $fillable = [
         'title',
@@ -52,7 +56,7 @@ class ProcessStep extends Model
     {
         static::creating(function (ProcessStep $processStep) {
             if (empty($processStep->slug)) {
-                $processStep->slug = Str::slug($processStep->title);
+                $processStep->slug = Str::slug($processStep->getTranslation('title', 'en'));
             }
         });
     }

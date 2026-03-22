@@ -8,10 +8,14 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Spatie\Translatable\HasTranslations;
 
 class Team extends Model
 {
     use HasFactory;
+    use HasTranslations;
+
+    public array $translatable = ['role', 'biography'];
 
     protected $fillable = [
         'name',

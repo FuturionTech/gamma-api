@@ -9,10 +9,14 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Spatie\Translatable\HasTranslations;
 
 class BlogPost extends Model
 {
     use HasFactory;
+    use HasTranslations;
+
+    public array $translatable = ['title', 'excerpt', 'content'];
 
     protected $fillable = [
         'title',
@@ -64,7 +68,7 @@ class BlogPost extends Model
     {
         static::creating(function (BlogPost $post) {
             if (empty($post->slug)) {
-                $post->slug = Str::slug($post->title);
+                $post->slug = Str::slug($post->getTranslation('title', 'en'));
             }
         });
     }

@@ -5,10 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Spatie\Translatable\HasTranslations;
 
 class Stat extends Model
 {
     use HasFactory;
+    use HasTranslations;
+
+    public array $translatable = ['label'];
 
     protected $fillable = [
         'label',

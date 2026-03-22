@@ -5,10 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Spatie\Translatable\HasTranslations;
 
 class JobPosition extends Model
 {
     use HasFactory;
+    use HasTranslations;
+
+    public array $translatable = ['title', 'summary', 'description'];
 
     protected $fillable = [
         'title',

@@ -7,10 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Spatie\Translatable\HasTranslations;
 
 class Testimonial extends Model
 {
     use HasFactory;
+    use HasTranslations;
+
+    public array $translatable = ['content', 'position'];
 
     protected $fillable = [
         'name',

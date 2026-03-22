@@ -8,10 +8,14 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Spatie\Translatable\HasTranslations;
 
 class Project extends Model
 {
     use HasFactory;
+    use HasTranslations;
+
+    public array $translatable = ['title', 'description', 'challenge', 'solution', 'results'];
 
     protected $fillable = [
         'title',
@@ -53,7 +57,7 @@ class Project extends Model
     {
         static::creating(function (Project $project) {
             if (empty($project->slug)) {
-                $project->slug = Str::slug($project->title);
+                $project->slug = Str::slug($project->getTranslation('title', 'en'));
             }
         });
     }

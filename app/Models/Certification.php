@@ -8,10 +8,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Spatie\Translatable\HasTranslations;
 
 class Certification extends Model
 {
     use HasFactory;
+    use HasTranslations;
+
+    public array $translatable = ['title'];
 
     protected $fillable = [
         'title',
