@@ -31,9 +31,15 @@ return new class extends Migration
             ]);
         });
 
-        // 3. Drop _fr columns
+        // 3. Drop _fr columns (only if they exist)
         Schema::table('services', function (Blueprint $table) {
-            $table->dropColumn(['title_fr', 'description_fr', 'short_description_fr']);
+            $columns = array_filter(
+                ['title_fr', 'description_fr', 'short_description_fr'],
+                fn ($col) => Schema::hasColumn('services', $col)
+            );
+            if ($columns) {
+                $table->dropColumn($columns);
+            }
         });
 
         // ── solutions ────────────────────────────────────────────
@@ -51,7 +57,13 @@ return new class extends Migration
         });
 
         Schema::table('solutions', function (Blueprint $table) {
-            $table->dropColumn(['title_fr', 'subtitle_fr', 'description_fr']);
+            $columns = array_filter(
+                ['title_fr', 'subtitle_fr', 'description_fr'],
+                fn ($col) => Schema::hasColumn('solutions', $col)
+            );
+            if ($columns) {
+                $table->dropColumn($columns);
+            }
         });
 
         // ── industries ───────────────────────────────────────────

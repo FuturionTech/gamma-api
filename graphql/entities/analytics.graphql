@@ -1,0 +1,221 @@
+type PageView {
+    id: ID!
+    session_id: String!
+    path: String!
+    referrer: String
+    utm_source: String
+    utm_medium: String
+    utm_campaign: String
+    device_type: String
+    browser: String
+    browser_version: String
+    os: String
+    os_version: String
+    device_brand: String
+    device_model: String
+    screen_width: Int
+    language: String
+    timezone: String
+    country: String
+    city: String
+    duration_ms: Int
+    page_load_ms: Int
+    connection_type: String
+    is_bot: Boolean!
+    bot_name: String
+    created_at: DateTime!
+}
+
+type AnalyticsEvent {
+    id: ID!
+    session_id: String!
+    event_name: String!
+    event_data: JSON
+    path: String!
+    created_at: DateTime!
+}
+
+# Analytics aggregation types for dashboard
+type AnalyticsOverview {
+    total_views: Int!
+    unique_visitors: Int!
+    views_today: Int!
+    views_this_week: Int!
+    views_this_month: Int!
+    avg_duration_ms: Int
+    pages_per_session: Float
+    avg_page_load_ms: Int
+    bot_views: Int!
+}
+
+type PageStats {
+    path: String!
+    views: Int!
+    unique_visitors: Int!
+}
+
+type ReferrerStats {
+    referrer: String!
+    views: Int!
+}
+
+type DeviceStats {
+    device_type: String!
+    count: Int!
+    percentage: Float!
+}
+
+type BrowserStats {
+    browser: String!
+    count: Int!
+}
+
+type DailyViewStats {
+    date: String!
+    views: Int!
+    unique_visitors: Int!
+}
+
+type EventStats {
+    event_name: String!
+    count: Int!
+}
+
+type UtmStats {
+    source: String!
+    medium: String
+    campaign: String
+    views: Int!
+}
+
+type CountryStats {
+    country: String!
+    country_name: String!
+    views: Int!
+    unique_visitors: Int!
+    percentage: Float!
+}
+
+type CityStats {
+    city: String!
+    country: String!
+    views: Int!
+}
+
+# Input for tracking (public, no auth)
+input TrackPageViewInput {
+    session_id: String! @rules(apply: ["required", "string", "max:64"])
+    path: String! @rules(apply: ["required", "string", "max:500"])
+    referrer: String @rules(apply: ["nullable", "string", "max:500"])
+    utm_source: String @rules(apply: ["nullable", "string", "max:100"])
+    utm_medium: String @rules(apply: ["nullable", "string", "max:100"])
+    utm_campaign: String @rules(apply: ["nullable", "string", "max:100"])
+    device_type: String @rules(apply: ["nullable", "string", "max:20"])
+    browser: String @rules(apply: ["nullable", "string", "max:50"])
+    os: String @rules(apply: ["nullable", "string", "max:50"])
+    screen_width: Int
+    language: String @rules(apply: ["nullable", "string", "max:10"])
+    timezone: String @rules(apply: ["nullable", "string", "max:50"])
+    duration_ms: Int
+    page_load_ms: Int
+    connection_type: String @rules(apply: ["nullable", "string", "max:20"])
+}
+
+input TrackEventInput {
+    session_id: String! @rules(apply: ["required", "string", "max:64"])
+    event_name: String! @rules(apply: ["required", "string", "max:100"])
+    event_data: JSON
+    path: String! @rules(apply: ["required", "string", "max:500"])
+}
+
+extend type Query {
+    # All analytics queries require auth (admin only)
+    analyticsOverview(
+        date_from: String
+        date_to: String
+    ): AnalyticsOverview!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Analytics\\AnalyticsOverview")
+
+    analyticsTopPages(
+        date_from: String
+        date_to: String
+        limit: Int
+    ): [PageStats!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Analytics\\AnalyticsTopPages")
+
+    analyticsReferrers(
+        date_from: String
+        date_to: String
+        limit: Int
+    ): [ReferrerStats!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Analytics\\AnalyticsReferrers")
+
+    analyticsDevices(
+        date_from: String
+        date_to: String
+    ): [DeviceStats!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Analytics\\AnalyticsDevices")
+
+    analyticsBrowsers(
+        date_from: String
+        date_to: String
+    ): [BrowserStats!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Analytics\\AnalyticsBrowsers")
+
+    analyticsDailyViews(
+        date_from: String
+        date_to: String
+    ): [DailyViewStats!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Analytics\\AnalyticsDailyViews")
+
+    analyticsEvents(
+        date_from: String
+        date_to: String
+        limit: Int
+    ): [EventStats!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Analytics\\AnalyticsEvents")
+
+    analyticsUtm(
+        date_from: String
+        date_to: String
+        limit: Int
+    ): [UtmStats!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Analytics\\AnalyticsUtm")
+
+    analyticsCountries(
+        date_from: String
+        date_to: String
+        limit: Int
+    ): [CountryStats!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Analytics\\AnalyticsCountries")
+
+    analyticsCities(
+        date_from: String
+        date_to: String
+        limit: Int
+    ): [CityStats!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Analytics\\AnalyticsCities")
+
+    analyticsTrafficSources(
+        date_from: String
+        date_to: String
+    ): [ReferrerStats!]!
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Queries\\Analytics\\AnalyticsTrafficSources")
+}
+
+extend type Mutation {
+    # Public mutations - no auth required (called from gamma-web)
+    trackPageView(input: TrackPageViewInput! @spread): Boolean!
+    trackEvent(input: TrackEventInput! @spread): Boolean!
+}
