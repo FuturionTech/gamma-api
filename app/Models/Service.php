@@ -61,6 +61,11 @@ class Service extends Model
         return $this->hasMany(ServiceDeliveryItem::class)->orderBy('order');
     }
 
+    public function capabilityGroups(): HasMany
+    {
+        return $this->hasMany(ServiceCapabilityGroup::class)->orderBy('order');
+    }
+
     // Scopes
     public function scopeActive(Builder $query): void
     {
