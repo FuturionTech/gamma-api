@@ -81,6 +81,11 @@ class Service extends Model
         return $this->hasMany(ServiceIndustryApplication::class)->orderBy('order');
     }
 
+    public function technologies(): HasMany
+    {
+        return $this->hasMany(ServiceTechnology::class)->orderBy('order');
+    }
+
     // Scopes
     public function scopeActive(Builder $query): void
     {
