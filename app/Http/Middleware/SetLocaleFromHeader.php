@@ -14,21 +14,33 @@ class SetLocaleFromHeader
 
     public function handle(Request $request, Closure $next): Response
     {
-        $header = $request->header('Accept-Language');
-
-        if (!empty($header)) {
-            $primaryLang = strtolower(explode(',', $header)[0]);
-            $locale = explode('-', $primaryLang)[0]; // "fr-CA" -> "fr"
-
-            if (!in_array($locale, self::SUPPORTED_LOCALES, true)) {
-                $locale = self::DEFAULT_LOCALE;
-            }
-        } else {
-            $locale = self::DEFAULT_LOCALE;
-        }
+        $locale = $this->resolveLocale($request);
 
         App::setLocale($locale);
 
         return $next($request);
+    }
+
+    private function resolveLocale(Request $request): string
+    {
+        // X-Locale takes priority over Accept-Language
+        $xLocale = $request->header('X-Locale');
+        if (!empty($xLocale)) {
+            $candidate = strtolower(explode('-', $xLocale)[0]);
+            if (in_array($candidate, self::SUPPORTED_LOCALES, true)) {
+                return $candidate;
+            }
+        }
+
+        $acceptLanguage = $request->header('Accept-Language');
+        if (!empty($acceptLanguage)) {
+            $primaryLang = strtolower(explode(',', $acceptLanguage)[0]);
+            $candidate = explode('-', $primaryLang)[0]; // "fr-CA" -> "fr"
+            if (in_array($candidate, self::SUPPORTED_LOCALES, true)) {
+                return $candidate;
+            }
+        }
+
+        return self::DEFAULT_LOCALE;
     }
 }
