@@ -56,6 +56,11 @@ class Service extends Model
         return $this->hasMany(ServicePainPoint::class)->orderBy('order');
     }
 
+    public function deliveryItems(): HasMany
+    {
+        return $this->hasMany(ServiceDeliveryItem::class)->orderBy('order');
+    }
+
     // Scopes
     public function scopeActive(Builder $query): void
     {
