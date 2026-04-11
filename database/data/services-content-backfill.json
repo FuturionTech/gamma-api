@@ -1,0 +1,3924 @@
+{
+  "locales": [
+    "en",
+    "fr"
+  ],
+  "services": [
+    {
+      "slug": "ai-intelligent-systems",
+      "icon": "bi-cpu",
+      "iconColor": "primary",
+      "category": "ai",
+      "order": 1,
+      "translations": {
+        "en": {
+          "title": "AI & Intelligent Systems",
+          "shortDescription": "Deploy advanced artificial intelligence solutions to predict outcomes, automate operations, enhance decision-making, and unlock value from your data.",
+          "description": "Deploy advanced artificial intelligence solutions to predict outcomes, automate operations, enhance decision-making, and unlock value from your data.",
+          "metaTitle": null,
+          "metaDescription": null,
+          "metaKeywords": null,
+          "hero": {
+            "tagline": "Artificial Intelligence that Ships",
+            "headline": "Build AI systems that deliver measurable business outcomes",
+            "subheadline": "From machine learning to generative AI — we design, deploy, and scale production-grade AI for financial services, healthcare, and government organizations that demand accuracy, explainability, and regulatory compliance.",
+            "ctaPrimaryLabel": "Start Your AI Initiative",
+            "ctaSecondaryLabel": "See Our Methodology"
+          },
+          "stats": [
+            {
+              "icon": "bi-star",
+              "value": "90%+",
+              "label": "Production model accuracy"
+            },
+            {
+              "icon": "bi-star",
+              "value": "3-6 mo",
+              "label": "Pilot to production"
+            },
+            {
+              "icon": "bi-star",
+              "value": "MLOps",
+              "label": "First engineering discipline"
+            },
+            {
+              "icon": "bi-star",
+              "value": "SOC 2",
+              "label": "Compliance-ready"
+            }
+          ],
+          "challenge": {
+            "title": "Most AI pilots never reach production",
+            "description": "According to Gartner, over 80% of AI projects fail to deliver business value. The gap isn't ideas — it's engineering rigour, data readiness, and operational maturity.",
+            "painPoints": [
+              "AI pilots demonstrate promise but stall in production due to fragile data pipelines and manual deployment",
+              "Regulated industries require explainable models, audit trails, and bias testing — rarely built into pilots",
+              "Model drift goes undetected without proper monitoring, degrading accuracy silently over months",
+              "Integration with legacy systems (core banking, EMR, case management) is treated as an afterthought",
+              "Business stakeholders can't distinguish high-impact use cases from interesting-but-unused technical demos"
+            ]
+          },
+          "howWeDeliver": {
+            "title": "How We Deliver AI Solutions",
+            "description": "We take a practical, business-first approach to AI — engineering for production from day one, not bolting it on after the pilot.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "text": "Identify high-impact AI opportunities grounded in measurable KPIs"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Build and train custom machine learning models with explainability built in"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Integrate AI into your existing systems and workflows (not siloed demos)"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Deploy scalable, production-ready solutions with MLOps automation"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Continuously monitor model drift and improve performance post-launch"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Establish governance frameworks for responsible, compliant AI"
+              }
+            ]
+          },
+          "capabilities": {
+            "title": "Comprehensive AI Capabilities",
+            "groups": [
+              {
+                "icon": "bi-diagram-3",
+                "name": "Machine Learning & Deep Learning",
+                "items": [
+                  "Supervised, unsupervised, reinforcement learning",
+                  "Deep learning (CNNs, RNNs, Transformers)",
+                  "Time-series forecasting",
+                  "Anomaly detection",
+                  "Feature engineering at scale"
+                ]
+              },
+              {
+                "icon": "bi-chat-quote",
+                "name": "Natural Language & Generative AI",
+                "items": [
+                  "Large language model (LLM) integration",
+                  "Retrieval-augmented generation (RAG)",
+                  "Document intelligence & extraction",
+                  "Sentiment analysis & classification",
+                  "Custom fine-tuning & prompt engineering"
+                ]
+              },
+              {
+                "icon": "bi-camera",
+                "name": "Computer Vision & Decision Systems",
+                "items": [
+                  "Image classification & object detection",
+                  "Video analytics & quality inspection",
+                  "OCR & document understanding",
+                  "Expert systems & decision intelligence",
+                  "Recommendation engines"
+                ]
+              }
+            ]
+          },
+          "keyUseCases": {
+            "title": "Key Use Cases",
+            "description": "We help organizations apply AI where it creates real value:",
+            "items": [
+              "Predict customer behavior and reduce churn",
+              "Automate customer support with AI assistants",
+              "Detect fraud and anomalies in real time",
+              "Extract insights from documents and unstructured data",
+              "Analyze images and video for quality and security",
+              "Personalize products, services, and user experiences"
+            ]
+          },
+          "ourApproach": {
+            "title": "Our Approach",
+            "description": "From idea to deployment, we support the full AI lifecycle — not just the fun parts.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "title": "Discovery & Use Case Definition",
+                "description": "Workshop-driven identification of AI opportunities with clear business KPIs, feasibility scoring, and ROI modeling."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Data Preparation & Feature Engineering",
+                "description": "Assess data readiness, address quality gaps, and engineer features that unlock predictive power."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Model Development & Validation",
+                "description": "Iterative model development with rigorous validation, bias testing, and explainability from day one."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Deployment & Integration (MLOps)",
+                "description": "Production deployment with CI/CD for models, automated testing, and seamless integration with your systems."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Monitoring, Optimization & Scaling",
+                "description": "Drift detection, performance dashboards, and continuous improvement loops to keep models sharp."
+              }
+            ]
+          },
+          "industryApplications": {
+            "title": "AI Across Regulated Industries",
+            "description": "Deep domain expertise in the regulated sectors where AI accuracy and compliance matter most.",
+            "industries": [
+              {
+                "icon": "bi-bank",
+                "name": "Financial Services",
+                "description": "AI solutions aligned with OSFI guidelines, model risk management, and fair-lending requirements.",
+                "useCases": [
+                  "Credit scoring & underwriting automation",
+                  "Fraud & AML transaction monitoring",
+                  "Algorithmic trading & risk analytics",
+                  "Customer churn & next-best-action"
+                ]
+              },
+              {
+                "icon": "bi-heart-pulse",
+                "name": "Healthcare",
+                "description": "PHIPA-compliant AI for clinical decision support and operational efficiency.",
+                "useCases": [
+                  "Patient risk stratification",
+                  "Medical imaging & diagnostic support",
+                  "Clinical documentation extraction",
+                  "Hospital capacity forecasting"
+                ]
+              },
+              {
+                "icon": "bi-building",
+                "name": "Government & Public Sector",
+                "description": "Responsible AI for public services with transparency, fairness, and accountability built in.",
+                "useCases": [
+                  "Service delivery automation",
+                  "Program integrity & fraud detection",
+                  "Policy analysis & scenario modeling",
+                  "Citizen inquiry triage & routing"
+                ]
+              }
+            ]
+          },
+          "technologies": {
+            "title": "Technologies & Platforms",
+            "description": "We leverage modern AI and cloud ecosystems chosen for production robustness, not buzzwords.",
+            "items": [
+              {
+                "icon": "bi-gear",
+                "name": "Python, TensorFlow, PyTorch, scikit-learn"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Hugging Face, LangChain, OpenAI, Anthropic"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "AWS SageMaker, Azure ML, Google Vertex AI"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "MLflow, Weights & Biases, Kubeflow"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Databricks, Snowflake, BigQuery"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Docker, Kubernetes, Terraform"
+              }
+            ]
+          },
+          "businessImpact": {
+            "title": "Business Impact",
+            "description": "Our AI solutions are designed to deliver measurable outcomes — not vanity metrics.",
+            "items": [
+              {
+                "icon": "bi-graph-up",
+                "title": "Increased operational efficiency through automation",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Faster, data-driven decision-making at every level",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Reduced costs and risks with predictive intervention",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Enhanced customer experience via personalization",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Competitive advantage through proprietary data assets",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Regulatory readiness with auditable model governance",
+                "description": null
+              }
+            ]
+          },
+          "differentiators": {
+            "title": "Why Gamma Neutral for AI",
+            "points": [
+              {
+                "icon": "bi-gear-wide-connected",
+                "title": "Engineering Discipline",
+                "description": "We bring software engineering rigour to data science — version control, testing, CI/CD, and observability for models from day one."
+              },
+              {
+                "icon": "bi-rocket-takeoff",
+                "title": "Production-First Mindset",
+                "description": "We don't build Jupyter notebook demos. Every model we build is designed to run in production, at scale, with monitoring."
+              },
+              {
+                "icon": "bi-shield-check",
+                "title": "Regulated Industry Expertise",
+                "description": "Deep understanding of OSFI, PIPEDA, PHIPA and the constraints that shape AI in regulated sectors."
+              },
+              {
+                "icon": "bi-search",
+                "title": "Explainability by Default",
+                "description": "Every model ships with interpretability tools, bias testing, and audit trails — essentials for regulated deployment."
+              }
+            ]
+          },
+          "closing": {
+            "title": "Ready to unlock the power of AI in your organization?",
+            "subtitle": "Let's discuss how we can help you identify and implement high-impact AI solutions that actually ship."
+          },
+          "features": [
+            {
+              "icon": "bi-check",
+              "title": "Machine Learning / Deep Learning",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Natural Language Processing (NLP)",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Computer Vision",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Generative AI",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Expert Systems & Decision Intelligence",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Recommendation Systems & Personalization",
+              "description": null
+            }
+          ],
+          "benefits": []
+        },
+        "fr": {
+          "title": "IA et systèmes intelligents",
+          "shortDescription": "Déployez des solutions avancées d'intelligence artificielle pour prédire les résultats, automatiser les opérations, améliorer la prise de décision et libérer la valeur de vos données.",
+          "description": "Déployez des solutions avancées d'intelligence artificielle pour prédire les résultats, automatiser les opérations, améliorer la prise de décision et libérer la valeur de vos données.",
+          "metaTitle": null,
+          "metaDescription": null,
+          "metaKeywords": null,
+          "hero": {
+            "tagline": "L'intelligence artificielle qui livre",
+            "headline": "Déployez des systèmes d'IA qui livrent des résultats d'affaires mesurables",
+            "subheadline": "De l'apprentissage machine à l'IA générative — nous concevons, déployons et faisons évoluer des systèmes d'IA de production pour les services financiers, la santé et le secteur public canadien qui exigent précision, explicabilité et conformité réglementaire.",
+            "ctaPrimaryLabel": "Démarrer votre initiative IA",
+            "ctaSecondaryLabel": "Voir notre méthodologie"
+          },
+          "stats": [
+            {
+              "icon": "bi-star",
+              "value": "90%+",
+              "label": "Précision des modèles en production"
+            },
+            {
+              "icon": "bi-star",
+              "value": "3-6 mois",
+              "label": "Du pilote à la production"
+            },
+            {
+              "icon": "bi-star",
+              "value": "MLOps",
+              "label": "Ingénierie d'abord"
+            },
+            {
+              "icon": "bi-star",
+              "value": "SOC 2",
+              "label": "Prêt pour la conformité"
+            }
+          ],
+          "challenge": {
+            "title": "La plupart des pilotes IA n'atteignent jamais la production",
+            "description": "Selon Gartner, plus de 80 % des projets IA échouent à livrer une valeur d'affaires. Le manque n'est pas les idées — c'est la rigueur d'ingénierie, la maturité des données et l'excellence opérationnelle.",
+            "painPoints": [
+              "Les pilotes IA démontrent du potentiel mais stagnent en production à cause de pipelines fragiles et de déploiements manuels",
+              "Les industries réglementées exigent des modèles explicables, des pistes d'audit et des tests de biais — rarement présents dans les pilotes",
+              "La dérive des modèles passe inaperçue sans surveillance adéquate, dégradant silencieusement la précision",
+              "L'intégration avec les systèmes hérités (banque centrale, DSE, gestion de dossiers) est traitée comme un après-coup",
+              "Les parties prenantes ne distinguent pas les cas d'usage à fort impact des démos techniques inutiles"
+            ]
+          },
+          "howWeDeliver": {
+            "title": "Comment nous livrons les solutions d'IA",
+            "description": "Nous adoptons une approche pratique et orientée affaires de l'IA — en concevant pour la production dès le premier jour, sans l'ajouter après coup.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "text": "Identifier les opportunités d'IA à fort impact fondées sur des KPI mesurables"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Concevoir et entraîner des modèles d'apprentissage machine sur mesure avec explicabilité intégrée"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Intégrer l'IA à vos systèmes et flux de travail existants (pas de démos isolées)"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Déployer des solutions évolutives et prêtes pour la production avec automatisation MLOps"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Surveiller la dérive des modèles et améliorer la performance après le lancement"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Établir des cadres de gouvernance pour une IA responsable et conforme"
+              }
+            ]
+          },
+          "capabilities": {
+            "title": "Capacités complètes en IA",
+            "groups": [
+              {
+                "icon": "bi-diagram-3",
+                "name": "Apprentissage machine et profond",
+                "items": [
+                  "Apprentissage supervisé, non supervisé, par renforcement",
+                  "Apprentissage profond (CNN, RNN, Transformers)",
+                  "Prévision de séries chronologiques",
+                  "Détection d'anomalies",
+                  "Ingénierie de caractéristiques à grande échelle"
+                ]
+              },
+              {
+                "icon": "bi-chat-quote",
+                "name": "IA générative et langage naturel",
+                "items": [
+                  "Intégration de grands modèles de langage (LLM)",
+                  "Génération augmentée par récupération (RAG)",
+                  "Intelligence documentaire et extraction",
+                  "Analyse de sentiment et classification",
+                  "Ajustement fin personnalisé et ingénierie de prompts"
+                ]
+              },
+              {
+                "icon": "bi-camera",
+                "name": "Vision par ordinateur et systèmes décisionnels",
+                "items": [
+                  "Classification d'images et détection d'objets",
+                  "Analyse vidéo et inspection qualité",
+                  "OCR et compréhension documentaire",
+                  "Systèmes experts et intelligence décisionnelle",
+                  "Moteurs de recommandation"
+                ]
+              }
+            ]
+          },
+          "keyUseCases": {
+            "title": "Cas d'usage clés",
+            "description": "Nous aidons les organisations à appliquer l'IA là où elle crée une valeur réelle :",
+            "items": [
+              "Prédire le comportement client et réduire l'attrition",
+              "Automatiser le support client avec des assistants IA",
+              "Détecter la fraude et les anomalies en temps réel",
+              "Extraire des insights de documents et de données non structurées",
+              "Analyser images et vidéos pour la qualité et la sécurité",
+              "Personnaliser produits, services et expériences utilisateurs"
+            ]
+          },
+          "ourApproach": {
+            "title": "Notre approche",
+            "description": "De l'idée au déploiement, nous couvrons tout le cycle de vie de l'IA — pas seulement les parties amusantes.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "title": "Découverte et définition des cas d'usage",
+                "description": "Identification des opportunités IA par ateliers avec KPI d'affaires clairs, notation de faisabilité et modélisation du ROI."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Préparation des données et ingénierie de caractéristiques",
+                "description": "Évaluer la maturité des données, combler les écarts de qualité et concevoir des caractéristiques qui libèrent la puissance prédictive."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Développement et validation de modèles",
+                "description": "Développement itératif avec validation rigoureuse, tests de biais et explicabilité dès le premier jour."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Déploiement et intégration (MLOps)",
+                "description": "Déploiement en production avec CI/CD pour les modèles, tests automatisés et intégration transparente à vos systèmes."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Surveillance, optimisation et mise à l'échelle",
+                "description": "Détection de dérive, tableaux de bord de performance et boucles d'amélioration continue pour maintenir les modèles performants."
+              }
+            ]
+          },
+          "industryApplications": {
+            "title": "IA dans les industries réglementées",
+            "description": "Expertise sectorielle profonde dans les secteurs réglementés où la précision et la conformité de l'IA comptent le plus.",
+            "industries": [
+              {
+                "icon": "bi-bank",
+                "name": "Services financiers",
+                "description": "Solutions IA alignées aux lignes directrices du BSIF, à la gestion des risques de modèles et aux exigences de prêt équitable.",
+                "useCases": [
+                  "Automatisation de la notation de crédit et de la souscription",
+                  "Surveillance des transactions fraude et LCBA",
+                  "Trading algorithmique et analyse de risque",
+                  "Attrition client et prochaine meilleure action"
+                ]
+              },
+              {
+                "icon": "bi-heart-pulse",
+                "name": "Santé",
+                "description": "IA conforme à la LPRPS pour l'aide à la décision clinique et l'efficacité opérationnelle.",
+                "useCases": [
+                  "Stratification du risque patient",
+                  "Imagerie médicale et aide au diagnostic",
+                  "Extraction de documentation clinique",
+                  "Prévision de capacité hospitalière"
+                ]
+              },
+              {
+                "icon": "bi-building",
+                "name": "Gouvernement et secteur public",
+                "description": "IA responsable pour les services publics avec transparence, équité et reddition de comptes intégrées.",
+                "useCases": [
+                  "Automatisation de la prestation de services",
+                  "Intégrité des programmes et détection de fraude",
+                  "Analyse de politiques et modélisation de scénarios",
+                  "Triage et routage des demandes citoyennes"
+                ]
+              }
+            ]
+          },
+          "technologies": {
+            "title": "Technologies et plateformes",
+            "description": "Nous exploitons des écosystèmes IA et infonuagiques modernes choisis pour leur robustesse en production, pas pour les mots à la mode.",
+            "items": [
+              {
+                "icon": "bi-gear",
+                "name": "Python, TensorFlow, PyTorch, scikit-learn"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Hugging Face, LangChain, OpenAI, Anthropic"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "AWS SageMaker, Azure ML, Google Vertex AI"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "MLflow, Weights & Biases, Kubeflow"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Databricks, Snowflake, BigQuery"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Docker, Kubernetes, Terraform"
+              }
+            ]
+          },
+          "businessImpact": {
+            "title": "Impact d'affaires",
+            "description": "Nos solutions d'IA sont conçues pour livrer des résultats mesurables — pas des indicateurs vaniteux.",
+            "items": [
+              {
+                "icon": "bi-graph-up",
+                "title": "Efficacité opérationnelle accrue grâce à l'automatisation",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Prise de décision plus rapide et fondée sur les données à tous les niveaux",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Coûts et risques réduits avec intervention prédictive",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Expérience client améliorée via la personnalisation",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Avantage concurrentiel grâce aux actifs de données propriétaires",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Préparation réglementaire avec gouvernance de modèles auditable",
+                "description": null
+              }
+            ]
+          },
+          "differentiators": {
+            "title": "Pourquoi Gamma Neutral pour l'IA",
+            "points": [
+              {
+                "icon": "bi-gear-wide-connected",
+                "title": "Rigueur d'ingénierie",
+                "description": "Nous apportons la rigueur du génie logiciel à la science des données — contrôle de version, tests, CI/CD et observabilité pour les modèles dès le premier jour."
+              },
+              {
+                "icon": "bi-rocket-takeoff",
+                "title": "Mentalité production-first",
+                "description": "Nous ne construisons pas des démos Jupyter. Chaque modèle est conçu pour s'exécuter en production, à grande échelle, avec surveillance."
+              },
+              {
+                "icon": "bi-shield-check",
+                "title": "Expertise en industries réglementées",
+                "description": "Compréhension approfondie du BSIF, de la LPRPDE, de la LPRPS et des contraintes qui façonnent l'IA dans les secteurs réglementés."
+              },
+              {
+                "icon": "bi-search",
+                "title": "Explicabilité par défaut",
+                "description": "Chaque modèle livre des outils d'interprétabilité, des tests de biais et des pistes d'audit — essentiels pour le déploiement réglementé."
+              }
+            ]
+          },
+          "closing": {
+            "title": "Prêt à libérer la puissance de l'IA dans votre organisation ?",
+            "subtitle": "Discutons de la façon dont nous pouvons vous aider à identifier et déployer des solutions d'IA à fort impact qui livrent vraiment."
+          },
+          "features": [
+            {
+              "icon": "bi-check",
+              "title": "Apprentissage machine / Apprentissage profond",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Traitement du langage naturel (TLN)",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Vision par ordinateur",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "IA générative",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Systèmes experts et intelligence décisionnelle",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Systèmes de recommandation et personnalisation",
+              "description": null
+            }
+          ],
+          "benefits": []
+        }
+      }
+    },
+    {
+      "slug": "data-engineering-platforms",
+      "icon": "bi-database",
+      "iconColor": "primary",
+      "category": "data-engineering",
+      "order": 2,
+      "translations": {
+        "en": {
+          "title": "Data Engineering & Modern Data Platforms",
+          "shortDescription": "Build scalable data ecosystems that enable reliable data flow, real-time insights, and advanced analytics across your organization.",
+          "description": "Build scalable data ecosystems that enable reliable data flow, real-time insights, and advanced analytics across your organization.",
+          "metaTitle": null,
+          "metaDescription": null,
+          "metaKeywords": null,
+          "hero": {
+            "tagline": "The Foundation Every AI Strategy Needs",
+            "headline": "Turn fragmented data into a unified, trusted asset",
+            "subheadline": "We design and implement modern data platforms that power analytics, AI, and decision-making at enterprise scale — with the governance, lineage, and quality that regulated industries demand.",
+            "ctaPrimaryLabel": "Discuss Your Data Strategy",
+            "ctaSecondaryLabel": "See Our Methodology"
+          },
+          "stats": [
+            {
+              "icon": "bi-star",
+              "value": "10x",
+              "label": "Faster data delivery"
+            },
+            {
+              "icon": "bi-star",
+              "value": "99.9%",
+              "label": "Pipeline reliability SLA"
+            },
+            {
+              "icon": "bi-star",
+              "value": "Real-time",
+              "label": "Streaming capabilities"
+            },
+            {
+              "icon": "bi-star",
+              "value": "Lineage",
+              "label": "End-to-end traceability"
+            }
+          ],
+          "challenge": {
+            "title": "Your data is everywhere — and nowhere",
+            "description": "Organizations collect more data than ever, yet struggle to make it trustworthy, accessible, and actionable. Data silos, inconsistent definitions, and fragile pipelines hold back analytics and AI initiatives.",
+            "painPoints": [
+              "Data lives in dozens of disconnected systems — no single source of truth",
+              "Reports from different teams contradict each other because definitions drift",
+              "Legacy data warehouses can't handle modern volume, variety, or velocity",
+              "Data quality issues surface as broken dashboards and failed AI models",
+              "Compliance (PIPEDA, PHIPA, OSFI) requires lineage you can't produce"
+            ]
+          },
+          "howWeDeliver": {
+            "title": "How We Build Modern Data Platforms",
+            "description": "We design and implement scalable data architectures that transform raw data into trusted, analytics-ready assets.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "text": "Assess your current data landscape and define a target architecture"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Build robust data pipelines for batch and real-time processing"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Integrate data across multiple systems and sources"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Ensure high data quality, reliability, and consistency"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Enable seamless access for analytics, BI, and AI use cases"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Establish data governance, lineage, and cataloging from day one"
+              }
+            ]
+          },
+          "capabilities": {
+            "title": "Full-Stack Data Engineering",
+            "groups": [
+              {
+                "icon": "bi-diagram-2",
+                "name": "Data Platforms & Architecture",
+                "items": [
+                  "Lakehouse architecture (Databricks, Iceberg, Delta)",
+                  "Cloud data warehouses (Snowflake, BigQuery, Redshift)",
+                  "Data mesh & domain-driven design",
+                  "Star/snowflake dimensional modeling",
+                  "Medallion (bronze/silver/gold) patterns"
+                ]
+              },
+              {
+                "icon": "bi-arrow-left-right",
+                "name": "Pipelines & Integration",
+                "items": [
+                  "ETL/ELT pipelines (Airflow, dbt, Fivetran)",
+                  "Real-time streaming (Kafka, Kinesis, Flink)",
+                  "CDC & database replication",
+                  "API integration & ingestion",
+                  "Event-driven architectures"
+                ]
+              },
+              {
+                "icon": "bi-shield-lock",
+                "name": "Governance & Quality",
+                "items": [
+                  "Data catalogs & lineage (Collibra, Atlan)",
+                  "Data quality frameworks (Great Expectations)",
+                  "PII discovery & masking",
+                  "Access controls & row-level security",
+                  "Observability (Monte Carlo, Soda)"
+                ]
+              }
+            ]
+          },
+          "keyUseCases": {
+            "title": "Key Use Cases",
+            "description": "We help organizations unlock the full value of their data:",
+            "items": [
+              "Create a unified data platform (single source of truth)",
+              "Enable real-time dashboards and operational insights",
+              "Support AI and machine learning initiatives with trusted data",
+              "Modernize legacy data warehouses and infrastructure",
+              "Improve reporting accuracy and data reliability",
+              "Ensure compliance with data governance and security standards"
+            ]
+          },
+          "ourApproach": {
+            "title": "Our Approach",
+            "description": "We cover the full data lifecycle — from strategy through operations.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "title": "Data Strategy & Architecture Design",
+                "description": "Current state assessment, target architecture blueprint, and platform selection grounded in your business KPIs."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Data Ingestion & Integration (ETL/ELT)",
+                "description": "Build reliable pipelines connecting source systems to your platform with proper error handling and recovery."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Data Modeling & Transformation",
+                "description": "Design dimensional models, semantic layers, and transformations that make data intuitive for analytics."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Platform Deployment",
+                "description": "Implement cloud data platforms with infrastructure-as-code, version control, and environment promotion."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Data Governance, Quality & Security",
+                "description": "Establish cataloging, lineage tracking, data quality monitoring, and access controls from day one."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Monitoring, Optimization & Scaling",
+                "description": "Pipeline observability, cost optimization, and performance tuning as data volumes and use cases grow."
+              }
+            ]
+          },
+          "industryApplications": {
+            "title": "Data Platforms for Regulated Industries",
+            "description": "Purpose-built data architectures that meet the compliance, reliability, and scale demands of regulated sectors.",
+            "industries": [
+              {
+                "icon": "bi-bank",
+                "name": "Financial Services",
+                "description": "Risk data aggregation, regulatory reporting (BCBS 239), and customer 360 platforms built for Canadian banking.",
+                "useCases": [
+                  "Regulatory reporting & data lineage",
+                  "Customer 360 & next-best-action data",
+                  "Transaction data lakes for analytics",
+                  "Risk data aggregation (BCBS 239)"
+                ]
+              },
+              {
+                "icon": "bi-heart-pulse",
+                "name": "Healthcare",
+                "description": "Clinical data platforms aligned with PHIPA, supporting population health and research.",
+                "useCases": [
+                  "EMR/EHR integration & normalization",
+                  "Population health analytics",
+                  "Clinical research data platforms",
+                  "HL7/FHIR data pipelines"
+                ]
+              },
+              {
+                "icon": "bi-building",
+                "name": "Government & Public Sector",
+                "description": "Inter-departmental data sharing platforms and open-data infrastructure.",
+                "useCases": [
+                  "Inter-department data sharing",
+                  "Open data platforms & APIs",
+                  "Program performance analytics",
+                  "Citizen data integration"
+                ]
+              }
+            ]
+          },
+          "technologies": {
+            "title": "Technologies & Platforms",
+            "description": "We leverage modern data stack and cloud-native tools proven at enterprise scale.",
+            "items": [
+              {
+                "icon": "bi-gear",
+                "name": "SQL, Python, Spark, Scala"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Snowflake, BigQuery, Redshift, Databricks"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "AWS Glue, Azure Data Factory, GCP Dataflow"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Airflow, Prefect, Dagster, dbt"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Kafka, Kinesis, Flink, Spark Streaming"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Terraform, Docker, Kubernetes"
+              }
+            ]
+          },
+          "businessImpact": {
+            "title": "Business Impact",
+            "description": "Our data solutions are designed to deliver transformative, measurable outcomes.",
+            "items": [
+              {
+                "icon": "bi-graph-up",
+                "title": "Faster access to reliable data for every team",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Improved decision-making and reporting accuracy",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Scalable infrastructure for growth and new use cases",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Reduced data silos and operational inefficiencies",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Strong governance, security, and compliance posture",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Foundation for successful AI and ML initiatives",
+                "description": null
+              }
+            ]
+          },
+          "differentiators": {
+            "title": "Why Gamma Neutral for Data Engineering",
+            "points": [
+              {
+                "icon": "bi-bricks",
+                "title": "Architecture That Lasts",
+                "description": "We design data platforms to evolve — modular, cloud-native architectures that accommodate new sources, volumes, and use cases without rebuilds."
+              },
+              {
+                "icon": "bi-shield-check",
+                "title": "Governance Built In, Not Bolted On",
+                "description": "Lineage, cataloging, quality, and access controls are part of the foundation — not a phase 2 afterthought."
+              },
+              {
+                "icon": "bi-activity",
+                "title": "Reliability as a Discipline",
+                "description": "Pipeline observability, SLA monitoring, and automated recovery are standard in every platform we build."
+              },
+              {
+                "icon": "bi-award",
+                "title": "Regulated-Industry Proven",
+                "description": "Deep experience with BCBS 239, PHIPA, PIPEDA, OSFI, and the audit requirements that shape Canadian data engineering."
+              }
+            ]
+          },
+          "closing": {
+            "title": "Ready to build a modern data platform that scales with your business?",
+            "subtitle": "Let's design a data architecture that turns your data into a strategic asset."
+          },
+          "features": [
+            {
+              "icon": "bi-check",
+              "title": "ETL / ELT Pipelines & Data Integration",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Real-Time & batch data processing",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Data Lake & Data Warehouse Architecture",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Data Modeling & Transformation",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Data Quality, Governance & Security",
+              "description": null
+            }
+          ],
+          "benefits": []
+        },
+        "fr": {
+          "title": "Ingénierie des données et plateformes modernes",
+          "shortDescription": "Bâtissez des écosystèmes de données évolutifs qui permettent un flux de données fiable, des insights en temps réel et des analyses avancées dans toute votre organisation.",
+          "description": "Bâtissez des écosystèmes de données évolutifs qui permettent un flux de données fiable, des insights en temps réel et des analyses avancées dans toute votre organisation.",
+          "metaTitle": null,
+          "metaDescription": null,
+          "metaKeywords": null,
+          "hero": {
+            "tagline": "La fondation dont votre stratégie IA a besoin",
+            "headline": "Transformez des données fragmentées en un actif unifié et fiable",
+            "subheadline": "Nous concevons et mettons en œuvre des plateformes de données modernes qui alimentent l'analyse, l'IA et la prise de décision à l'échelle de l'entreprise — avec la gouvernance, la traçabilité et la qualité exigées par les industries réglementées.",
+            "ctaPrimaryLabel": "Discuter de votre stratégie de données",
+            "ctaSecondaryLabel": "Voir notre méthodologie"
+          },
+          "stats": [
+            {
+              "icon": "bi-star",
+              "value": "10x",
+              "label": "Livraison de données plus rapide"
+            },
+            {
+              "icon": "bi-star",
+              "value": "99,9 %",
+              "label": "SLA de fiabilité des pipelines"
+            },
+            {
+              "icon": "bi-star",
+              "value": "Temps réel",
+              "label": "Capacités de streaming"
+            },
+            {
+              "icon": "bi-star",
+              "value": "Traçabilité",
+              "label": "Lineage de bout en bout"
+            }
+          ],
+          "challenge": {
+            "title": "Vos données sont partout — et nulle part",
+            "description": "Les organisations collectent plus de données que jamais, mais peinent à les rendre fiables, accessibles et exploitables. Silos, définitions incohérentes et pipelines fragiles freinent les initiatives analytiques et d'IA.",
+            "painPoints": [
+              "Les données vivent dans des dizaines de systèmes déconnectés — aucune source unique de vérité",
+              "Les rapports de différentes équipes se contredisent parce que les définitions dérivent",
+              "Les entrepôts de données hérités ne peuvent gérer les volumes, variétés et vélocités modernes",
+              "Les problèmes de qualité surfacent en tableaux de bord brisés et modèles IA défaillants",
+              "La conformité (LPRPDE, LPRPS, BSIF) exige une traçabilité que vous ne pouvez produire"
+            ]
+          },
+          "howWeDeliver": {
+            "title": "Comment nous bâtissons des plateformes de données modernes",
+            "description": "Nous concevons et mettons en œuvre des architectures de données évolutives qui transforment les données brutes en actifs fiables et prêts pour l'analyse.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "text": "Évaluer votre paysage de données actuel et définir une architecture cible"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Construire des pipelines robustes pour le traitement par lots et temps réel"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Intégrer les données entre plusieurs systèmes et sources"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Assurer une qualité, fiabilité et cohérence élevées des données"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Permettre un accès fluide pour l'analyse, la BI et les cas d'usage IA"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Établir gouvernance, traçabilité et catalogage dès le premier jour"
+              }
+            ]
+          },
+          "capabilities": {
+            "title": "Ingénierie de données complète",
+            "groups": [
+              {
+                "icon": "bi-diagram-2",
+                "name": "Plateformes et architecture",
+                "items": [
+                  "Architecture lakehouse (Databricks, Iceberg, Delta)",
+                  "Entrepôts infonuagiques (Snowflake, BigQuery, Redshift)",
+                  "Data mesh et conception par domaine",
+                  "Modélisation dimensionnelle (étoile/flocon)",
+                  "Patrons medallion (bronze/argent/or)"
+                ]
+              },
+              {
+                "icon": "bi-arrow-left-right",
+                "name": "Pipelines et intégration",
+                "items": [
+                  "Pipelines ETL/ELT (Airflow, dbt, Fivetran)",
+                  "Streaming temps réel (Kafka, Kinesis, Flink)",
+                  "CDC et réplication de bases de données",
+                  "Intégration et ingestion d'API",
+                  "Architectures événementielles"
+                ]
+              },
+              {
+                "icon": "bi-shield-lock",
+                "name": "Gouvernance et qualité",
+                "items": [
+                  "Catalogues et traçabilité (Collibra, Atlan)",
+                  "Cadres de qualité (Great Expectations)",
+                  "Découverte et masquage RPI",
+                  "Contrôles d'accès et sécurité au niveau des lignes",
+                  "Observabilité (Monte Carlo, Soda)"
+                ]
+              }
+            ]
+          },
+          "keyUseCases": {
+            "title": "Cas d'usage clés",
+            "description": "Nous aidons les organisations à exploiter pleinement la valeur de leurs données :",
+            "items": [
+              "Créer une plateforme de données unifiée (source unique de vérité)",
+              "Activer des tableaux de bord temps réel et des insights opérationnels",
+              "Soutenir les initiatives d'IA et d'apprentissage machine avec des données fiables",
+              "Moderniser les entrepôts et infrastructures de données hérités",
+              "Améliorer la précision des rapports et la fiabilité des données",
+              "Assurer la conformité avec les normes de gouvernance et de sécurité"
+            ]
+          },
+          "ourApproach": {
+            "title": "Notre approche",
+            "description": "Nous couvrons tout le cycle de vie des données — de la stratégie aux opérations.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "title": "Stratégie et conception d'architecture",
+                "description": "Évaluation de l'état actuel, plan d'architecture cible et sélection de plateforme ancrés dans vos KPI d'affaires."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Ingestion et intégration (ETL/ELT)",
+                "description": "Construire des pipelines fiables reliant les systèmes sources à votre plateforme avec gestion d'erreurs et reprise."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Modélisation et transformation",
+                "description": "Concevoir des modèles dimensionnels, des couches sémantiques et des transformations qui rendent les données intuitives."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Déploiement de plateforme",
+                "description": "Implémenter des plateformes infonuagiques avec infrastructure-as-code, contrôle de version et promotion d'environnement."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Gouvernance, qualité et sécurité",
+                "description": "Établir catalogage, traçabilité, surveillance de qualité et contrôles d'accès dès le premier jour."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Surveillance, optimisation et mise à l'échelle",
+                "description": "Observabilité des pipelines, optimisation des coûts et ajustement de performance à mesure que les volumes croissent."
+              }
+            ]
+          },
+          "industryApplications": {
+            "title": "Plateformes de données pour industries réglementées",
+            "description": "Architectures de données conçues pour les exigences de conformité, fiabilité et échelle des secteurs réglementés.",
+            "industries": [
+              {
+                "icon": "bi-bank",
+                "name": "Services financiers",
+                "description": "Agrégation de données de risque, rapports réglementaires (BCBS 239) et plateformes client 360 bâties pour la banque canadienne.",
+                "useCases": [
+                  "Rapports réglementaires et traçabilité",
+                  "Données client 360 et prochaine meilleure action",
+                  "Lacs de données transactionnels pour l'analyse",
+                  "Agrégation de données de risque (BCBS 239)"
+                ]
+              },
+              {
+                "icon": "bi-heart-pulse",
+                "name": "Santé",
+                "description": "Plateformes de données cliniques alignées à la LPRPS, soutenant la santé publique et la recherche.",
+                "useCases": [
+                  "Intégration et normalisation DSE/DME",
+                  "Analyses de santé populationnelle",
+                  "Plateformes de données pour recherche clinique",
+                  "Pipelines de données HL7/FHIR"
+                ]
+              },
+              {
+                "icon": "bi-building",
+                "name": "Gouvernement et secteur public",
+                "description": "Plateformes de partage de données interministériel et infrastructure de données ouvertes.",
+                "useCases": [
+                  "Partage de données entre ministères",
+                  "Plateformes de données ouvertes et API",
+                  "Analyses de performance de programmes",
+                  "Intégration de données citoyennes"
+                ]
+              }
+            ]
+          },
+          "technologies": {
+            "title": "Technologies et plateformes",
+            "description": "Nous exploitons la pile de données moderne et les outils natifs infonuagiques éprouvés à l'échelle entreprise.",
+            "items": [
+              {
+                "icon": "bi-gear",
+                "name": "SQL, Python, Spark, Scala"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Snowflake, BigQuery, Redshift, Databricks"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "AWS Glue, Azure Data Factory, GCP Dataflow"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Airflow, Prefect, Dagster, dbt"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Kafka, Kinesis, Flink, Spark Streaming"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Terraform, Docker, Kubernetes"
+              }
+            ]
+          },
+          "businessImpact": {
+            "title": "Impact d'affaires",
+            "description": "Nos solutions de données sont conçues pour offrir des résultats transformateurs et mesurables.",
+            "items": [
+              {
+                "icon": "bi-graph-up",
+                "title": "Accès plus rapide à des données fiables pour chaque équipe",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Prise de décision et précision des rapports améliorées",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Infrastructure évolutive pour la croissance et nouveaux cas d'usage",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Réduction des silos de données et inefficacités opérationnelles",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Posture de gouvernance, sécurité et conformité solide",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Fondation pour des initiatives IA et ML réussies",
+                "description": null
+              }
+            ]
+          },
+          "differentiators": {
+            "title": "Pourquoi Gamma Neutral pour l'ingénierie de données",
+            "points": [
+              {
+                "icon": "bi-bricks",
+                "title": "Une architecture durable",
+                "description": "Nous concevons des plateformes de données qui évoluent — architectures modulaires natives infonuagiques qui accommodent nouvelles sources, volumes et cas d'usage sans reconstruction."
+              },
+              {
+                "icon": "bi-shield-check",
+                "title": "Gouvernance intégrée, pas ajoutée",
+                "description": "Traçabilité, catalogage, qualité et contrôles d'accès font partie des fondations — pas d'une phase 2 après coup."
+              },
+              {
+                "icon": "bi-activity",
+                "title": "La fiabilité comme discipline",
+                "description": "Observabilité des pipelines, surveillance SLA et récupération automatisée sont standards dans chaque plateforme que nous construisons."
+              },
+              {
+                "icon": "bi-award",
+                "title": "Éprouvé en industries réglementées",
+                "description": "Expérience approfondie avec BCBS 239, LPRPS, LPRPDE, BSIF et les exigences d'audit qui façonnent l'ingénierie de données canadienne."
+              }
+            ]
+          },
+          "closing": {
+            "title": "Prêt à bâtir une plateforme de données moderne qui évolue avec votre entreprise ?",
+            "subtitle": "Concevons une architecture de données qui transforme vos données en actif stratégique."
+          },
+          "features": [
+            {
+              "icon": "bi-check",
+              "title": "Pipelines ETL / ELT et intégration de données",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Traitement temps réel et par lots",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Architecture Data Lake et entrepôt de données",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Modélisation et transformation de données",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Qualité, gouvernance et sécurité des données",
+              "description": null
+            }
+          ],
+          "benefits": []
+        }
+      }
+    },
+    {
+      "slug": "cloud-strategy-engineering",
+      "icon": "bi-cloud",
+      "iconColor": "primary",
+      "category": "cloud",
+      "order": 3,
+      "translations": {
+        "en": {
+          "title": "Cloud Strategy & Engineering",
+          "shortDescription": "Enable digital transformation through cloud-native architectures and scalable infrastructure platforms.",
+          "description": "Enable digital transformation through cloud-native architectures and scalable infrastructure platforms.",
+          "metaTitle": null,
+          "metaDescription": null,
+          "metaKeywords": null,
+          "hero": {
+            "tagline": "Cloud-Native, FinOps-Ready",
+            "headline": "Scale infrastructure with performance, security, and cost discipline",
+            "subheadline": "From multi-cloud architecture to application modernization — we help Canadian organizations adopt cloud strategically, aligned with OSFI B-10 guidelines, PHIPA, and government cloud-first policies.",
+            "ctaPrimaryLabel": "Plan Your Cloud Journey",
+            "ctaSecondaryLabel": "See Our Methodology"
+          },
+          "stats": [
+            {
+              "icon": "bi-star",
+              "value": "40%",
+              "label": "Avg infrastructure savings"
+            },
+            {
+              "icon": "bi-star",
+              "value": "Multi-cloud",
+              "label": "AWS, Azure, GCP"
+            },
+            {
+              "icon": "bi-star",
+              "value": "IaC",
+              "label": "Infrastructure as code"
+            },
+            {
+              "icon": "bi-star",
+              "value": "OSFI B-10",
+              "label": "Compliance aligned"
+            }
+          ],
+          "challenge": {
+            "title": "Cloud promises are easy. Cloud reality is hard.",
+            "description": "Cloud adoption should deliver agility, scalability, and efficiency — yet many Canadian organizations end up with runaway costs, security concerns, and half-migrated workloads that work worse than what they replaced.",
+            "painPoints": [
+              "Cloud bills grow faster than the business — no FinOps discipline to reign them in",
+              "Lift-and-shift migrations preserve legacy problems in more expensive infrastructure",
+              "Shadow IT emerges when developers can't get fast, secure cloud provisioning",
+              "OSFI B-10 and data residency requirements weren't fully considered upfront",
+              "Without IaC and CI/CD, environments drift and releases become risky events"
+            ]
+          },
+          "howWeDeliver": {
+            "title": "How We Deliver Cloud Solutions",
+            "description": "We help organizations adopt and scale cloud technologies with a focus on performance, security, and cost efficiency.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "text": "Assess current infrastructure and define a cloud strategy"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Design scalable, cloud-native architectures"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Migrate applications and workloads with minimal disruption"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Implement DevOps and automation for faster delivery"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Continuously optimize performance, reliability, and costs"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Establish FinOps practices to keep spending aligned with value"
+              }
+            ]
+          },
+          "capabilities": {
+            "title": "End-to-End Cloud Capabilities",
+            "groups": [
+              {
+                "icon": "bi-diagram-3",
+                "name": "Architecture & Migration",
+                "items": [
+                  "Cloud strategy & target architecture",
+                  "Landing zones & organization design",
+                  "6R migration (rehost, replatform, refactor, etc.)",
+                  "Application modernization",
+                  "Multi-cloud & hybrid design"
+                ]
+              },
+              {
+                "icon": "bi-gear-wide-connected",
+                "name": "DevOps & Automation",
+                "items": [
+                  "Infrastructure as Code (Terraform, Pulumi)",
+                  "CI/CD pipeline design",
+                  "Kubernetes & containerization",
+                  "GitOps & progressive delivery",
+                  "Platform engineering (internal developer platforms)"
+                ]
+              },
+              {
+                "icon": "bi-shield-lock",
+                "name": "Security & FinOps",
+                "items": [
+                  "Cloud security posture management",
+                  "Zero-trust network architecture",
+                  "Identity & access management",
+                  "Cost visibility & optimization",
+                  "Automated policy & compliance guardrails"
+                ]
+              }
+            ]
+          },
+          "keyUseCases": {
+            "title": "Key Use Cases",
+            "description": "We enable cloud transformation across critical business needs:",
+            "items": [
+              "Migrate legacy systems to modern cloud platforms",
+              "Build scalable, resilient applications and APIs",
+              "Enable faster software delivery with CI/CD pipelines",
+              "Support data and AI platforms with cloud infrastructure",
+              "Improve disaster recovery and business continuity",
+              "Optimize cloud usage and reduce operational costs"
+            ]
+          },
+          "ourApproach": {
+            "title": "Our Approach",
+            "description": "We support the full cloud lifecycle from strategy to operations.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "title": "Cloud Strategy & Roadmap",
+                "description": "Assess current state, define target outcomes, and build a phased migration roadmap tied to business value."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Architecture Design & Platform Selection",
+                "description": "Design landing zones, choose appropriate cloud(s), and define reference architectures for your workloads."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Migration & Modernization",
+                "description": "Execute the 6R strategy — rehost what's right, refactor what matters, retire what's obsolete."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "DevOps Enablement & Automation (IaC)",
+                "description": "Build CI/CD pipelines, Infrastructure as Code, and automation that make deploys safe and routine."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Security, Compliance & Governance",
+                "description": "Implement guardrails, identity management, and automated policy enforcement aligned with Canadian regulations."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Monitoring, Optimization & FinOps",
+                "description": "Establish cost visibility, rightsizing, and observability practices that keep cloud efficient at scale."
+              }
+            ]
+          },
+          "industryApplications": {
+            "title": "Cloud for Regulated Industries",
+            "description": "Compliant, secure cloud architectures for sectors where data residency and audit trails are non-negotiable.",
+            "industries": [
+              {
+                "icon": "bi-bank",
+                "name": "Financial Services",
+                "description": "OSFI B-10 compliant cloud architectures for federally-regulated financial institutions.",
+                "useCases": [
+                  "OSFI B-10 compliant architectures",
+                  "Data residency & sovereignty controls",
+                  "Cloud risk assessments & TRAs",
+                  "Third-party risk management"
+                ]
+              },
+              {
+                "icon": "bi-heart-pulse",
+                "name": "Healthcare",
+                "description": "PHIPA-compliant cloud infrastructure with data residency and encryption controls.",
+                "useCases": [
+                  "PHIPA-compliant cloud architectures",
+                  "Canadian data residency (ca-central-1)",
+                  "PHI encryption & key management",
+                  "Clinical system modernization"
+                ]
+              },
+              {
+                "icon": "bi-building",
+                "name": "Government & Public Sector",
+                "description": "Aligned with Government of Canada cloud-first strategy and Protected B/C requirements.",
+                "useCases": [
+                  "GC cloud-first strategy alignment",
+                  "Protected B/C workload design",
+                  "ITSG-33 security controls",
+                  "Shared Services Canada integration"
+                ]
+              }
+            ]
+          },
+          "technologies": {
+            "title": "Technologies & Platforms",
+            "description": "We leverage leading cloud and DevOps ecosystems with deep expertise across all major providers.",
+            "items": [
+              {
+                "icon": "bi-gear",
+                "name": "AWS, Azure, GCP (multi-cloud & hybrid)"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Kubernetes, Docker, serverless frameworks"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Terraform, Pulumi, CloudFormation"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "GitHub Actions, GitLab CI, Jenkins, ArgoCD"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Datadog, New Relic, Prometheus, Grafana"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "HashiCorp Vault, AWS IAM, Azure AD"
+              }
+            ]
+          },
+          "businessImpact": {
+            "title": "Business Impact",
+            "description": "Our cloud solutions are designed to deliver lasting business transformation.",
+            "items": [
+              {
+                "icon": "bi-graph-up",
+                "title": "Increased agility and faster time-to-market",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Scalable and resilient infrastructure",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Reduced infrastructure and operational costs (typically 30-50%)",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Enhanced security and regulatory compliance",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Strong foundation for data and AI initiatives",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Empowered engineering teams with self-service platforms",
+                "description": null
+              }
+            ]
+          },
+          "differentiators": {
+            "title": "Why Gamma Neutral for Cloud",
+            "points": [
+              {
+                "icon": "bi-maple-leaf",
+                "title": "Canadian Compliance Expertise",
+                "description": "Deep familiarity with OSFI B-10, PHIPA, PIPEDA, GC cloud policy, and the Canadian regulatory landscape."
+              },
+              {
+                "icon": "bi-graph-down",
+                "title": "FinOps from Day One",
+                "description": "Cost discipline built into architecture decisions — not a cleanup project after the bills shock you."
+              },
+              {
+                "icon": "bi-clouds",
+                "title": "Multi-Cloud Reality",
+                "description": "We work across AWS, Azure, and GCP based on what fits your workloads — not vendor allegiance."
+              },
+              {
+                "icon": "bi-box-seam",
+                "title": "Platform Engineering Mindset",
+                "description": "We build internal developer platforms that make cloud self-service safe — empowering dev teams while maintaining guardrails."
+              }
+            ]
+          },
+          "closing": {
+            "title": "Ready to modernize your infrastructure and accelerate your cloud journey?",
+            "subtitle": "Let's design a cloud strategy tailored to your business goals and regulatory environment."
+          },
+          "features": [
+            {
+              "icon": "bi-check",
+              "title": "Multi-Cloud Architecture (AWS, Azure, GCP)",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Cloud Migration & Application Modernization",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Serverless, Containers & Kubernetes",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "DevOps & Infrastructure as Code (IaC)",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Security, Compliance & Governance",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Cost Management & FinOps",
+              "description": null
+            }
+          ],
+          "benefits": []
+        },
+        "fr": {
+          "title": "Stratégie et ingénierie infonuagique",
+          "shortDescription": "Permettez la transformation numérique grâce à des architectures natives infonuagiques et des plateformes d'infrastructure évolutives.",
+          "description": "Permettez la transformation numérique grâce à des architectures natives infonuagiques et des plateformes d'infrastructure évolutives.",
+          "metaTitle": null,
+          "metaDescription": null,
+          "metaKeywords": null,
+          "hero": {
+            "tagline": "Natif infonuagique, prêt pour FinOps",
+            "headline": "Faites évoluer l'infrastructure avec discipline de performance, sécurité et coûts",
+            "subheadline": "De l'architecture multi-nuages à la modernisation d'applications — nous aidons les organisations canadiennes à adopter le nuage stratégiquement, alignées aux lignes directrices BSIF B-10, à la LPRPS et aux politiques cloud-first gouvernementales.",
+            "ctaPrimaryLabel": "Planifier votre parcours infonuagique",
+            "ctaSecondaryLabel": "Voir notre méthodologie"
+          },
+          "stats": [
+            {
+              "icon": "bi-star",
+              "value": "40 %",
+              "label": "Économies d'infrastructure moyennes"
+            },
+            {
+              "icon": "bi-star",
+              "value": "Multi-nuages",
+              "label": "AWS, Azure, GCP"
+            },
+            {
+              "icon": "bi-star",
+              "value": "IaC",
+              "label": "Infrastructure en tant que code"
+            },
+            {
+              "icon": "bi-star",
+              "value": "BSIF B-10",
+              "label": "Conformité alignée"
+            }
+          ],
+          "challenge": {
+            "title": "Les promesses infonuagiques sont faciles. La réalité est difficile.",
+            "description": "L'adoption infonuagique devrait livrer agilité, évolutivité et efficacité — pourtant, beaucoup d'organisations canadiennes se retrouvent avec des coûts incontrôlés, des préoccupations de sécurité et des charges de travail à moitié migrées qui fonctionnent moins bien qu'avant.",
+            "painPoints": [
+              "Les factures infonuagiques croissent plus vite que les affaires — aucune discipline FinOps pour les maîtriser",
+              "Les migrations lift-and-shift préservent les problèmes hérités dans une infrastructure plus coûteuse",
+              "Le Shadow IT émerge quand les développeurs ne peuvent obtenir un provisionnement infonuagique rapide et sécurisé",
+              "Les exigences BSIF B-10 et de résidence de données n'ont pas été pleinement considérées au départ",
+              "Sans IaC ni CI/CD, les environnements dérivent et les déploiements deviennent des événements risqués"
+            ]
+          },
+          "howWeDeliver": {
+            "title": "Comment nous livrons les solutions infonuagiques",
+            "description": "Nous aidons les organisations à adopter et à faire évoluer les technologies infonuagiques en mettant l'accent sur performance, sécurité et efficacité des coûts.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "text": "Évaluer l'infrastructure actuelle et définir une stratégie infonuagique"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Concevoir des architectures évolutives et natives infonuagiques"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Migrer applications et charges de travail avec un minimum de perturbations"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Implémenter DevOps et automatisation pour une livraison plus rapide"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Optimiser continuellement performance, fiabilité et coûts"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Établir des pratiques FinOps pour aligner les dépenses avec la valeur"
+              }
+            ]
+          },
+          "capabilities": {
+            "title": "Capacités infonuagiques de bout en bout",
+            "groups": [
+              {
+                "icon": "bi-diagram-3",
+                "name": "Architecture et migration",
+                "items": [
+                  "Stratégie et architecture cible",
+                  "Zones d'atterrissage et conception d'organisation",
+                  "Migration 6R (rehost, replatform, refactor, etc.)",
+                  "Modernisation d'applications",
+                  "Conception multi-nuages et hybride"
+                ]
+              },
+              {
+                "icon": "bi-gear-wide-connected",
+                "name": "DevOps et automatisation",
+                "items": [
+                  "Infrastructure as Code (Terraform, Pulumi)",
+                  "Conception de pipelines CI/CD",
+                  "Kubernetes et conteneurisation",
+                  "GitOps et livraison progressive",
+                  "Plateformes internes de développeurs"
+                ]
+              },
+              {
+                "icon": "bi-shield-lock",
+                "name": "Sécurité et FinOps",
+                "items": [
+                  "Gestion de posture de sécurité infonuagique",
+                  "Architecture réseau zéro confiance",
+                  "Gestion des identités et accès",
+                  "Visibilité et optimisation des coûts",
+                  "Garde-fous de politique et conformité automatisés"
+                ]
+              }
+            ]
+          },
+          "keyUseCases": {
+            "title": "Cas d'usage clés",
+            "description": "Nous permettons la transformation infonuagique pour vos besoins critiques :",
+            "items": [
+              "Migrer les systèmes hérités vers des plateformes infonuagiques modernes",
+              "Construire des applications et API évolutives et résilientes",
+              "Accélérer la livraison logicielle avec des pipelines CI/CD",
+              "Soutenir les plateformes de données et d'IA avec une infrastructure infonuagique",
+              "Améliorer la reprise après sinistre et la continuité des affaires",
+              "Optimiser l'utilisation du nuage et réduire les coûts opérationnels"
+            ]
+          },
+          "ourApproach": {
+            "title": "Notre approche",
+            "description": "Nous soutenons tout le cycle de vie infonuagique, de la stratégie aux opérations.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "title": "Stratégie et feuille de route infonuagique",
+                "description": "Évaluer l'état actuel, définir les résultats cibles et bâtir une feuille de route de migration par phases liée à la valeur d'affaires."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Conception d'architecture et choix de plateforme",
+                "description": "Concevoir des zones d'atterrissage, choisir le nuage approprié et définir des architectures de référence pour vos charges de travail."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Migration et modernisation",
+                "description": "Exécuter la stratégie 6R — rehost ce qui est correct, refactor ce qui importe, retirer ce qui est obsolète."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Activation DevOps et automatisation (IaC)",
+                "description": "Bâtir des pipelines CI/CD, de l'Infrastructure as Code et de l'automatisation qui rendent les déploiements sûrs et routiniers."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Sécurité, conformité et gouvernance",
+                "description": "Implémenter des garde-fous, de la gestion d'identité et application automatisée de politiques alignées à la réglementation canadienne."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Surveillance, optimisation et FinOps",
+                "description": "Établir visibilité des coûts, rightsizing et pratiques d'observabilité qui gardent le nuage efficace à grande échelle."
+              }
+            ]
+          },
+          "industryApplications": {
+            "title": "Infonuagique pour industries réglementées",
+            "description": "Architectures infonuagiques conformes et sécurisées pour les secteurs où la résidence de données et les pistes d'audit sont non négociables.",
+            "industries": [
+              {
+                "icon": "bi-bank",
+                "name": "Services financiers",
+                "description": "Architectures infonuagiques conformes BSIF B-10 pour les institutions financières sous réglementation fédérale.",
+                "useCases": [
+                  "Architectures conformes BSIF B-10",
+                  "Contrôles de résidence et souveraineté des données",
+                  "Évaluations de risque infonuagique et ÉMR",
+                  "Gestion de risque des tiers"
+                ]
+              },
+              {
+                "icon": "bi-heart-pulse",
+                "name": "Santé",
+                "description": "Infrastructure infonuagique conforme LPRPS avec contrôles de résidence et chiffrement.",
+                "useCases": [
+                  "Architectures infonuagiques conformes LPRPS",
+                  "Résidence des données canadiennes (ca-central-1)",
+                  "Chiffrement RSP et gestion de clés",
+                  "Modernisation de systèmes cliniques"
+                ]
+              },
+              {
+                "icon": "bi-building",
+                "name": "Gouvernement et secteur public",
+                "description": "Aligné à la stratégie cloud-first du gouvernement du Canada et aux exigences Protégé B/C.",
+                "useCases": [
+                  "Alignement à la stratégie cloud-first GC",
+                  "Conception de charges Protégé B/C",
+                  "Contrôles de sécurité ITSG-33",
+                  "Intégration avec Services partagés Canada"
+                ]
+              }
+            ]
+          },
+          "technologies": {
+            "title": "Technologies et plateformes",
+            "description": "Nous exploitons les principaux écosystèmes infonuagiques et DevOps avec une expertise approfondie chez tous les grands fournisseurs.",
+            "items": [
+              {
+                "icon": "bi-gear",
+                "name": "AWS, Azure, GCP (multi-nuages et hybride)"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Kubernetes, Docker, frameworks serverless"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Terraform, Pulumi, CloudFormation"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "GitHub Actions, GitLab CI, Jenkins, ArgoCD"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Datadog, New Relic, Prometheus, Grafana"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "HashiCorp Vault, AWS IAM, Azure AD"
+              }
+            ]
+          },
+          "businessImpact": {
+            "title": "Impact d'affaires",
+            "description": "Nos solutions infonuagiques sont conçues pour offrir une transformation d'affaires durable.",
+            "items": [
+              {
+                "icon": "bi-graph-up",
+                "title": "Agilité accrue et délai de mise en marché plus rapide",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Infrastructure évolutive et résiliente",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Coûts d'infrastructure et opérationnels réduits (typiquement 30-50 %)",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Sécurité et conformité réglementaire renforcées",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Base solide pour les initiatives de données et IA",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Équipes d'ingénierie autonomisées avec plateformes en libre-service",
+                "description": null
+              }
+            ]
+          },
+          "differentiators": {
+            "title": "Pourquoi Gamma Neutral pour l'infonuagique",
+            "points": [
+              {
+                "icon": "bi-maple-leaf",
+                "title": "Expertise en conformité canadienne",
+                "description": "Familiarité approfondie avec BSIF B-10, LPRPS, LPRPDE, politique infonuagique GC et le paysage réglementaire canadien."
+              },
+              {
+                "icon": "bi-graph-down",
+                "title": "FinOps dès le premier jour",
+                "description": "Discipline de coûts intégrée aux décisions d'architecture — pas un projet de nettoyage après que les factures vous choquent."
+              },
+              {
+                "icon": "bi-clouds",
+                "title": "Réalité multi-nuages",
+                "description": "Nous travaillons à travers AWS, Azure et GCP selon ce qui convient à vos charges — pas par allégeance à un fournisseur."
+              },
+              {
+                "icon": "bi-box-seam",
+                "title": "Mentalité d'ingénierie de plateforme",
+                "description": "Nous construisons des plateformes internes qui rendent le libre-service infonuagique sûr — autonomisant les développeurs tout en maintenant les garde-fous."
+              }
+            ]
+          },
+          "closing": {
+            "title": "Prêt à moderniser votre infrastructure et accélérer votre parcours infonuagique ?",
+            "subtitle": "Concevons une stratégie infonuagique adaptée à vos objectifs d'affaires et votre environnement réglementaire."
+          },
+          "features": [
+            {
+              "icon": "bi-check",
+              "title": "Architecture multi-nuages (AWS, Azure, GCP)",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Migration infonuagique et modernisation d'applications",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Serverless, conteneurs et Kubernetes",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "DevOps et infrastructure en tant que code (IaC)",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Sécurité, conformité et gouvernance",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Gestion des coûts et FinOps",
+              "description": null
+            }
+          ],
+          "benefits": []
+        }
+      }
+    },
+    {
+      "slug": "cybersecurity",
+      "icon": "bi-shield-check",
+      "iconColor": "primary",
+      "category": "cybersecurity",
+      "order": 4,
+      "translations": {
+        "en": {
+          "title": "Cybersecurity",
+          "shortDescription": "We assess your security posture, identify vulnerabilities, and implement controls that satisfy regulatory requirements in financial services, healthcare, and government.",
+          "description": "We assess your security posture, identify vulnerabilities, and implement controls that satisfy regulatory requirements in financial services, healthcare, and government.",
+          "metaTitle": null,
+          "metaDescription": null,
+          "metaKeywords": null,
+          "hero": {
+            "tagline": "Risk-Based, Compliance-Ready Security",
+            "headline": "Protect your business against evolving cyber threats",
+            "subheadline": "We design and implement enterprise-grade security programs for Canadian organizations in financial services, healthcare, and government — aligned with OSFI, PIPEDA, PHIPA, SOC 2, and NIST frameworks.",
+            "ctaPrimaryLabel": "Assess Your Security Posture",
+            "ctaSecondaryLabel": "See Our Methodology"
+          },
+          "stats": [
+            {
+              "icon": "bi-star",
+              "value": "24/7",
+              "label": "Threat monitoring"
+            },
+            {
+              "icon": "bi-star",
+              "value": "Zero Trust",
+              "label": "Architecture approach"
+            },
+            {
+              "icon": "bi-star",
+              "value": "SOC 2",
+              "label": "Audit-ready programs"
+            },
+            {
+              "icon": "bi-star",
+              "value": "<15min",
+              "label": "Critical incident response"
+            }
+          ],
+          "challenge": {
+            "title": "Cyber threats outpace traditional defenses",
+            "description": "Canadian organizations face ransomware, supply-chain attacks, and insider threats on a weekly basis — while regulators demand stronger controls and faster breach notification. Legacy perimeter defenses no longer suffice.",
+            "painPoints": [
+              "Ransomware and supply-chain attacks target Canadian SMBs, healthcare, and municipalities relentlessly",
+              "Cloud expansion widens the attack surface faster than security teams can keep up",
+              "OSFI, PIPEDA, PHIPA — plus sector guidelines — create overlapping compliance obligations",
+              "Board and leadership demand cyber risk quantification most teams can't provide",
+              "Incident response plans exist on paper but break down in real events"
+            ]
+          },
+          "howWeDeliver": {
+            "title": "How We Secure Your Organization",
+            "description": "We take a proactive, risk-based approach to cybersecurity — protecting your systems, data, and operations against evolving threats.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "text": "Assess your current security posture and identify vulnerabilities"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Design and implement enterprise-grade security architectures"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Deploy advanced threat detection and response capabilities"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Establish continuous monitoring and incident response processes"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Ensure compliance with industry standards and regulations"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Build security awareness through training and tabletop exercises"
+              }
+            ]
+          },
+          "capabilities": {
+            "title": "Full-Spectrum Security Capabilities",
+            "groups": [
+              {
+                "icon": "bi-clipboard-check",
+                "name": "Assessment & Architecture",
+                "items": [
+                  "Security posture assessments",
+                  "Threat & risk assessments (TRAs)",
+                  "Zero-trust architecture design",
+                  "Cloud security architecture",
+                  "Third-party risk assessments"
+                ]
+              },
+              {
+                "icon": "bi-radar",
+                "name": "Detection & Response",
+                "items": [
+                  "SIEM/SOAR implementation",
+                  "Managed detection & response (MDR)",
+                  "Incident response planning",
+                  "Threat hunting & intel integration",
+                  "Digital forensics readiness"
+                ]
+              },
+              {
+                "icon": "bi-shield-lock",
+                "name": "Identity, Governance & Compliance",
+                "items": [
+                  "Identity & access management (IAM)",
+                  "Privileged access management (PAM)",
+                  "ISO 27001, SOC 2, NIST CSF alignment",
+                  "PIPEDA/PHIPA compliance programs",
+                  "Security awareness training"
+                ]
+              }
+            ]
+          },
+          "keyUseCases": {
+            "title": "Key Use Cases",
+            "description": "We help organizations strengthen security across critical areas:",
+            "items": [
+              "Detect and respond to cyber threats in real time",
+              "Secure cloud environments and applications",
+              "Protect sensitive data and customer information",
+              "Achieve and maintain regulatory compliance",
+              "Reduce risk of breaches, downtime, and financial loss",
+              "Enhance security visibility across systems and networks"
+            ]
+          },
+          "ourApproach": {
+            "title": "Our Approach",
+            "description": "We cover the full cybersecurity lifecycle from assessment through continuous improvement.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "title": "Security Assessment & Risk Analysis",
+                "description": "Current-state evaluation against frameworks like NIST CSF, ISO 27001, or CIS Controls — with risk quantification for the board."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Security Architecture & Controls Implementation",
+                "description": "Design and deploy technical and administrative controls aligned to your risk tolerance and regulatory obligations."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Threat Detection & Incident Response",
+                "description": "Stand up SIEM/SOAR capabilities, define runbooks, and conduct tabletop exercises so your team is ready when it matters."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Identity & Access Management (IAM)",
+                "description": "Implement zero-trust principles: least-privilege access, MFA everywhere, PAM for admins, and lifecycle governance."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Compliance, Governance & Risk Management",
+                "description": "Build audit-ready programs covering PIPEDA, PHIPA, OSFI, SOC 2, and sector-specific obligations."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Continuous Monitoring & Improvement",
+                "description": "Metrics, penetration testing, threat intel integration, and iterative hardening — security is not a project."
+              }
+            ]
+          },
+          "industryApplications": {
+            "title": "Cybersecurity for Regulated Sectors",
+            "description": "Security programs purpose-built for the compliance and operational realities of Canadian regulated industries.",
+            "industries": [
+              {
+                "icon": "bi-bank",
+                "name": "Financial Services",
+                "description": "OSFI Cyber Security Guideline B-13 compliant programs, operational resilience, and third-party risk.",
+                "useCases": [
+                  "OSFI B-13 cyber risk alignment",
+                  "Operational resilience frameworks",
+                  "Third-party risk management",
+                  "Fraud detection & AML integration"
+                ]
+              },
+              {
+                "icon": "bi-heart-pulse",
+                "name": "Healthcare",
+                "description": "PHIPA-compliant security programs protecting clinical data and medical devices.",
+                "useCases": [
+                  "PHIPA compliance programs",
+                  "Medical device security (IoMT)",
+                  "Clinical system protection",
+                  "Ransomware readiness"
+                ]
+              },
+              {
+                "icon": "bi-building",
+                "name": "Government & Public Sector",
+                "description": "ITSG-33 aligned security controls for Protected A/B/C classifications.",
+                "useCases": [
+                  "ITSG-33 control implementation",
+                  "Protected B/C workload security",
+                  "Citizen data protection",
+                  "Supply chain security"
+                ]
+              }
+            ]
+          },
+          "technologies": {
+            "title": "Technologies & Frameworks",
+            "description": "We leverage modern security tools and industry frameworks aligned to Canadian regulatory requirements.",
+            "items": [
+              {
+                "icon": "bi-gear",
+                "name": "SIEM platforms (Splunk, Sentinel, Chronicle)"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Cloud security (AWS Security Hub, Azure Defender, GCP SCC)"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "IAM & PAM (Okta, CyberArk, BeyondTrust)"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Endpoint & network security (CrowdStrike, Palo Alto)"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Vulnerability management (Tenable, Qualys)"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Frameworks: ISO 27001, NIST CSF, SOC 2, CIS, ITSG-33"
+              }
+            ]
+          },
+          "businessImpact": {
+            "title": "Business Impact",
+            "description": "Our cybersecurity solutions are designed to deliver measurable risk reduction.",
+            "items": [
+              {
+                "icon": "bi-graph-up",
+                "title": "Reduced risk of cyberattacks and data breaches",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Stronger protection of critical assets and data",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Improved compliance and audit readiness",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Increased customer trust and brand reputation",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Resilient and secure business operations",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Faster recovery when incidents occur",
+                "description": null
+              }
+            ]
+          },
+          "differentiators": {
+            "title": "Why Gamma Neutral for Cybersecurity",
+            "points": [
+              {
+                "icon": "bi-graph-up",
+                "title": "Risk-Based, Not Checkbox",
+                "description": "We start with business risk — then design controls proportional to it. Not every organization needs the same security program."
+              },
+              {
+                "icon": "bi-maple-leaf",
+                "title": "Canadian Regulatory Depth",
+                "description": "OSFI B-13, PIPEDA, PHIPA, ITSG-33 — we navigate the Canadian compliance landscape your auditors and regulators actually assess against."
+              },
+              {
+                "icon": "bi-shield-shaded",
+                "title": "Engineering + Security",
+                "description": "We bring software engineering discipline to security: IaC for controls, automated compliance, and DevSecOps practices."
+              },
+              {
+                "icon": "bi-file-bar-graph",
+                "title": "Board-Ready Risk Communication",
+                "description": "We translate technical risk into language executives and boards can act on — no FUD, just clear trade-offs."
+              }
+            ]
+          },
+          "closing": {
+            "title": "Ready to strengthen your security posture and protect your business?",
+            "subtitle": "Let's build a cybersecurity strategy tailored to your risks, regulations, and goals."
+          },
+          "features": [
+            {
+              "icon": "bi-check",
+              "title": "Security architecture assessment",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Compliance frameworks (SOC 2, PIPEDA)",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Threat detection and IAM",
+              "description": null
+            }
+          ],
+          "benefits": []
+        },
+        "fr": {
+          "title": "Cybersécurité",
+          "shortDescription": "Nous évaluons votre posture de sécurité, identifions les vulnérabilités et mettons en place des contrôles conformes aux exigences réglementaires des services financiers, de la santé et du gouvernement.",
+          "description": "Nous évaluons votre posture de sécurité, identifions les vulnérabilités et mettons en place des contrôles conformes aux exigences réglementaires des services financiers, de la santé et du gouvernement.",
+          "metaTitle": null,
+          "metaDescription": null,
+          "metaKeywords": null,
+          "hero": {
+            "tagline": "Sécurité basée sur le risque, prête pour la conformité",
+            "headline": "Protégez votre entreprise contre les cybermenaces évolutives",
+            "subheadline": "Nous concevons et déployons des programmes de sécurité de niveau entreprise pour les organisations canadiennes en services financiers, santé et secteur public — alignés aux cadres BSIF, LPRPDE, LPRPS, SOC 2 et NIST.",
+            "ctaPrimaryLabel": "Évaluer votre posture de sécurité",
+            "ctaSecondaryLabel": "Voir notre méthodologie"
+          },
+          "stats": [
+            {
+              "icon": "bi-star",
+              "value": "24/7",
+              "label": "Surveillance des menaces"
+            },
+            {
+              "icon": "bi-star",
+              "value": "Zéro confiance",
+              "label": "Approche architecturale"
+            },
+            {
+              "icon": "bi-star",
+              "value": "SOC 2",
+              "label": "Programmes prêts pour audit"
+            },
+            {
+              "icon": "bi-star",
+              "value": "<15 min",
+              "label": "Réponse aux incidents critiques"
+            }
+          ],
+          "challenge": {
+            "title": "Les cybermenaces dépassent les défenses traditionnelles",
+            "description": "Les organisations canadiennes font face à rançongiciels, attaques de chaîne d'approvisionnement et menaces internes chaque semaine — pendant que les régulateurs exigent contrôles renforcés et notification de violation plus rapide. Les défenses périmétriques traditionnelles ne suffisent plus.",
+            "painPoints": [
+              "Rançongiciels et attaques de chaîne d'approvisionnement ciblent sans relâche les PME, la santé et les municipalités canadiennes",
+              "L'expansion infonuagique élargit la surface d'attaque plus vite que les équipes de sécurité peuvent suivre",
+              "BSIF, LPRPDE, LPRPS — plus les lignes directrices sectorielles — créent des obligations de conformité qui se chevauchent",
+              "Conseils et direction exigent une quantification du risque cyber que la plupart des équipes ne peuvent fournir",
+              "Les plans de réponse aux incidents existent sur papier mais s'effondrent en situations réelles"
+            ]
+          },
+          "howWeDeliver": {
+            "title": "Comment nous sécurisons votre organisation",
+            "description": "Nous adoptons une approche proactive et basée sur le risque — protégeant vos systèmes, données et opérations contre les menaces évolutives.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "text": "Évaluer votre posture de sécurité actuelle et identifier les vulnérabilités"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Concevoir et déployer des architectures de sécurité de niveau entreprise"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Déployer des capacités avancées de détection et réponse aux menaces"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Établir des processus continus de surveillance et réponse aux incidents"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Assurer la conformité aux normes et réglementations de l'industrie"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Bâtir la sensibilisation par formation et exercices théoriques"
+              }
+            ]
+          },
+          "capabilities": {
+            "title": "Capacités de sécurité complètes",
+            "groups": [
+              {
+                "icon": "bi-clipboard-check",
+                "name": "Évaluation et architecture",
+                "items": [
+                  "Évaluations de posture de sécurité",
+                  "Évaluations de menaces et risques (ÉMR)",
+                  "Conception d'architecture zéro confiance",
+                  "Architecture de sécurité infonuagique",
+                  "Évaluations de risque des tiers"
+                ]
+              },
+              {
+                "icon": "bi-radar",
+                "name": "Détection et réponse",
+                "items": [
+                  "Implémentation SIEM/SOAR",
+                  "Détection et réponse gérées (MDR)",
+                  "Planification de réponse aux incidents",
+                  "Chasse aux menaces et intégration de renseignements",
+                  "Préparation à l'investigation numérique"
+                ]
+              },
+              {
+                "icon": "bi-shield-lock",
+                "name": "Identité, gouvernance et conformité",
+                "items": [
+                  "Gestion des identités et accès (IAM)",
+                  "Gestion des accès privilégiés (PAM)",
+                  "Alignement ISO 27001, SOC 2, NIST CSF",
+                  "Programmes de conformité LPRPDE/LPRPS",
+                  "Formation de sensibilisation à la sécurité"
+                ]
+              }
+            ]
+          },
+          "keyUseCases": {
+            "title": "Cas d'usage clés",
+            "description": "Nous aidons les organisations à renforcer la sécurité dans des domaines critiques :",
+            "items": [
+              "Détecter et répondre aux cybermenaces en temps réel",
+              "Sécuriser les environnements et applications infonuagiques",
+              "Protéger les données sensibles et informations clients",
+              "Atteindre et maintenir la conformité réglementaire",
+              "Réduire le risque de violations, d'arrêts et pertes financières",
+              "Améliorer la visibilité de sécurité sur systèmes et réseaux"
+            ]
+          },
+          "ourApproach": {
+            "title": "Notre approche",
+            "description": "Nous couvrons tout le cycle de vie de la cybersécurité, de l'évaluation à l'amélioration continue.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "title": "Évaluation et analyse des risques",
+                "description": "Évaluation de l'état actuel contre des cadres comme NIST CSF, ISO 27001 ou CIS Controls — avec quantification du risque pour le conseil."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Architecture de sécurité et implémentation",
+                "description": "Concevoir et déployer des contrôles techniques et administratifs alignés à votre tolérance au risque et obligations réglementaires."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Détection des menaces et réponse aux incidents",
+                "description": "Mettre en place des capacités SIEM/SOAR, définir des runbooks et mener des exercices théoriques afin que votre équipe soit prête."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Gestion des identités et accès (IAM)",
+                "description": "Implémenter les principes zéro confiance : accès à moindre privilège, MFA partout, PAM pour admins et gouvernance du cycle de vie."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Conformité, gouvernance et gestion des risques",
+                "description": "Bâtir des programmes prêts pour audit couvrant LPRPDE, LPRPS, BSIF, SOC 2 et obligations sectorielles spécifiques."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Surveillance continue et amélioration",
+                "description": "Métriques, tests d'intrusion, intégration de renseignements sur les menaces et durcissement itératif — la sécurité n'est pas un projet."
+              }
+            ]
+          },
+          "industryApplications": {
+            "title": "Cybersécurité pour secteurs réglementés",
+            "description": "Programmes de sécurité conçus pour les réalités de conformité et opérationnelles des industries réglementées canadiennes.",
+            "industries": [
+              {
+                "icon": "bi-bank",
+                "name": "Services financiers",
+                "description": "Programmes conformes à la ligne directrice BSIF B-13 sur la cybersécurité, résilience opérationnelle et risque des tiers.",
+                "useCases": [
+                  "Alignement BSIF B-13 cyber-risque",
+                  "Cadres de résilience opérationnelle",
+                  "Gestion de risque des tiers",
+                  "Intégration détection fraude et LCBA"
+                ]
+              },
+              {
+                "icon": "bi-heart-pulse",
+                "name": "Santé",
+                "description": "Programmes de sécurité conformes LPRPS protégeant données cliniques et dispositifs médicaux.",
+                "useCases": [
+                  "Programmes de conformité LPRPS",
+                  "Sécurité des dispositifs médicaux (IoMT)",
+                  "Protection des systèmes cliniques",
+                  "Préparation aux rançongiciels"
+                ]
+              },
+              {
+                "icon": "bi-building",
+                "name": "Gouvernement et secteur public",
+                "description": "Contrôles de sécurité alignés ITSG-33 pour classifications Protégé A/B/C.",
+                "useCases": [
+                  "Implémentation des contrôles ITSG-33",
+                  "Sécurité des charges Protégé B/C",
+                  "Protection des données citoyennes",
+                  "Sécurité de la chaîne d'approvisionnement"
+                ]
+              }
+            ]
+          },
+          "technologies": {
+            "title": "Technologies et cadres",
+            "description": "Nous exploitons outils de sécurité modernes et cadres reconnus alignés aux exigences réglementaires canadiennes.",
+            "items": [
+              {
+                "icon": "bi-gear",
+                "name": "Plateformes SIEM (Splunk, Sentinel, Chronicle)"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Sécurité infonuagique (AWS Security Hub, Azure Defender, GCP SCC)"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "IAM et PAM (Okta, CyberArk, BeyondTrust)"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Sécurité points terminaux et réseau (CrowdStrike, Palo Alto)"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Gestion de vulnérabilités (Tenable, Qualys)"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Cadres : ISO 27001, NIST CSF, SOC 2, CIS, ITSG-33"
+              }
+            ]
+          },
+          "businessImpact": {
+            "title": "Impact d'affaires",
+            "description": "Nos solutions de cybersécurité sont conçues pour livrer une réduction de risque mesurable.",
+            "items": [
+              {
+                "icon": "bi-graph-up",
+                "title": "Risque réduit de cyberattaques et violations de données",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Protection renforcée des actifs critiques et données",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Meilleure conformité et préparation aux audits",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Confiance client accrue et réputation de marque améliorée",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Opérations d'affaires résilientes et sécurisées",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Récupération plus rapide lors d'incidents",
+                "description": null
+              }
+            ]
+          },
+          "differentiators": {
+            "title": "Pourquoi Gamma Neutral pour la cybersécurité",
+            "points": [
+              {
+                "icon": "bi-graph-up",
+                "title": "Basé sur le risque, pas les cases à cocher",
+                "description": "Nous commençons par le risque d'affaires — puis concevons des contrôles proportionnels. Toutes les organisations n'ont pas besoin du même programme de sécurité."
+              },
+              {
+                "icon": "bi-maple-leaf",
+                "title": "Profondeur réglementaire canadienne",
+                "description": "BSIF B-13, LPRPDE, LPRPS, ITSG-33 — nous naviguons le paysage de conformité canadien que vos auditeurs et régulateurs évaluent vraiment."
+              },
+              {
+                "icon": "bi-shield-shaded",
+                "title": "Ingénierie + sécurité",
+                "description": "Nous apportons la discipline d'ingénierie logicielle à la sécurité : IaC pour les contrôles, conformité automatisée et pratiques DevSecOps."
+              },
+              {
+                "icon": "bi-file-bar-graph",
+                "title": "Communication de risque prête pour le conseil",
+                "description": "Nous traduisons le risque technique en langage que les dirigeants et conseils peuvent actionner — pas de peur, juste des compromis clairs."
+              }
+            ]
+          },
+          "closing": {
+            "title": "Prêt à renforcer votre posture de sécurité et protéger votre entreprise ?",
+            "subtitle": "Bâtissons une stratégie de cybersécurité adaptée à vos risques, réglementations et objectifs."
+          },
+          "features": [
+            {
+              "icon": "bi-check",
+              "title": "Évaluation de l'architecture de sécurité",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Cadres de conformité (SOC 2, LPRPDE)",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Détection des menaces et GIA",
+              "description": null
+            }
+          ],
+          "benefits": []
+        }
+      }
+    },
+    {
+      "slug": "business-intelligence",
+      "icon": "bi-bar-chart",
+      "iconColor": "primary",
+      "category": "business-intelligence",
+      "order": 5,
+      "translations": {
+        "en": {
+          "title": "Business Intelligence",
+          "shortDescription": "Dashboards are only valuable when they answer the questions your team actually asks. We design BI solutions connected to your data infrastructure.",
+          "description": "Dashboards are only valuable when they answer the questions your team actually asks. We design BI solutions connected to your data infrastructure.",
+          "metaTitle": null,
+          "metaDescription": null,
+          "metaKeywords": null,
+          "hero": {
+            "tagline": "Dashboards That Actually Get Used",
+            "headline": "Turn data into decisions your teams will act on",
+            "subheadline": "We design BI solutions that answer the questions your team actually asks — executive dashboards, self-service analytics, and embedded reporting that drive measurable outcomes across finance, operations, and strategy.",
+            "ctaPrimaryLabel": "Build Your BI Strategy",
+            "ctaSecondaryLabel": "See Our Approach"
+          },
+          "stats": [
+            {
+              "icon": "bi-star",
+              "value": "80%",
+              "label": "Less manual reporting"
+            },
+            {
+              "icon": "bi-star",
+              "value": "Self-service",
+              "label": "Analytics at scale"
+            },
+            {
+              "icon": "bi-star",
+              "value": "Real-time",
+              "label": "KPI visibility"
+            },
+            {
+              "icon": "bi-star",
+              "value": "5-tool",
+              "label": "Platform expertise"
+            }
+          ],
+          "challenge": {
+            "title": "Dashboards no one opens — reports no one trusts",
+            "description": "Most organizations have plenty of dashboards. What they lack is dashboards that answer the right questions, built on data people trust, delivered where decisions actually happen.",
+            "painPoints": [
+              "Executives wait days for reports that should be real-time",
+              "Different dashboards show different numbers for the same KPI",
+              "Analysts spend 80% of their time wrangling data, 20% analyzing",
+              "Self-service BI promises fail because of untrustworthy underlying data",
+              "Reports sit unused because they don't surface next actions"
+            ]
+          },
+          "howWeDeliver": {
+            "title": "How We Deliver BI Solutions",
+            "description": "We help organizations turn raw data into actionable insights that drive smarter decisions and measurable outcomes.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "text": "Assess business goals and identify key metrics"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Design and implement interactive dashboards and reporting frameworks"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Integrate data from multiple sources for a unified view"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Automate reporting and KPI tracking for real-time visibility"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Enable predictive and scenario-based analytics for strategic planning"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Drive adoption through training, enablement, and iteration"
+              }
+            ]
+          },
+          "capabilities": {
+            "title": "Modern BI Capabilities",
+            "groups": [
+              {
+                "icon": "bi-clipboard-data",
+                "name": "Dashboard & Reporting Design",
+                "items": [
+                  "Executive KPI dashboards",
+                  "Operational & tactical dashboards",
+                  "Regulatory & compliance reporting",
+                  "Mobile-friendly BI experiences",
+                  "Embedded analytics in products"
+                ]
+              },
+              {
+                "icon": "bi-diagram-3",
+                "name": "Semantic Layer & Modeling",
+                "items": [
+                  "Metric definitions & KPI catalogs",
+                  "Dimensional modeling (star/snowflake)",
+                  "Semantic layers (dbt metrics, LookML)",
+                  "Certified datasets & governance",
+                  "Row-level & column-level security"
+                ]
+              },
+              {
+                "icon": "bi-graph-up-arrow",
+                "name": "Advanced Analytics",
+                "items": [
+                  "Forecasting & what-if scenarios",
+                  "Cohort & funnel analysis",
+                  "Customer behavior analytics",
+                  "A/B testing frameworks",
+                  "Alerting & anomaly detection"
+                ]
+              }
+            ]
+          },
+          "keyUseCases": {
+            "title": "Key Use Cases",
+            "description": "We empower businesses to act on insights quickly:",
+            "items": [
+              "Monitor sales, operations, and financial performance in real time",
+              "Track KPIs and set alerts for critical thresholds",
+              "Generate executive-ready strategic reports automatically",
+              "Analyze customer behavior and trends",
+              "Evaluate marketing campaign performance",
+              "Support decision-making with predictive analytics"
+            ]
+          },
+          "ourApproach": {
+            "title": "Our Approach",
+            "description": "From data to insight, we manage the full BI lifecycle with business outcomes front-and-center.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "title": "Requirements Gathering & KPI Definition",
+                "description": "Workshop decisions to be supported, define metric ownership, and establish a governed KPI catalog."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Data Integration & Transformation",
+                "description": "Connect source systems, build semantic models, and create certified datasets teams can trust."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Dashboard & Report Design",
+                "description": "Design-led dashboards that surface insights visually, with clear calls-to-action and drill-downs."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Automation & Scheduling",
+                "description": "Automate data refreshes, report distribution, and alerts so insights arrive when needed."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "User Training & Adoption Support",
+                "description": "Enable analysts and business users with training, office hours, and documentation — adoption is a program, not an event."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Continuous Improvement & Optimization",
+                "description": "Usage analytics, feedback loops, and iterative enhancements based on what teams actually use."
+              }
+            ]
+          },
+          "industryApplications": {
+            "title": "BI Across Regulated Industries",
+            "description": "BI solutions designed for the reporting rigour and audit requirements of Canadian regulated sectors.",
+            "industries": [
+              {
+                "icon": "bi-bank",
+                "name": "Financial Services",
+                "description": "Executive dashboards, regulatory reporting, and risk analytics aligned to OSFI requirements.",
+                "useCases": [
+                  "Executive scorecards & balanced scorecards",
+                  "OSFI regulatory reporting automation",
+                  "Branch & channel performance analytics",
+                  "Customer 360 & LTV dashboards"
+                ]
+              },
+              {
+                "icon": "bi-heart-pulse",
+                "name": "Healthcare",
+                "description": "Clinical dashboards, operational analytics, and quality improvement reporting.",
+                "useCases": [
+                  "Clinical quality indicators",
+                  "Hospital operational dashboards",
+                  "Wait-time & capacity analytics",
+                  "Population health reporting"
+                ]
+              },
+              {
+                "icon": "bi-building",
+                "name": "Government & Public Sector",
+                "description": "Public service performance dashboards and transparency reporting.",
+                "useCases": [
+                  "Program performance measurement",
+                  "Public service delivery dashboards",
+                  "Open data & transparency reporting",
+                  "Budget & spend analytics"
+                ]
+              }
+            ]
+          },
+          "technologies": {
+            "title": "Technologies & Platforms",
+            "description": "We leverage modern BI tools and platforms — matched to your team's skills and existing investments.",
+            "items": [
+              {
+                "icon": "bi-gear",
+                "name": "Power BI, Tableau, Looker, Qlik Sense"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "dbt, Cube.js, Metabase, Superset"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "SQL, Python, R for advanced analytics"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Snowflake, BigQuery, Databricks SQL"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Google Analytics 4, Amplitude, Mixpanel"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Automated reporting pipelines"
+              }
+            ]
+          },
+          "businessImpact": {
+            "title": "Business Impact",
+            "description": "Our BI solutions deliver transformation you can measure.",
+            "items": [
+              {
+                "icon": "bi-graph-up",
+                "title": "Faster access to actionable insights (hours, not days)",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Improved decision-making and strategic planning",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Greater transparency across departments",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Reduced time spent on manual reporting (often 50-80%)",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Enhanced ability to spot trends and seize opportunities",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Single source of truth across the organization",
+                "description": null
+              }
+            ]
+          },
+          "differentiators": {
+            "title": "Why Gamma Neutral for BI",
+            "points": [
+              {
+                "icon": "bi-bullseye",
+                "title": "Business First, Tools Second",
+                "description": "We start with the decisions you need to make — not the dashboards you want to build. Tools follow strategy."
+              },
+              {
+                "icon": "bi-people",
+                "title": "Adoption as a Discipline",
+                "description": "BI success is measured by usage, not delivery. We bake training, enablement, and feedback loops into every engagement."
+              },
+              {
+                "icon": "bi-tools",
+                "title": "Platform-Agnostic Expertise",
+                "description": "Deep experience across Power BI, Tableau, Looker, and Qlik — we recommend what fits your team, not our familiarity."
+              },
+              {
+                "icon": "bi-bricks",
+                "title": "Data Engineering Foundations",
+                "description": "We build BI on trustworthy data infrastructure — because dashboards built on bad data are worse than no dashboards."
+              }
+            ]
+          },
+          "closing": {
+            "title": "Ready to transform your data into insights that drive results?",
+            "subtitle": "Let's build a BI solution that your team will actually use and trust."
+          },
+          "features": [
+            {
+              "icon": "bi-check",
+              "title": "Executive dashboard design",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Self-service analytics",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Power BI / Tableau / Looker",
+              "description": null
+            }
+          ],
+          "benefits": []
+        },
+        "fr": {
+          "title": "Intelligence d'affaires",
+          "shortDescription": "Les tableaux de bord n'ont de valeur que lorsqu'ils répondent aux questions que votre équipe se pose réellement. Nous concevons des solutions BI connectées à votre infrastructure de données.",
+          "description": "Les tableaux de bord n'ont de valeur que lorsqu'ils répondent aux questions que votre équipe se pose réellement. Nous concevons des solutions BI connectées à votre infrastructure de données.",
+          "metaTitle": null,
+          "metaDescription": null,
+          "metaKeywords": null,
+          "hero": {
+            "tagline": "Des tableaux de bord réellement utilisés",
+            "headline": "Transformez les données en décisions que vos équipes actionneront",
+            "subheadline": "Nous concevons des solutions BI qui répondent aux questions que votre équipe pose réellement — tableaux de bord exécutifs, analytique libre-service et reporting intégré qui génèrent des résultats mesurables en finance, opérations et stratégie.",
+            "ctaPrimaryLabel": "Bâtir votre stratégie BI",
+            "ctaSecondaryLabel": "Voir notre approche"
+          },
+          "stats": [
+            {
+              "icon": "bi-star",
+              "value": "80 %",
+              "label": "Moins de reporting manuel"
+            },
+            {
+              "icon": "bi-star",
+              "value": "Libre-service",
+              "label": "Analytique à grande échelle"
+            },
+            {
+              "icon": "bi-star",
+              "value": "Temps réel",
+              "label": "Visibilité des KPI"
+            },
+            {
+              "icon": "bi-star",
+              "value": "5 outils",
+              "label": "Expertise plateforme"
+            }
+          ],
+          "challenge": {
+            "title": "Des tableaux de bord que personne n'ouvre — des rapports auxquels personne ne se fie",
+            "description": "La plupart des organisations ont beaucoup de tableaux de bord. Ce qui manque : des tableaux de bord qui répondent aux bonnes questions, bâtis sur des données fiables, livrés où les décisions se prennent vraiment.",
+            "painPoints": [
+              "Les dirigeants attendent des jours des rapports qui devraient être en temps réel",
+              "Différents tableaux de bord affichent différents chiffres pour le même KPI",
+              "Les analystes passent 80 % de leur temps à traiter les données, 20 % à analyser",
+              "Les promesses de BI libre-service échouent à cause de données sous-jacentes peu fiables",
+              "Les rapports restent inutilisés parce qu'ils ne font pas surgir les prochaines actions"
+            ]
+          },
+          "howWeDeliver": {
+            "title": "Comment nous livrons les solutions BI",
+            "description": "Nous aidons les organisations à transformer des données brutes en insights actionnables qui guident des décisions intelligentes et résultats mesurables.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "text": "Évaluer les objectifs d'affaires et identifier les indicateurs clés"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Concevoir et déployer des tableaux de bord interactifs et cadres de reporting"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Intégrer les données de sources multiples pour une vue unifiée"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Automatiser le reporting et suivi des KPI pour visibilité temps réel"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Permettre l'analyse prédictive et par scénarios pour la planification"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Favoriser l'adoption par formation, accompagnement et itération"
+              }
+            ]
+          },
+          "capabilities": {
+            "title": "Capacités BI modernes",
+            "groups": [
+              {
+                "icon": "bi-clipboard-data",
+                "name": "Conception de tableaux de bord",
+                "items": [
+                  "Tableaux de bord KPI exécutifs",
+                  "Tableaux opérationnels et tactiques",
+                  "Reporting réglementaire et conformité",
+                  "Expériences BI adaptées aux mobiles",
+                  "Analytique intégrée dans les produits"
+                ]
+              },
+              {
+                "icon": "bi-diagram-3",
+                "name": "Couche sémantique et modélisation",
+                "items": [
+                  "Définitions de métriques et catalogues KPI",
+                  "Modélisation dimensionnelle (étoile/flocon)",
+                  "Couches sémantiques (dbt metrics, LookML)",
+                  "Jeux de données certifiés et gouvernance",
+                  "Sécurité au niveau des lignes et colonnes"
+                ]
+              },
+              {
+                "icon": "bi-graph-up-arrow",
+                "name": "Analytique avancée",
+                "items": [
+                  "Prévisions et scénarios what-if",
+                  "Analyse de cohortes et d'entonnoirs",
+                  "Analyse du comportement client",
+                  "Cadres de tests A/B",
+                  "Alertes et détection d'anomalies"
+                ]
+              }
+            ]
+          },
+          "keyUseCases": {
+            "title": "Cas d'usage clés",
+            "description": "Nous permettons aux entreprises d'agir rapidement sur les insights :",
+            "items": [
+              "Suivre les ventes, opérations et performance financière en temps réel",
+              "Suivre les KPI et configurer des alertes pour seuils critiques",
+              "Générer automatiquement des rapports stratégiques pour la direction",
+              "Analyser le comportement et tendances des clients",
+              "Évaluer la performance des campagnes marketing",
+              "Soutenir la prise de décision avec analyse prédictive"
+            ]
+          },
+          "ourApproach": {
+            "title": "Notre approche",
+            "description": "Des données aux insights, nous gérons tout le cycle de vie BI avec les résultats d'affaires au premier plan.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "title": "Recueil des besoins et définition des KPI",
+                "description": "Atelier sur les décisions à soutenir, définir la propriété des métriques et établir un catalogue KPI gouverné."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Intégration et transformation des données",
+                "description": "Connecter les systèmes sources, bâtir des modèles sémantiques et créer des jeux de données certifiés fiables."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Conception de tableaux de bord et rapports",
+                "description": "Tableaux de bord conçus par le design qui font surgir les insights visuellement, avec appels à l'action clairs et drill-downs."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Automatisation et planification",
+                "description": "Automatiser les rafraîchissements de données, distribution de rapports et alertes afin que les insights arrivent à temps."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Formation et adoption",
+                "description": "Accompagner analystes et utilisateurs d'affaires par formation, heures de bureau et documentation — l'adoption est un programme, pas un événement."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Amélioration continue",
+                "description": "Analytique d'utilisation, boucles de rétroaction et améliorations itératives basées sur ce que les équipes utilisent vraiment."
+              }
+            ]
+          },
+          "industryApplications": {
+            "title": "BI à travers les industries réglementées",
+            "description": "Solutions BI conçues pour la rigueur de reporting et exigences d'audit des secteurs réglementés canadiens.",
+            "industries": [
+              {
+                "icon": "bi-bank",
+                "name": "Services financiers",
+                "description": "Tableaux de bord exécutifs, reporting réglementaire et analytique de risque alignés aux exigences BSIF.",
+                "useCases": [
+                  "Tableaux de bord équilibrés exécutifs",
+                  "Automatisation des rapports réglementaires BSIF",
+                  "Analytique de performance par succursale et canal",
+                  "Client 360 et tableaux de bord valeur à vie"
+                ]
+              },
+              {
+                "icon": "bi-heart-pulse",
+                "name": "Santé",
+                "description": "Tableaux de bord cliniques, analytique opérationnelle et reporting d'amélioration de qualité.",
+                "useCases": [
+                  "Indicateurs de qualité clinique",
+                  "Tableaux de bord opérationnels hospitaliers",
+                  "Analytique temps d'attente et capacité",
+                  "Reporting de santé populationnelle"
+                ]
+              },
+              {
+                "icon": "bi-building",
+                "name": "Gouvernement et secteur public",
+                "description": "Tableaux de bord de performance des services publics et reporting de transparence.",
+                "useCases": [
+                  "Mesure de performance des programmes",
+                  "Tableaux de bord de prestation de services",
+                  "Données ouvertes et reporting de transparence",
+                  "Analytique budgétaire et dépenses"
+                ]
+              }
+            ]
+          },
+          "technologies": {
+            "title": "Technologies et plateformes",
+            "description": "Nous exploitons des outils et plateformes BI modernes — adaptés aux compétences de votre équipe et investissements existants.",
+            "items": [
+              {
+                "icon": "bi-gear",
+                "name": "Power BI, Tableau, Looker, Qlik Sense"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "dbt, Cube.js, Metabase, Superset"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "SQL, Python, R pour analytique avancée"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Snowflake, BigQuery, Databricks SQL"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Google Analytics 4, Amplitude, Mixpanel"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Pipelines de reporting automatisés"
+              }
+            ]
+          },
+          "businessImpact": {
+            "title": "Impact d'affaires",
+            "description": "Nos solutions BI livrent une transformation mesurable.",
+            "items": [
+              {
+                "icon": "bi-graph-up",
+                "title": "Accès plus rapide aux insights actionnables (heures, pas jours)",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Prise de décision et planification stratégique améliorées",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Transparence accrue entre les départements",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Temps de reporting manuel réduit (souvent 50-80 %)",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Capacité accrue à repérer les tendances et saisir les opportunités",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Source unique de vérité à travers l'organisation",
+                "description": null
+              }
+            ]
+          },
+          "differentiators": {
+            "title": "Pourquoi Gamma Neutral pour la BI",
+            "points": [
+              {
+                "icon": "bi-bullseye",
+                "title": "Les affaires d'abord, les outils ensuite",
+                "description": "Nous commençons par les décisions à prendre — pas par les tableaux de bord à bâtir. Les outils suivent la stratégie."
+              },
+              {
+                "icon": "bi-people",
+                "title": "L'adoption comme discipline",
+                "description": "Le succès BI se mesure par l'usage, pas la livraison. Nous intégrons formation, accompagnement et rétroaction dans chaque mandat."
+              },
+              {
+                "icon": "bi-tools",
+                "title": "Expertise agnostique aux plateformes",
+                "description": "Expérience approfondie avec Power BI, Tableau, Looker et Qlik — nous recommandons ce qui convient à votre équipe."
+              },
+              {
+                "icon": "bi-bricks",
+                "title": "Fondations d'ingénierie de données",
+                "description": "Nous bâtissons la BI sur une infrastructure de données fiable — car des tableaux de bord sur de mauvaises données sont pires que pas de tableaux."
+              }
+            ]
+          },
+          "closing": {
+            "title": "Prêt à transformer vos données en insights qui génèrent des résultats ?",
+            "subtitle": "Bâtissons une solution BI que votre équipe utilisera et à laquelle elle fera confiance."
+          },
+          "features": [
+            {
+              "icon": "bi-check",
+              "title": "Conception de tableaux de bord exécutifs",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Analytique en libre-service",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Power BI / Tableau / Looker",
+              "description": null
+            }
+          ],
+          "benefits": []
+        }
+      }
+    },
+    {
+      "slug": "big-data",
+      "icon": "bi-hdd-stack",
+      "iconColor": "primary",
+      "category": "big-data",
+      "order": 6,
+      "translations": {
+        "en": {
+          "title": "Data Platform & Big Data",
+          "shortDescription": "When your data volumes outgrow traditional databases, you need architecture designed for scale with modern distributed processing tools.",
+          "description": "When your data volumes outgrow traditional databases, you need architecture designed for scale with modern distributed processing tools.",
+          "metaTitle": null,
+          "metaDescription": null,
+          "metaKeywords": null,
+          "hero": {
+            "tagline": "Scale Beyond Traditional Databases",
+            "headline": "Process massive datasets at speed and scale",
+            "subheadline": "When your data volumes outgrow traditional databases, you need architecture designed for scale. We build distributed data platforms that handle petabytes, stream millions of events, and power AI workloads without breaking.",
+            "ctaPrimaryLabel": "Architect Your Data Platform",
+            "ctaSecondaryLabel": "See Our Methodology"
+          },
+          "stats": [
+            {
+              "icon": "bi-star",
+              "value": "Petabyte",
+              "label": "Scale-ready architectures"
+            },
+            {
+              "icon": "bi-star",
+              "value": "Real-time",
+              "label": "Event streaming"
+            },
+            {
+              "icon": "bi-star",
+              "value": "Lakehouse",
+              "label": "Modern architecture"
+            },
+            {
+              "icon": "bi-star",
+              "value": "100%",
+              "label": "Open-source friendly"
+            }
+          ],
+          "challenge": {
+            "title": "Your data outgrew your infrastructure",
+            "description": "Transactional databases weren't built for petabyte-scale analytics. Traditional warehouses struggle with unstructured data, streaming events, and the compute demands of modern AI workloads.",
+            "painPoints": [
+              "Analytical queries on transactional databases slow down operations",
+              "Batch ETL jobs can't keep up with data arrival rates",
+              "Unstructured data (documents, images, logs) sits unused in cheap storage",
+              "AI and ML initiatives stall because training data is everywhere but nowhere",
+              "Scaling traditional data warehouses gets expensive fast"
+            ]
+          },
+          "howWeDeliver": {
+            "title": "How We Deliver Big Data Solutions",
+            "description": "We help organizations process, store, and analyze massive datasets to uncover insights and support data-driven decision-making.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "text": "Design and implement scalable distributed computing architectures"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Integrate and process structured and unstructured data at scale"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Optimize performance for high-volume, real-time, and batch data processing"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Build modern data lakes and analytics-ready platforms"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Enable AI and advanced analytics on massive datasets"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Establish governance and lineage for regulated data"
+              }
+            ]
+          },
+          "capabilities": {
+            "title": "Big Data Platform Capabilities",
+            "groups": [
+              {
+                "icon": "bi-hdd-stack",
+                "name": "Distributed Storage & Compute",
+                "items": [
+                  "Data lakes (S3, ADLS, GCS)",
+                  "Lakehouse architecture (Delta, Iceberg, Hudi)",
+                  "Distributed processing (Spark, Flink)",
+                  "Query engines (Presto, Trino, Athena)",
+                  "Columnar formats (Parquet, ORC)"
+                ]
+              },
+              {
+                "icon": "bi-broadcast",
+                "name": "Streaming & Real-Time",
+                "items": [
+                  "Event streaming (Kafka, Kinesis, Pulsar)",
+                  "Stream processing (Flink, Spark Streaming)",
+                  "CDC & change streams",
+                  "Real-time analytics (Druid, Pinot)",
+                  "Low-latency data serving"
+                ]
+              },
+              {
+                "icon": "bi-cpu",
+                "name": "Analytics & ML at Scale",
+                "items": [
+                  "Distributed ML training (Spark MLlib, Ray)",
+                  "Feature stores for production ML",
+                  "Vector databases for GenAI workloads",
+                  "Graph analytics at scale",
+                  "Petabyte-scale ad-hoc analytics"
+                ]
+              }
+            ]
+          },
+          "keyUseCases": {
+            "title": "Key Use Cases",
+            "description": "Our Big Data solutions unlock value across industries:",
+            "items": [
+              "Real-time analytics for operational efficiency",
+              "Customer behavior and trend analysis",
+              "Predictive maintenance and IoT data monitoring",
+              "Fraud detection and risk analysis",
+              "Marketing optimization through large-scale data analysis",
+              "Supporting AI and machine learning initiatives with big datasets"
+            ]
+          },
+          "ourApproach": {
+            "title": "Our Approach",
+            "description": "We manage the full lifecycle of Big Data projects from architecture to operations.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "title": "Requirements Gathering & Architecture Planning",
+                "description": "Quantify data volumes, velocity, and variety — design a platform that handles today's load and tomorrow's growth."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Data Ingestion & Integration",
+                "description": "Build scalable batch and streaming pipelines connecting source systems to the platform."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Distributed Processing",
+                "description": "Implement Spark, Flink, or serverless processing matched to your workload patterns and team skills."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Data Lake & Warehouse Design",
+                "description": "Design lakehouse architecture with proper partitioning, formats, and catalog — built to query efficiently."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Optimization, Monitoring & Scalability",
+                "description": "Tune for cost and performance; establish observability and autoscaling for elastic workloads."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Governance, Security & Compliance",
+                "description": "Implement cataloging, fine-grained access controls, and audit logging for regulated data at scale."
+              }
+            ]
+          },
+          "industryApplications": {
+            "title": "Big Data Across Industries",
+            "description": "Scale data platforms proven in Canada's most demanding regulated environments.",
+            "industries": [
+              {
+                "icon": "bi-bank",
+                "name": "Financial Services",
+                "description": "Transaction analytics, risk computation, and fraud detection at the scale Canadian banking demands.",
+                "useCases": [
+                  "Real-time transaction analytics",
+                  "Risk computation & stress testing",
+                  "Historical fraud pattern analysis",
+                  "Market data processing"
+                ]
+              },
+              {
+                "icon": "bi-heart-pulse",
+                "name": "Healthcare",
+                "description": "Genomics, imaging, and population data platforms for research and clinical operations.",
+                "useCases": [
+                  "Genomics & sequencing pipelines",
+                  "Medical imaging archives (PACS)",
+                  "Population health data lakes",
+                  "Real-world evidence generation"
+                ]
+              },
+              {
+                "icon": "bi-building",
+                "name": "Government & Public Sector",
+                "description": "Census, statistical, and open-data platforms serving millions of queries.",
+                "useCases": [
+                  "Census & statistical data platforms",
+                  "Open data infrastructure",
+                  "Inter-agency data sharing",
+                  "Program-level analytics at scale"
+                ]
+              }
+            ]
+          },
+          "technologies": {
+            "title": "Technologies & Platforms",
+            "description": "We leverage leading Big Data tools and frameworks — prioritizing open standards and avoiding lock-in.",
+            "items": [
+              {
+                "icon": "bi-gear",
+                "name": "Apache Spark, Flink, Hadoop, Beam"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Delta Lake, Apache Iceberg, Hudi"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Kafka, Kinesis, Pulsar, Pub/Sub"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Trino, Presto, Athena, Dremio"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Databricks, EMR, Dataproc, HDInsight"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Druid, Pinot, ClickHouse"
+              }
+            ]
+          },
+          "businessImpact": {
+            "title": "Business Impact",
+            "description": "Our Big Data solutions deliver scale, performance, and flexibility.",
+            "items": [
+              {
+                "icon": "bi-graph-up",
+                "title": "Faster processing and analysis of massive datasets",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Improved operational and business decision-making",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Scalable infrastructure for growing data volumes",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Support for advanced analytics and AI/ML initiatives",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Strong data governance and reliability",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Lower total cost of ownership than traditional warehouses at scale",
+                "description": null
+              }
+            ]
+          },
+          "differentiators": {
+            "title": "Why Gamma Neutral for Big Data",
+            "points": [
+              {
+                "icon": "bi-unlock",
+                "title": "Open Standards First",
+                "description": "We build on open formats (Parquet, Iceberg, Delta) and open engines (Spark, Trino) — avoiding the vendor lock-in that kills long-term agility."
+              },
+              {
+                "icon": "bi-calculator",
+                "title": "Cost-Aware Architecture",
+                "description": "Big data doesn't have to mean big bills. We engineer for storage/compute separation, intelligent tiering, and workload-appropriate infrastructure."
+              },
+              {
+                "icon": "bi-activity",
+                "title": "Production Operations",
+                "description": "We don't stop at architecture — we implement observability, auto-scaling, and operational runbooks for reliable production systems."
+              },
+              {
+                "icon": "bi-cpu-fill",
+                "title": "AI-Ready Foundations",
+                "description": "Our platforms are designed with AI/ML workloads in mind: feature stores, vector databases, and distributed training infrastructure."
+              }
+            ]
+          },
+          "closing": {
+            "title": "Ready to unlock insights from your massive datasets?",
+            "subtitle": "Let's design a Big Data solution that scales with your business needs — and your budget."
+          },
+          "features": [
+            {
+              "icon": "bi-check",
+              "title": "Distributed processing (Spark)",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Data lakehouse design",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Stream processing",
+              "description": null
+            }
+          ],
+          "benefits": []
+        },
+        "fr": {
+          "title": "Plateforme de données et Big Data",
+          "shortDescription": "Lorsque vos volumes de données dépassent les bases de données traditionnelles, vous avez besoin d'une architecture conçue pour l'échelle avec des outils de traitement distribué modernes.",
+          "description": "Lorsque vos volumes de données dépassent les bases de données traditionnelles, vous avez besoin d'une architecture conçue pour l'échelle avec des outils de traitement distribué modernes.",
+          "metaTitle": null,
+          "metaDescription": null,
+          "metaKeywords": null,
+          "hero": {
+            "tagline": "Au-delà des bases de données traditionnelles",
+            "headline": "Traitez des ensembles massifs de données avec vitesse et échelle",
+            "subheadline": "Lorsque vos volumes de données dépassent les bases traditionnelles, il faut une architecture conçue pour l'échelle. Nous bâtissons des plateformes distribuées gérant des pétaoctets, des millions d'événements en streaming et alimentant les charges IA sans faillir.",
+            "ctaPrimaryLabel": "Architecturer votre plateforme",
+            "ctaSecondaryLabel": "Voir notre méthodologie"
+          },
+          "stats": [
+            {
+              "icon": "bi-star",
+              "value": "Pétaoctet",
+              "label": "Architectures prêtes à l'échelle"
+            },
+            {
+              "icon": "bi-star",
+              "value": "Temps réel",
+              "label": "Streaming d'événements"
+            },
+            {
+              "icon": "bi-star",
+              "value": "Lakehouse",
+              "label": "Architecture moderne"
+            },
+            {
+              "icon": "bi-star",
+              "value": "100 %",
+              "label": "Compatible open source"
+            }
+          ],
+          "challenge": {
+            "title": "Vos données ont dépassé votre infrastructure",
+            "description": "Les bases transactionnelles n'ont pas été conçues pour l'analyse à l'échelle du pétaoctet. Les entrepôts traditionnels peinent avec les données non structurées, les événements en streaming et les exigences de calcul des charges IA modernes.",
+            "painPoints": [
+              "Les requêtes analytiques sur les bases transactionnelles ralentissent les opérations",
+              "Les travaux ETL par lots ne peuvent suivre le rythme d'arrivée des données",
+              "Les données non structurées (documents, images, journaux) dorment dans du stockage bon marché",
+              "Les initiatives IA et ML stagnent car les données d'entraînement sont partout mais nulle part",
+              "Faire évoluer les entrepôts de données traditionnels devient rapidement coûteux"
+            ]
+          },
+          "howWeDeliver": {
+            "title": "Comment nous livrons les solutions Big Data",
+            "description": "Nous aidons les organisations à traiter, stocker et analyser des ensembles massifs pour révéler des insights et soutenir la prise de décision fondée sur les données.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "text": "Concevoir et déployer des architectures de calcul distribué évolutives"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Intégrer et traiter des données structurées et non structurées à grande échelle"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Optimiser la performance pour traitement haute volumétrie, temps réel et par lots"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Bâtir des lacs de données modernes et plateformes prêtes pour l'analyse"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Activer l'IA et l'analyse avancée sur des ensembles massifs"
+              },
+              {
+                "icon": "bi-check-circle",
+                "text": "Établir gouvernance et traçabilité pour les données réglementées"
+              }
+            ]
+          },
+          "capabilities": {
+            "title": "Capacités de plateforme Big Data",
+            "groups": [
+              {
+                "icon": "bi-hdd-stack",
+                "name": "Stockage et calcul distribués",
+                "items": [
+                  "Lacs de données (S3, ADLS, GCS)",
+                  "Architecture lakehouse (Delta, Iceberg, Hudi)",
+                  "Traitement distribué (Spark, Flink)",
+                  "Moteurs de requête (Presto, Trino, Athena)",
+                  "Formats colonnaires (Parquet, ORC)"
+                ]
+              },
+              {
+                "icon": "bi-broadcast",
+                "name": "Streaming et temps réel",
+                "items": [
+                  "Streaming d'événements (Kafka, Kinesis, Pulsar)",
+                  "Traitement de flux (Flink, Spark Streaming)",
+                  "CDC et flux de changements",
+                  "Analytique temps réel (Druid, Pinot)",
+                  "Service de données à faible latence"
+                ]
+              },
+              {
+                "icon": "bi-cpu",
+                "name": "Analytique et ML à grande échelle",
+                "items": [
+                  "Entraînement ML distribué (Spark MLlib, Ray)",
+                  "Magasins de caractéristiques pour ML en production",
+                  "Bases vectorielles pour charges IA générative",
+                  "Analyse de graphes à grande échelle",
+                  "Analytique ad hoc à l'échelle pétaoctet"
+                ]
+              }
+            ]
+          },
+          "keyUseCases": {
+            "title": "Cas d'usage clés",
+            "description": "Nos solutions Big Data créent de la valeur dans toutes les industries :",
+            "items": [
+              "Analyse en temps réel pour efficacité opérationnelle",
+              "Analyse du comportement et tendances clients",
+              "Maintenance prédictive et surveillance de données IoT",
+              "Détection de fraude et analyse de risque",
+              "Optimisation marketing par analyse à grande échelle",
+              "Soutien aux initiatives IA et ML avec ensembles volumineux"
+            ]
+          },
+          "ourApproach": {
+            "title": "Notre approche",
+            "description": "Nous gérons tout le cycle de vie des projets Big Data, de l'architecture aux opérations.",
+            "items": [
+              {
+                "icon": "bi-check-circle",
+                "title": "Recueil des besoins et planification",
+                "description": "Quantifier volumes, vélocité et variété des données — concevoir une plateforme gérant la charge actuelle et la croissance future."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Ingestion et intégration",
+                "description": "Bâtir des pipelines évolutifs par lots et streaming reliant les systèmes sources à la plateforme."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Traitement distribué",
+                "description": "Implémenter Spark, Flink ou traitement serverless adapté à vos patrons de charge et compétences d'équipe."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Conception de lac et entrepôt",
+                "description": "Concevoir l'architecture lakehouse avec partitionnement, formats et catalogue appropriés — bâtie pour requêter efficacement."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Optimisation et évolutivité",
+                "description": "Ajuster pour coût et performance ; établir observabilité et auto-scaling pour charges élastiques."
+              },
+              {
+                "icon": "bi-check-circle",
+                "title": "Gouvernance, sécurité et conformité",
+                "description": "Implémenter catalogage, contrôles d'accès granulaires et journalisation d'audit pour données réglementées à grande échelle."
+              }
+            ]
+          },
+          "industryApplications": {
+            "title": "Big Data à travers les industries",
+            "description": "Plateformes de données à grande échelle éprouvées dans les environnements réglementés les plus exigeants du Canada.",
+            "industries": [
+              {
+                "icon": "bi-bank",
+                "name": "Services financiers",
+                "description": "Analytique transactionnelle, calcul de risque et détection de fraude à l'échelle que la banque canadienne exige.",
+                "useCases": [
+                  "Analytique transactionnelle temps réel",
+                  "Calcul de risque et tests de stress",
+                  "Analyse historique de patrons de fraude",
+                  "Traitement de données de marché"
+                ]
+              },
+              {
+                "icon": "bi-heart-pulse",
+                "name": "Santé",
+                "description": "Génomique, imagerie et plateformes de données populationnelles pour la recherche et les opérations cliniques.",
+                "useCases": [
+                  "Pipelines de génomique et séquençage",
+                  "Archives d'imagerie médicale (PACS)",
+                  "Lacs de données de santé populationnelle",
+                  "Génération de preuves concrètes"
+                ]
+              },
+              {
+                "icon": "bi-building",
+                "name": "Gouvernement et secteur public",
+                "description": "Plateformes de données de recensement, statistiques et données ouvertes servant des millions de requêtes.",
+                "useCases": [
+                  "Plateformes de données de recensement",
+                  "Infrastructure de données ouvertes",
+                  "Partage de données inter-agences",
+                  "Analytique au niveau programme à grande échelle"
+                ]
+              }
+            ]
+          },
+          "technologies": {
+            "title": "Technologies et plateformes",
+            "description": "Nous exploitons les principaux outils et cadres Big Data — privilégiant les standards ouverts et évitant le verrouillage.",
+            "items": [
+              {
+                "icon": "bi-gear",
+                "name": "Apache Spark, Flink, Hadoop, Beam"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Delta Lake, Apache Iceberg, Hudi"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Kafka, Kinesis, Pulsar, Pub/Sub"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Trino, Presto, Athena, Dremio"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Databricks, EMR, Dataproc, HDInsight"
+              },
+              {
+                "icon": "bi-gear",
+                "name": "Druid, Pinot, ClickHouse"
+              }
+            ]
+          },
+          "businessImpact": {
+            "title": "Impact d'affaires",
+            "description": "Nos solutions Big Data livrent échelle, performance et flexibilité.",
+            "items": [
+              {
+                "icon": "bi-graph-up",
+                "title": "Traitement et analyse plus rapides d'ensembles massifs",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Prise de décision opérationnelle et d'affaires améliorée",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Infrastructure évolutive pour volumes croissants",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Soutien pour analytique avancée et initiatives IA/ML",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Gouvernance et fiabilité des données solides",
+                "description": null
+              },
+              {
+                "icon": "bi-graph-up",
+                "title": "Coût total de possession inférieur aux entrepôts traditionnels à grande échelle",
+                "description": null
+              }
+            ]
+          },
+          "differentiators": {
+            "title": "Pourquoi Gamma Neutral pour le Big Data",
+            "points": [
+              {
+                "icon": "bi-unlock",
+                "title": "Standards ouverts d'abord",
+                "description": "Nous bâtissons sur formats ouverts (Parquet, Iceberg, Delta) et moteurs ouverts (Spark, Trino) — évitant le verrouillage fournisseur qui tue l'agilité à long terme."
+              },
+              {
+                "icon": "bi-calculator",
+                "title": "Architecture soucieuse des coûts",
+                "description": "Big data n'égale pas grosses factures. Nous concevons pour séparation stockage/calcul, tiering intelligent et infrastructure adaptée aux charges."
+              },
+              {
+                "icon": "bi-activity",
+                "title": "Opérations de production",
+                "description": "Nous ne nous arrêtons pas à l'architecture — nous implémentons observabilité, auto-scaling et runbooks opérationnels pour systèmes de production fiables."
+              },
+              {
+                "icon": "bi-cpu-fill",
+                "title": "Fondations prêtes pour l'IA",
+                "description": "Nos plateformes sont conçues avec les charges IA/ML en tête : magasins de caractéristiques, bases vectorielles et infrastructure d'entraînement distribué."
+              }
+            ]
+          },
+          "closing": {
+            "title": "Prêt à révéler les insights de vos ensembles massifs ?",
+            "subtitle": "Concevons une solution Big Data qui évolue avec les besoins de votre entreprise — et votre budget."
+          },
+          "features": [
+            {
+              "icon": "bi-check",
+              "title": "Traitement distribué (Spark)",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Architecture lakehouse",
+              "description": null
+            },
+            {
+              "icon": "bi-check",
+              "title": "Traitement en flux continu",
+              "description": null
+            }
+          ],
+          "benefits": []
+        }
+      }
+    }
+  ]
+}
