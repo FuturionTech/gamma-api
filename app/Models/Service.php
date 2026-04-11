@@ -26,11 +26,13 @@ class Service extends Model
         'slug',
         'order',
         'is_active',
+        'published_at',
     ];
 
     protected $casts = [
         'is_active' => 'boolean',
         'order' => 'integer',
+        'published_at' => 'datetime',
     ];
 
     // Relationships
