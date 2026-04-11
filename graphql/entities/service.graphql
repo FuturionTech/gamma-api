@@ -1,18 +1,167 @@
+"A consulting service entity (e.g., AI & Intelligent Systems, Cybersecurity)."
 type Service {
     id: ID!
-    title: String!
-    description: String
-    short_description: String
+    slug: String!
     icon: String
     icon_color: String
     category: String
-    slug: String!
-    order: Int!
     is_active: Boolean!
+    order: Int!
+
+    "Translated via header-based locale."
+    title: String!
+    short_description: String
+    description: String
+    meta_title: String
+    meta_description: String
+    meta_keywords: String
+
+    hero: ServiceHero!
+    challenge: ServiceChallenge
+    howWeDeliver: ServiceHowWeDeliver
+    capabilities: ServiceCapabilities
+    keyUseCases: ServiceUseCasesSection
+    ourApproach: ServiceApproachSection
+    industryApplications: ServiceIndustryApplicationsSection
+    technologies: ServiceTechnologiesSection
+    businessImpact: ServiceBusinessImpactSection
+    differentiators: ServiceDifferentiatorsSection
+    closing: ServiceClosing!
+
+    features: [ServiceFeature!]!
+    benefits: [ServiceBenefit!]!
+
     created_at: DateTime!
     updated_at: DateTime!
-    features: [ServiceFeature!]! @hasMany
-    benefits: [ServiceBenefit!]! @hasMany
+}
+
+type ServiceHero {
+    tagline: String
+    headline: String
+    subheadline: String
+    ctaPrimaryLabel: String
+    ctaSecondaryLabel: String
+    stats: [ServiceStat!]!
+}
+
+type ServiceStat {
+    icon: String
+    value: String!
+    label: String!
+}
+
+type ServiceChallenge {
+    title: String
+    description: String
+    painPoints: [ServicePainPoint!]!
+}
+
+type ServicePainPoint {
+    text: String!
+}
+
+type ServiceHowWeDeliver {
+    title: String
+    description: String
+    items: [ServiceDeliveryItem!]!
+}
+
+type ServiceDeliveryItem {
+    icon: String
+    text: String!
+}
+
+type ServiceCapabilities {
+    title: String
+    groups: [ServiceCapabilityGroup!]!
+}
+
+type ServiceCapabilityGroup {
+    icon: String
+    name: String!
+    items: [ServiceCapabilityItem!]!
+}
+
+type ServiceCapabilityItem {
+    name: String!
+}
+
+type ServiceUseCasesSection {
+    title: String
+    description: String
+    items: [ServiceUseCase!]!
+}
+
+type ServiceUseCase {
+    text: String!
+}
+
+type ServiceApproachSection {
+    title: String
+    description: String
+    items: [ServiceApproachStep!]!
+}
+
+type ServiceApproachStep {
+    icon: String
+    title: String!
+    description: String
+}
+
+type ServiceIndustryApplicationsSection {
+    title: String
+    description: String
+    industries: [ServiceIndustryApplication!]!
+}
+
+type ServiceIndustryApplication {
+    icon: String
+    name: String!
+    description: String
+    useCases: [ServiceIndustryUseCase!]!
+}
+
+type ServiceIndustryUseCase {
+    text: String!
+}
+
+type ServiceTechnologiesSection {
+    title: String
+    description: String
+    items: [ServiceTechnology!]!
+}
+
+type ServiceTechnology {
+    icon: String
+    name: String!
+}
+
+type ServiceBusinessImpactSection {
+    title: String
+    description: String
+    items: [ServiceBusinessImpactItem!]!
+}
+
+type ServiceBusinessImpactItem {
+    icon: String
+    title: String!
+    description: String
+}
+
+type ServiceDifferentiatorsSection {
+    title: String
+    points: [ServiceDifferentiator!]!
+}
+
+type ServiceDifferentiator {
+    icon: String
+    title: String!
+    description: String
+}
+
+type ServiceClosing {
+    title: String
+    subtitle: String
 }
 
 type ServiceFeature {
@@ -37,6 +186,16 @@ type ServiceBenefit {
     created_at: DateTime!
     updated_at: DateTime!
     service: Service @belongsTo
+}
+
+extend type Query {
+    "Return the list of active, published services (card-level content)."
+    services(is_active: Boolean, limit: Int): [Service!]!
+        @field(resolver: "App\\GraphQL\\Queries\\ServicesList")
+
+    "Return a single service by slug with the full grouped content tree."
+    service(slug: String!): Service
+        @field(resolver: "App\\GraphQL\\Queries\\ServiceDetail")
 }
 
 input CreateServiceInput {
@@ -91,15 +250,6 @@ input UpdateServiceBenefitInput {
     description: String
     icon: String
     order: Int
-}
-
-extend type Query {
-    services(
-        is_active: Boolean @eq
-        limit: Int @limit(builder: true) @rules(apply: ["max:100"])
-    ): [Service!]! @all(scopes: ["ordered"])
-
-    service(id: ID! @eq): Service @find
 }
 
 extend type Mutation {
