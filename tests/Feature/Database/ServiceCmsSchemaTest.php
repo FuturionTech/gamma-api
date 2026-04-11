@@ -69,4 +69,18 @@ class ServiceCmsSchemaTest extends TestCase
             );
         }
     }
+
+    public function test_service_stats_tables_exist(): void
+    {
+        $this->assertTrue(Schema::hasTable('service_stats'));
+        $this->assertTrue(Schema::hasTable('service_stat_translations'));
+
+        foreach (['id', 'service_id', 'icon', 'order', 'created_at', 'updated_at'] as $column) {
+            $this->assertTrue(Schema::hasColumn('service_stats', $column));
+        }
+
+        foreach (['id', 'service_stat_id', 'locale', 'value', 'label', 'created_at', 'updated_at'] as $column) {
+            $this->assertTrue(Schema::hasColumn('service_stat_translations', $column));
+        }
+    }
 }

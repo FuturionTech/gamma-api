@@ -46,6 +46,11 @@ class Service extends Model
         return $this->hasMany(ServiceBenefit::class)->orderBy('order');
     }
 
+    public function stats(): HasMany
+    {
+        return $this->hasMany(ServiceStat::class)->orderBy('order');
+    }
+
     // Scopes
     public function scopeActive(Builder $query): void
     {
