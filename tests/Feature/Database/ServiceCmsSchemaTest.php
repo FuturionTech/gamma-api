@@ -14,4 +14,35 @@ class ServiceCmsSchemaTest extends TestCase
     {
         $this->assertTrue(Schema::hasColumn('services', 'published_at'));
     }
+
+    public function test_service_translations_table_exists_with_expected_columns(): void
+    {
+        $this->assertTrue(Schema::hasTable('service_translations'));
+
+        $expected = [
+            'id', 'service_id', 'locale',
+            'title', 'short_description', 'description',
+            'meta_title', 'meta_description', 'meta_keywords',
+            'hero_tagline', 'hero_headline', 'hero_subheadline',
+            'hero_cta_primary_label', 'hero_cta_secondary_label',
+            'challenge_title', 'challenge_description',
+            'delivery_title', 'delivery_description',
+            'capabilities_title',
+            'use_cases_title', 'use_cases_description',
+            'approach_title', 'approach_description',
+            'industry_title', 'industry_description',
+            'technologies_title', 'technologies_description',
+            'business_impact_title', 'business_impact_description',
+            'differentiators_title',
+            'closing_title', 'closing_subtitle',
+            'published_at', 'created_at', 'updated_at',
+        ];
+
+        foreach ($expected as $column) {
+            $this->assertTrue(
+                Schema::hasColumn('service_translations', $column),
+                "service_translations missing column: {$column}"
+            );
+        }
+    }
 }
