@@ -71,6 +71,11 @@ class Service extends Model
         return $this->hasMany(ServiceUseCase::class)->orderBy('order');
     }
 
+    public function approachSteps(): HasMany
+    {
+        return $this->hasMany(ServiceApproachStep::class)->orderBy('order');
+    }
+
     // Scopes
     public function scopeActive(Builder $query): void
     {
