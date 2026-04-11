@@ -83,4 +83,17 @@ class ServiceCmsSchemaTest extends TestCase
             $this->assertTrue(Schema::hasColumn('service_stat_translations', $column));
         }
     }
+
+    public function test_service_pain_points_tables_exist(): void
+    {
+        $this->assertTrue(Schema::hasTable('service_pain_points'));
+        $this->assertTrue(Schema::hasTable('service_pain_point_translations'));
+
+        foreach (['id', 'service_id', 'order', 'created_at', 'updated_at'] as $column) {
+            $this->assertTrue(Schema::hasColumn('service_pain_points', $column));
+        }
+        foreach (['id', 'service_pain_point_id', 'locale', 'text', 'created_at', 'updated_at'] as $column) {
+            $this->assertTrue(Schema::hasColumn('service_pain_point_translations', $column));
+        }
+    }
 }
