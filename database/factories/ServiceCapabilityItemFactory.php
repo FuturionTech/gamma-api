@@ -6,6 +6,9 @@ use App\Models\ServiceCapabilityGroup;
 use App\Models\ServiceCapabilityItem;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ServiceCapabilityItem>
+ */
 class ServiceCapabilityItemFactory extends Factory
 {
     protected $model = ServiceCapabilityItem::class;
