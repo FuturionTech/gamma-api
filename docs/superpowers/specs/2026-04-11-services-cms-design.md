@@ -93,9 +93,11 @@ Implement the public detail query via `App\GraphQL\Queries\ServiceDetail`, not p
 
 **`services`** (existing — modified)
 
-- Keep: `id`, `application_id`, `slug`, `icon`, `icon_color`, `category`, `order`, `is_active`, `created_at`, `updated_at`
+- Keep: `id`, `slug`, `icon`, `icon_color`, `category`, `order`, `is_active`, `created_at`, `updated_at`
 - **Drop** (in a later phase, after data is backfilled): JSON columns `title`, `description`, `short_description`
 - **Add**: `published_at` timestamp nullable — service-level draft/publish gate
+
+Note: `application_id` was removed in migration `2025_11_09_161740_remove_application_id_from_services_table.php`.
 
 ### New parent translation table
 
