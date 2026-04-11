@@ -86,6 +86,11 @@ class Service extends Model
         return $this->hasMany(ServiceTechnology::class)->orderBy('order');
     }
 
+    public function businessImpacts(): HasMany
+    {
+        return $this->hasMany(ServiceBusinessImpact::class)->orderBy('order');
+    }
+
     // Scopes
     public function scopeActive(Builder $query): void
     {
