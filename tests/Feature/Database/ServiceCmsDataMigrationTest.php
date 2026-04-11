@@ -119,4 +119,64 @@ class ServiceCmsDataMigrationTest extends TestCase
 
         $this->assertSame(1, $count);
     }
+
+    public function test_fixture_backfill_populates_all_services(): void
+    {
+        $_ENV['FORCE_SERVICES_CMS_BACKFILL'] = '1';
+        putenv('FORCE_SERVICES_CMS_BACKFILL=1');
+
+        try {
+            $migrationFile = glob(database_path('migrations/*_backfill_services_cms_content.php'))[0];
+            $migration = require $migrationFile;
+            $migration->up();
+
+            // The fixture ships 6 services
+            $this->assertSame(6, DB::table('services')->count());
+
+            // Each service has 2 translations (en, fr) = 12 total
+            $this->assertSame(12, DB::table('service_translations')->count());
+
+            // Spot-check one service's full tree
+            $aiServiceId = DB::table('services')->where('slug', 'ai-intelligent-systems')->value('id');
+            $this->assertNotNull($aiServiceId);
+
+            $enTranslation = DB::table('service_translations')
+                ->where('service_id', $aiServiceId)
+                ->where('locale', 'en')
+                ->first();
+
+            $this->assertNotNull($enTranslation->title);
+            $this->assertNotNull($enTranslation->hero_headline);
+            $this->assertNotNull($enTranslation->challenge_title);
+            $this->assertNotNull($enTranslation->closing_title);
+
+            // Spot-check that at least one child collection was populated
+            $this->assertGreaterThan(0, DB::table('service_stats')->where('service_id', $aiServiceId)->count());
+        } finally {
+            unset($_ENV['FORCE_SERVICES_CMS_BACKFILL']);
+            putenv('FORCE_SERVICES_CMS_BACKFILL');
+        }
+    }
+
+    public function test_fixture_backfill_is_idempotent(): void
+    {
+        $_ENV['FORCE_SERVICES_CMS_BACKFILL'] = '1';
+        putenv('FORCE_SERVICES_CMS_BACKFILL=1');
+
+        try {
+            $migrationFile = glob(database_path('migrations/*_backfill_services_cms_content.php'))[0];
+            $migration = require $migrationFile;
+
+            $migration->up();
+            $firstCount = DB::table('services')->count();
+
+            $migration->up();
+            $secondCount = DB::table('services')->count();
+
+            $this->assertSame($firstCount, $secondCount);
+        } finally {
+            unset($_ENV['FORCE_SERVICES_CMS_BACKFILL']);
+            putenv('FORCE_SERVICES_CMS_BACKFILL');
+        }
+    }
 }
