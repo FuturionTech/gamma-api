@@ -4,14 +4,35 @@ namespace Tests\Feature\Database;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use Tests\TestCase;
 
 class ServiceCmsDataMigrationTest extends TestCase
 {
     use RefreshDatabase;
 
+    /**
+     * These scenarios simulate the pre-migration spatie state by inserting raw
+     * JSON into the legacy title/description/short_description columns on
+     * services/service_features/service_benefits. Once Task 5 of Plan B runs,
+     * those columns no longer exist on a fresh schema, so the setup is
+     * impossible and the test is skipped. The migration itself still runs in
+     * the historical migration chain; these tests served their purpose when
+     * Task 1 landed.
+     */
+    private function skipIfLegacyJsonColumnsAreDropped(): void
+    {
+        if (! Schema::hasColumn('services', 'title')) {
+            $this->markTestSkipped(
+                'Legacy spatie JSON columns were dropped by Task 5; pre-migration state cannot be simulated.'
+            );
+        }
+    }
+
     public function test_spatie_to_astrotomic_migration_preserves_existing_service_content(): void
     {
+        $this->skipIfLegacyJsonColumnsAreDropped();
+
         $serviceId = DB::table('services')->insertGetId([
             'title' => json_encode(['en' => 'Strategy Consulting', 'fr' => 'Conseil en stratégie']),
             'description' => json_encode(['en' => 'Helping companies strategize', 'fr' => 'Aider les entreprises']),
@@ -49,6 +70,8 @@ class ServiceCmsDataMigrationTest extends TestCase
 
     public function test_spatie_to_astrotomic_migration_handles_features_and_benefits(): void
     {
+        $this->skipIfLegacyJsonColumnsAreDropped();
+
         $serviceId = DB::table('services')->insertGetId([
             'title' => json_encode(['en' => 'S']),
             'slug' => 'test-service',
@@ -97,6 +120,8 @@ class ServiceCmsDataMigrationTest extends TestCase
 
     public function test_spatie_migration_is_idempotent(): void
     {
+        $this->skipIfLegacyJsonColumnsAreDropped();
+
         $serviceId = DB::table('services')->insertGetId([
             'title' => json_encode(['en' => 'Strategy']),
             'slug' => 'strategy',

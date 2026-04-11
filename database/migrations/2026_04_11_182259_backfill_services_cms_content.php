@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
@@ -57,19 +58,29 @@ return new class extends Migration
             DB::table('services')->where('id', $existing->id)->update($baseRow);
             $serviceId = $existing->id;
         } else {
-            // services table still has spatie JSON title/description columns at this point.
-            // Write minimal JSON content there so NOT NULL constraints are satisfied.
-            // The astrotomic translations get populated below.
             $insertRow = array_merge($baseRow, [
-                'title' => json_encode(['en' => $serviceData['translations']['en']['title'] ?? $serviceData['slug']]),
-                'description' => isset($serviceData['translations']['en']['description'])
-                    ? json_encode(['en' => $serviceData['translations']['en']['description']])
-                    : null,
-                'short_description' => isset($serviceData['translations']['en']['shortDescription'])
-                    ? json_encode(['en' => $serviceData['translations']['en']['shortDescription']])
-                    : null,
                 'created_at' => $now,
             ]);
+
+            // If this migration runs BEFORE the Task 5 drop migration, the services
+            // table still has the legacy spatie JSON title/description/short_description
+            // columns and they may be NOT NULL. Satisfy them with minimal JSON so the
+            // insert succeeds; the real content lives in service_translations below.
+            // After Task 5 drops these columns, skip writing to them.
+            if (Schema::hasColumn('services', 'title')) {
+                $insertRow['title'] = json_encode(['en' => $serviceData['translations']['en']['title'] ?? $serviceData['slug']]);
+            }
+            if (Schema::hasColumn('services', 'description')) {
+                $insertRow['description'] = isset($serviceData['translations']['en']['description'])
+                    ? json_encode(['en' => $serviceData['translations']['en']['description']])
+                    : null;
+            }
+            if (Schema::hasColumn('services', 'short_description')) {
+                $insertRow['short_description'] = isset($serviceData['translations']['en']['shortDescription'])
+                    ? json_encode(['en' => $serviceData['translations']['en']['shortDescription']])
+                    : null;
+            }
+
             $serviceId = DB::table('services')->insertGetId($insertRow);
         }
 
@@ -571,19 +582,27 @@ return new class extends Migration
 
         for ($i = 0; $i < $length; $i++) {
             $feat = $byLocale['en'][$i];
-            // service_features still has spatie JSON title/description at this point.
-            // Satisfy NOT NULL on title by writing minimal JSON; content lives in translations.
-            $featureId = DB::table('service_features')->insertGetId([
+            // service_features may still have legacy spatie JSON title/description
+            // columns if Task 5 hasn't run yet. When present, satisfy NOT NULL with
+            // minimal JSON; the real content lives in service_feature_translations.
+            $featureRow = [
                 'service_id' => $serviceId,
-                'title' => json_encode(['en' => $feat['title'] ?? '']),
-                'description' => ! empty($feat['description'])
-                    ? json_encode(['en' => $feat['description']])
-                    : null,
                 'icon' => $feat['icon'] ?? null,
                 'order' => $i,
                 'created_at' => $now,
                 'updated_at' => $now,
-            ]);
+            ];
+
+            if (Schema::hasColumn('service_features', 'title')) {
+                $featureRow['title'] = json_encode(['en' => $feat['title'] ?? '']);
+            }
+            if (Schema::hasColumn('service_features', 'description')) {
+                $featureRow['description'] = ! empty($feat['description'])
+                    ? json_encode(['en' => $feat['description']])
+                    : null;
+            }
+
+            $featureId = DB::table('service_features')->insertGetId($featureRow);
 
             foreach ($byLocale as $locale => $items) {
                 $localeItem = $items[$i] ?? $byLocale['en'][$i];
@@ -614,17 +633,27 @@ return new class extends Migration
 
         for ($i = 0; $i < $length; $i++) {
             $ben = $byLocale['en'][$i];
-            $benefitId = DB::table('service_benefits')->insertGetId([
+            // service_benefits may still have legacy spatie JSON title/description
+            // columns if Task 5 hasn't run yet. When present, satisfy NOT NULL with
+            // minimal JSON; the real content lives in service_benefit_translations.
+            $benefitRow = [
                 'service_id' => $serviceId,
-                'title' => json_encode(['en' => $ben['title'] ?? '']),
-                'description' => ! empty($ben['description'])
-                    ? json_encode(['en' => $ben['description']])
-                    : null,
                 'icon' => $ben['icon'] ?? null,
                 'order' => $i,
                 'created_at' => $now,
                 'updated_at' => $now,
-            ]);
+            ];
+
+            if (Schema::hasColumn('service_benefits', 'title')) {
+                $benefitRow['title'] = json_encode(['en' => $ben['title'] ?? '']);
+            }
+            if (Schema::hasColumn('service_benefits', 'description')) {
+                $benefitRow['description'] = ! empty($ben['description'])
+                    ? json_encode(['en' => $ben['description']])
+                    : null;
+            }
+
+            $benefitId = DB::table('service_benefits')->insertGetId($benefitRow);
 
             foreach ($byLocale as $locale => $items) {
                 $localeItem = $items[$i] ?? $byLocale['en'][$i];
