@@ -142,9 +142,6 @@ class ServiceSeeder extends Seeder
             unset($serviceData['features']);
 
             $service = Service::create([
-                'title' => $serviceData['title'],
-                'description' => $serviceData['description'],
-                'short_description' => $serviceData['short_description'],
                 'icon' => $serviceData['icon'],
                 'icon_color' => $serviceData['icon_color'],
                 'category' => $serviceData['category'],
@@ -153,13 +150,29 @@ class ServiceSeeder extends Seeder
                 'is_active' => true,
             ]);
 
-            foreach ($features as $feature) {
-                ServiceFeature::create([
+            $service->fill([
+                'en' => [
+                    'title' => $serviceData['title']['en'],
+                    'description' => $serviceData['description']['en'],
+                    'short_description' => $serviceData['short_description']['en'],
+                ],
+                'fr' => [
+                    'title' => $serviceData['title']['fr'],
+                    'description' => $serviceData['description']['fr'],
+                    'short_description' => $serviceData['short_description']['fr'],
+                ],
+            ])->save();
+
+            foreach ($features as $featureData) {
+                $feature = ServiceFeature::create([
                     'service_id' => $service->id,
-                    'title' => $feature['title'],
-                    'icon' => $feature['icon'],
-                    'order' => $feature['order'],
+                    'icon' => $featureData['icon'],
+                    'order' => $featureData['order'],
                 ]);
+
+                $feature->fill([
+                    'en' => ['title' => $featureData['title']],
+                ])->save();
             }
         }
     }

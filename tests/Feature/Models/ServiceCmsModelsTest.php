@@ -121,4 +121,63 @@ class ServiceCmsModelsTest extends TestCase
         $this->assertCount(1, $fresh->businessImpacts);
         $this->assertCount(1, $fresh->differentiators);
     }
+
+    public function test_service_model_uses_astrotomic_translatable(): void
+    {
+        $service = Service::create([
+            'slug' => 'astro-test',
+            'icon' => 'bi-test',
+            'category' => 'test',
+            'order' => 1,
+            'is_active' => true,
+        ]);
+
+        $service->translateOrNew('en')->fill([
+            'title' => 'Astro Test',
+            'description' => 'Testing astrotomic',
+            'short_description' => 'Short',
+        ])->save();
+
+        $service->translateOrNew('fr')->fill([
+            'title' => 'Test Astro',
+            'description' => 'Test astrotomic',
+            'short_description' => 'Court',
+        ])->save();
+
+        app()->setLocale('en');
+        $this->assertSame('Astro Test', $service->fresh()->title);
+
+        app()->setLocale('fr');
+        $this->assertSame('Test Astro', $service->fresh()->title);
+    }
+
+    public function test_service_feature_model_uses_astrotomic_translatable(): void
+    {
+        $service = Service::factory()->create();
+        $feature = \App\Models\ServiceFeature::create([
+            'service_id' => $service->id,
+            'icon' => 'bi-star',
+            'order' => 0,
+        ]);
+
+        $feature->translateOrNew('en')->fill(['title' => 'Fast', 'description' => 'Very quick'])->save();
+        $feature->translateOrNew('fr')->fill(['title' => 'Rapide', 'description' => 'Très rapide'])->save();
+
+        app()->setLocale('fr');
+        $this->assertSame('Rapide', $feature->fresh()->title);
+    }
+
+    public function test_service_benefit_model_uses_astrotomic_translatable(): void
+    {
+        $service = Service::factory()->create();
+        $benefit = \App\Models\ServiceBenefit::create([
+            'service_id' => $service->id,
+            'icon' => 'bi-star',
+            'order' => 0,
+        ]);
+
+        $benefit->translateOrNew('en')->fill(['title' => 'ROI', 'description' => 'Strong return'])->save();
+        app()->setLocale('en');
+        $this->assertSame('ROI', $benefit->fresh()->title);
+    }
 }

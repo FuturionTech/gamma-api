@@ -20,17 +20,28 @@ class ServiceFactory extends Factory
      */
     public function definition(): array
     {
-        $title = fake()->words(3, true);
-        
+        $slug = 'svc-'.Str::random(8).'-'.now()->timestamp;
+
         return [
-            'title' => $title,
-            'description' => fake()->paragraph(),
+            'slug' => $slug,
             'icon' => fake()->randomElement(['chart', 'database', 'shield', 'cloud', 'brain']),
             'category' => fake()->randomElement(['Technology', 'Security', 'Analytics']),
-            'slug' => Str::slug($title),
             'order' => fake()->numberBetween(1, 10),
             'is_active' => true,
         ];
+    }
+
+    public function configure(): static
+    {
+        return $this->afterCreating(function (Service $service) {
+            if ($service->translations()->count() === 0) {
+                $service->translateOrNew('en')->fill([
+                    'title' => Str::headline(str_replace('-', ' ', $service->slug)),
+                    'description' => fake()->paragraph(),
+                    'short_description' => fake()->sentence(),
+                ])->save();
+            }
+        });
     }
 
     /**
@@ -43,4 +54,3 @@ class ServiceFactory extends Factory
         ]);
     }
 }
-

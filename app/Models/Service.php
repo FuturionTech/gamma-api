@@ -2,24 +2,22 @@
 
 namespace App\Models;
 
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
+use Astrotomic\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
-use Spatie\Translatable\HasTranslations;
 
-class Service extends Model
+class Service extends Model implements TranslatableContract
 {
     use HasFactory;
-    use HasTranslations;
+    use Translatable;
 
-    public array $translatable = ['title', 'description', 'short_description'];
+    public array $translatedAttributes = ['title', 'description', 'short_description'];
 
     protected $fillable = [
-        'title',
-        'description',
-        'short_description',
         'icon',
         'icon_color',
         'category',
@@ -110,9 +108,17 @@ class Service extends Model
     // Events
     protected static function booted(): void
     {
-        static::creating(function (Service $service) {
+        static::saving(function (Service $service) {
+            // Auto-slug from the EN title if the slug is empty
             if (empty($service->slug)) {
-                $service->slug = Str::slug($service->getTranslation('title', 'en'));
+                $en = $service->translate('en', false);
+                if ($en && ! empty($en->title)) {
+                    $service->slug = Str::slug($en->title);
+                } else {
+                    // Fallback: use the current locale's title or a uuid-ish default
+                    $fallback = $service->title ?? 'service-'.uniqid();
+                    $service->slug = Str::slug($fallback);
+                }
             }
         });
     }

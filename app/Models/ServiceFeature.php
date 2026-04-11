@@ -2,22 +2,21 @@
 
 namespace App\Models;
 
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Spatie\Translatable\HasTranslations;
 
-class ServiceFeature extends Model
+class ServiceFeature extends Model implements TranslatableContract
 {
     use HasFactory;
-    use HasTranslations;
+    use Translatable;
 
-    public array $translatable = ['title', 'description'];
+    public array $translatedAttributes = ['title', 'description'];
 
     protected $fillable = [
         'service_id',
-        'title',
-        'description',
         'icon',
         'order',
     ];
