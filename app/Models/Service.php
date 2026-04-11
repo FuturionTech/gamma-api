@@ -76,6 +76,11 @@ class Service extends Model
         return $this->hasMany(ServiceApproachStep::class)->orderBy('order');
     }
 
+    public function industryApplications(): HasMany
+    {
+        return $this->hasMany(ServiceIndustryApplication::class)->orderBy('order');
+    }
+
     // Scopes
     public function scopeActive(Builder $query): void
     {

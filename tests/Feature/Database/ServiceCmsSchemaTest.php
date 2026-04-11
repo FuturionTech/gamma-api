@@ -161,4 +161,17 @@ class ServiceCmsSchemaTest extends TestCase
             $this->assertTrue(Schema::hasColumn('service_approach_step_translations', $column));
         }
     }
+
+    public function test_service_industry_applications_tables_exist(): void
+    {
+        $this->assertTrue(Schema::hasTable('service_industry_applications'));
+        $this->assertTrue(Schema::hasTable('service_industry_application_translations'));
+
+        foreach (['id', 'service_id', 'icon', 'order', 'created_at', 'updated_at'] as $column) {
+            $this->assertTrue(Schema::hasColumn('service_industry_applications', $column));
+        }
+        foreach (['id', 'service_industry_application_id', 'locale', 'name', 'description', 'created_at', 'updated_at'] as $column) {
+            $this->assertTrue(Schema::hasColumn('service_industry_application_translations', $column));
+        }
+    }
 }
