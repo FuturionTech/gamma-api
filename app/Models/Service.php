@@ -91,6 +91,11 @@ class Service extends Model
         return $this->hasMany(ServiceBusinessImpact::class)->orderBy('order');
     }
 
+    public function differentiators(): HasMany
+    {
+        return $this->hasMany(ServiceDifferentiator::class)->orderBy('order');
+    }
+
     // Scopes
     public function scopeActive(Builder $query): void
     {

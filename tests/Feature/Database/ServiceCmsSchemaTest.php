@@ -213,4 +213,17 @@ class ServiceCmsSchemaTest extends TestCase
             $this->assertTrue(Schema::hasColumn('service_business_impact_translations', $column));
         }
     }
+
+    public function test_service_differentiators_tables_exist(): void
+    {
+        $this->assertTrue(Schema::hasTable('service_differentiators'));
+        $this->assertTrue(Schema::hasTable('service_differentiator_translations'));
+
+        foreach (['id', 'service_id', 'icon', 'order', 'created_at', 'updated_at'] as $column) {
+            $this->assertTrue(Schema::hasColumn('service_differentiators', $column));
+        }
+        foreach (['id', 'service_differentiator_id', 'locale', 'title', 'description', 'created_at', 'updated_at'] as $column) {
+            $this->assertTrue(Schema::hasColumn('service_differentiator_translations', $column));
+        }
+    }
 }
