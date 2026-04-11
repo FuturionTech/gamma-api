@@ -45,4 +45,16 @@ class ServiceCmsSchemaTest extends TestCase
             );
         }
     }
+
+    public function test_service_feature_translations_table_exists(): void
+    {
+        $this->assertTrue(Schema::hasTable('service_feature_translations'));
+
+        foreach (['id', 'service_feature_id', 'locale', 'title', 'description', 'created_at', 'updated_at'] as $column) {
+            $this->assertTrue(
+                Schema::hasColumn('service_feature_translations', $column),
+                "service_feature_translations missing column: {$column}"
+            );
+        }
+    }
 }
