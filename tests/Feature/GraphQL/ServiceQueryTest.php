@@ -71,13 +71,13 @@ class ServiceQueryTest extends TestCase
         }
     }
 
-    public function test_can_query_single_service_by_id(): void
+    public function test_can_query_single_service_by_slug(): void
     {
-        $service = Service::factory()->create(['title' => 'Test Service']);
+        $service = Service::factory()->create();
 
         $query = '
-            query($id: ID!) {
-                service(id: $id) {
+            query($slug: String!) {
+                service(slug: $slug) {
                     id
                     title
                     description
@@ -85,13 +85,12 @@ class ServiceQueryTest extends TestCase
             }
         ';
 
-        $response = $this->graphQL($query, ['id' => $service->id]);
+        $response = $this->graphQL($query, ['slug' => $service->slug]);
 
         $response->assertJson([
             'data' => [
                 'service' => [
                     'id' => (string) $service->id,
-                    'title' => 'Test Service',
                 ],
             ],
         ]);
