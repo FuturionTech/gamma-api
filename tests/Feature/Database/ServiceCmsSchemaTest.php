@@ -122,4 +122,17 @@ class ServiceCmsSchemaTest extends TestCase
             $this->assertTrue(Schema::hasColumn('service_capability_group_translations', $column));
         }
     }
+
+    public function test_service_capability_items_tables_exist(): void
+    {
+        $this->assertTrue(Schema::hasTable('service_capability_items'));
+        $this->assertTrue(Schema::hasTable('service_capability_item_translations'));
+
+        foreach (['id', 'service_capability_group_id', 'order', 'created_at', 'updated_at'] as $column) {
+            $this->assertTrue(Schema::hasColumn('service_capability_items', $column));
+        }
+        foreach (['id', 'service_capability_item_id', 'locale', 'name', 'created_at', 'updated_at'] as $column) {
+            $this->assertTrue(Schema::hasColumn('service_capability_item_translations', $column));
+        }
+    }
 }
