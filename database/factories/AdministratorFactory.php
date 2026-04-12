@@ -4,7 +4,6 @@ namespace Database\Factories;
 
 use App\Models\Administrator;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 /**
@@ -14,8 +13,6 @@ class AdministratorFactory extends Factory
 {
     protected $model = Administrator::class;
 
-    protected static ?string $password = null;
-
     /**
      * Define the model's default state.
      *
@@ -24,9 +21,12 @@ class AdministratorFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
+            'employee_number' => 'EMP-' . Str::upper(Str::random(8)),
             'email' => fake()->unique()->safeEmail(),
-            'password' => static::$password ??= Hash::make('password'),
+            'first_name' => fake()->firstName(),
+            'last_name' => fake()->lastName(),
+            'status' => 'active',
+            'email_verified_at' => now(),
             'remember_token' => Str::random(10),
         ];
     }

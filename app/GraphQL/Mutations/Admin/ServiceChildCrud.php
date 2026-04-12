@@ -98,60 +98,97 @@ final class ServiceChildCrud
         ],
     ];
 
-    /**
-     * Explicit plural-to-singular map for reorder routing.
-     *
-     * Avoids fragile string manipulation (e.g. "Technologies" would fail
-     * with a naive rtrim of 's').
-     */
-    private const REORDER_PLURAL_MAP = [
-        'Stats'                 => 'Stat',
-        'PainPoints'            => 'PainPoint',
-        'DeliveryItems'         => 'DeliveryItem',
-        'CapabilityGroups'      => 'CapabilityGroup',
-        'CapabilityItems'       => 'CapabilityItem',
-        'UseCases'              => 'UseCase',
-        'ApproachSteps'         => 'ApproachStep',
-        'IndustryApplications'  => 'IndustryApplication',
-        'IndustryUseCases'      => 'IndustryUseCase',
-        'Technologies'          => 'Technology',
-        'BusinessImpacts'       => 'BusinessImpact',
-        'Differentiators'       => 'Differentiator',
-        'Features'              => 'Feature',
-        'Benefits'              => 'Benefit',
-    ];
-
     // -------------------------------------------------------------------------
-    // Lighthouse calls methods like createStat, updatePainPoint, reorderStats
-    // via @field(resolver: "...@methodName"). PHP __call routes them to the
-    // four generic handlers.
+    // Lighthouse resolver methods.
+    //
+    // Each child type needs four concrete methods (create, update, delete,
+    // reorder) because Lighthouse validates method existence at boot time
+    // via method_exists(), which does not detect __call magic.
     // -------------------------------------------------------------------------
 
-    /** @param array<int, mixed> $arguments [$root, $args, $context, $resolveInfo] */
-    public function __call(string $method, array $arguments): mixed
-    {
-        if (str_starts_with($method, 'create')) {
-            return $this->handleCreate(substr($method, 6), ...$arguments);
-        }
+    // -- Stat --
+    public function createStat(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleCreate('Stat', $r, $a, $c, $i); }
+    public function updateStat(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleUpdate('Stat', $r, $a, $c, $i); }
+    public function deleteStat(mixed $r, array $a, mixed $c, mixed $i): bool  { return $this->handleDelete('Stat', $r, $a, $c, $i); }
+    public function reorderStats(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleReorder('Stat', $r, $a, $c, $i); }
 
-        if (str_starts_with($method, 'update')) {
-            return $this->handleUpdate(substr($method, 6), ...$arguments);
-        }
+    // -- PainPoint --
+    public function createPainPoint(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleCreate('PainPoint', $r, $a, $c, $i); }
+    public function updatePainPoint(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleUpdate('PainPoint', $r, $a, $c, $i); }
+    public function deletePainPoint(mixed $r, array $a, mixed $c, mixed $i): bool  { return $this->handleDelete('PainPoint', $r, $a, $c, $i); }
+    public function reorderPainPoints(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleReorder('PainPoint', $r, $a, $c, $i); }
 
-        if (str_starts_with($method, 'delete')) {
-            return $this->handleDelete(substr($method, 6), ...$arguments);
-        }
+    // -- DeliveryItem --
+    public function createDeliveryItem(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleCreate('DeliveryItem', $r, $a, $c, $i); }
+    public function updateDeliveryItem(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleUpdate('DeliveryItem', $r, $a, $c, $i); }
+    public function deleteDeliveryItem(mixed $r, array $a, mixed $c, mixed $i): bool  { return $this->handleDelete('DeliveryItem', $r, $a, $c, $i); }
+    public function reorderDeliveryItems(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleReorder('DeliveryItem', $r, $a, $c, $i); }
 
-        if (str_starts_with($method, 'reorder')) {
-            $plural = substr($method, 7);
-            $type = self::REORDER_PLURAL_MAP[$plural]
-                ?? throw new \InvalidArgumentException("Unknown reorder plural: {$plural}");
+    // -- CapabilityGroup --
+    public function createCapabilityGroup(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleCreate('CapabilityGroup', $r, $a, $c, $i); }
+    public function updateCapabilityGroup(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleUpdate('CapabilityGroup', $r, $a, $c, $i); }
+    public function deleteCapabilityGroup(mixed $r, array $a, mixed $c, mixed $i): bool  { return $this->handleDelete('CapabilityGroup', $r, $a, $c, $i); }
+    public function reorderCapabilityGroups(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleReorder('CapabilityGroup', $r, $a, $c, $i); }
 
-            return $this->handleReorder($type, ...$arguments);
-        }
+    // -- CapabilityItem --
+    public function createCapabilityItem(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleCreate('CapabilityItem', $r, $a, $c, $i); }
+    public function updateCapabilityItem(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleUpdate('CapabilityItem', $r, $a, $c, $i); }
+    public function deleteCapabilityItem(mixed $r, array $a, mixed $c, mixed $i): bool  { return $this->handleDelete('CapabilityItem', $r, $a, $c, $i); }
+    public function reorderCapabilityItems(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleReorder('CapabilityItem', $r, $a, $c, $i); }
 
-        throw new \BadMethodCallException("Unknown method: {$method}");
-    }
+    // -- UseCase --
+    public function createUseCase(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleCreate('UseCase', $r, $a, $c, $i); }
+    public function updateUseCase(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleUpdate('UseCase', $r, $a, $c, $i); }
+    public function deleteUseCase(mixed $r, array $a, mixed $c, mixed $i): bool  { return $this->handleDelete('UseCase', $r, $a, $c, $i); }
+    public function reorderUseCases(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleReorder('UseCase', $r, $a, $c, $i); }
+
+    // -- ApproachStep --
+    public function createApproachStep(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleCreate('ApproachStep', $r, $a, $c, $i); }
+    public function updateApproachStep(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleUpdate('ApproachStep', $r, $a, $c, $i); }
+    public function deleteApproachStep(mixed $r, array $a, mixed $c, mixed $i): bool  { return $this->handleDelete('ApproachStep', $r, $a, $c, $i); }
+    public function reorderApproachSteps(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleReorder('ApproachStep', $r, $a, $c, $i); }
+
+    // -- IndustryApplication --
+    public function createIndustryApplication(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleCreate('IndustryApplication', $r, $a, $c, $i); }
+    public function updateIndustryApplication(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleUpdate('IndustryApplication', $r, $a, $c, $i); }
+    public function deleteIndustryApplication(mixed $r, array $a, mixed $c, mixed $i): bool  { return $this->handleDelete('IndustryApplication', $r, $a, $c, $i); }
+    public function reorderIndustryApplications(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleReorder('IndustryApplication', $r, $a, $c, $i); }
+
+    // -- IndustryUseCase --
+    public function createIndustryUseCase(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleCreate('IndustryUseCase', $r, $a, $c, $i); }
+    public function updateIndustryUseCase(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleUpdate('IndustryUseCase', $r, $a, $c, $i); }
+    public function deleteIndustryUseCase(mixed $r, array $a, mixed $c, mixed $i): bool  { return $this->handleDelete('IndustryUseCase', $r, $a, $c, $i); }
+    public function reorderIndustryUseCases(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleReorder('IndustryUseCase', $r, $a, $c, $i); }
+
+    // -- Technology --
+    public function createTechnology(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleCreate('Technology', $r, $a, $c, $i); }
+    public function updateTechnology(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleUpdate('Technology', $r, $a, $c, $i); }
+    public function deleteTechnology(mixed $r, array $a, mixed $c, mixed $i): bool  { return $this->handleDelete('Technology', $r, $a, $c, $i); }
+    public function reorderTechnologies(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleReorder('Technology', $r, $a, $c, $i); }
+
+    // -- BusinessImpact --
+    public function createBusinessImpact(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleCreate('BusinessImpact', $r, $a, $c, $i); }
+    public function updateBusinessImpact(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleUpdate('BusinessImpact', $r, $a, $c, $i); }
+    public function deleteBusinessImpact(mixed $r, array $a, mixed $c, mixed $i): bool  { return $this->handleDelete('BusinessImpact', $r, $a, $c, $i); }
+    public function reorderBusinessImpacts(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleReorder('BusinessImpact', $r, $a, $c, $i); }
+
+    // -- Differentiator --
+    public function createDifferentiator(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleCreate('Differentiator', $r, $a, $c, $i); }
+    public function updateDifferentiator(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleUpdate('Differentiator', $r, $a, $c, $i); }
+    public function deleteDifferentiator(mixed $r, array $a, mixed $c, mixed $i): bool  { return $this->handleDelete('Differentiator', $r, $a, $c, $i); }
+    public function reorderDifferentiators(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleReorder('Differentiator', $r, $a, $c, $i); }
+
+    // -- Feature --
+    public function createFeature(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleCreate('Feature', $r, $a, $c, $i); }
+    public function updateFeature(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleUpdate('Feature', $r, $a, $c, $i); }
+    public function deleteFeature(mixed $r, array $a, mixed $c, mixed $i): bool  { return $this->handleDelete('Feature', $r, $a, $c, $i); }
+    public function reorderFeatures(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleReorder('Feature', $r, $a, $c, $i); }
+
+    // -- Benefit --
+    public function createBenefit(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleCreate('Benefit', $r, $a, $c, $i); }
+    public function updateBenefit(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleUpdate('Benefit', $r, $a, $c, $i); }
+    public function deleteBenefit(mixed $r, array $a, mixed $c, mixed $i): bool  { return $this->handleDelete('Benefit', $r, $a, $c, $i); }
+    public function reorderBenefits(mixed $r, array $a, mixed $c, mixed $i): array { return $this->handleReorder('Benefit', $r, $a, $c, $i); }
 
     // -------------------------------------------------------------------------
     // Generic handlers
