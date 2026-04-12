@@ -18,6 +18,7 @@ class ContactRequest extends Model
         'phone',
         'subject',
         'message',
+        'project_type',
         'status',
     ];
 

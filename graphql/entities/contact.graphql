@@ -6,6 +6,7 @@ type ContactRequest {
     phone: String
     subject: String
     message: String!
+    project_type: String
     status: ContactRequestStatus!
     created_at: DateTime!
     updated_at: DateTime!
@@ -18,6 +19,7 @@ input CreateContactRequestInput {
     phone: String
     subject: String
     message: String! @rules(apply: ["required"])
+    project_type: String
 }
 
 input UpdateContactRequestInput {
