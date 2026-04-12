@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
-use App\Jobs\SendContactRequestNotification;
+use App\Mail\ContactRequestConfirmation;
+use App\Mail\ContactRequestReceived;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Mail;
 
 class ContactRequest extends Model
 {
@@ -32,7 +34,14 @@ class ContactRequest extends Model
         });
 
         static::created(function (ContactRequest $contactRequest) {
-            SendContactRequestNotification::dispatch($contactRequest);
+            // Send emails synchronously — no queue/Horizon needed
+            Mail::to(config('mail.admin_email'))->send(
+                new ContactRequestReceived($contactRequest)
+            );
+
+            Mail::to($contactRequest->email)->send(
+                new ContactRequestConfirmation($contactRequest)
+            );
         });
     }
 
