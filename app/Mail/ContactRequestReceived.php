@@ -26,7 +26,7 @@ class ContactRequestReceived extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'New Contact Request - ' . ($this->contactRequest->subject ?? 'No Subject'),
+            subject: '[Gamma Neutral] New Contact Request — ' . ($this->contactRequest->subject ?? 'General Inquiry'),
         );
     }
 

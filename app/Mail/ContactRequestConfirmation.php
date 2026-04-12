@@ -25,9 +25,12 @@ class ContactRequestConfirmation extends Mailable
      */
     public function envelope(): Envelope
     {
-        return new Envelope(
-            subject: 'Confirmation de votre demande de contact - Gamma',
-        );
+        $locale = $this->contactRequest->locale ?? 'en';
+        $subject = $locale === 'fr'
+            ? 'Confirmation de votre demande de contact — Gamma Neutral'
+            : 'Your Contact Request Confirmation — Gamma Neutral';
+
+        return new Envelope(subject: $subject);
     }
 
     /**

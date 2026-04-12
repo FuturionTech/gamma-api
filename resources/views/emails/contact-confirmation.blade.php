@@ -1,9 +1,57 @@
+@php
+$locale = $contactRequest->locale ?? 'en';
+$strings = [
+    'en' => [
+        'title' => 'Contact Request Confirmation — Gamma Neutral',
+        'header_subtitle' => 'Contact Request Confirmation',
+        'greeting' => 'Request Received!',
+        'message' => "Hello <strong>{$contactRequest->first_name} {$contactRequest->last_name}</strong>,<br><br>We have received your contact request. Our team will review it and get back to you as soon as possible.",
+        'summary_title' => 'Your Request Summary',
+        'subject_label' => 'Subject',
+        'message_label' => 'Message',
+        'email_label' => 'Contact Email',
+        'phone_label' => 'Phone',
+        'date_label' => 'Submitted',
+        'date_format' => 'F j, Y \a\t g:i A',
+        'next_steps_title' => 'Next Steps',
+        'step_1' => 'Our team reviews your request',
+        'step_2' => 'We will contact you by email within 24-48h',
+        'step_3' => 'An advisor will answer your questions',
+        'urgent_question' => 'Urgent question?',
+        'footer_auto' => 'This email was sent automatically, please do not reply.',
+        'footer_contact' => 'For any questions, contact us at the address above.',
+        'footer_rights' => 'All rights reserved.',
+    ],
+    'fr' => [
+        'title' => 'Confirmation de demande de contact — Gamma Neutral',
+        'header_subtitle' => 'Confirmation de demande de contact',
+        'greeting' => 'Demande bien reçue !',
+        'message' => "Bonjour <strong>{$contactRequest->first_name} {$contactRequest->last_name}</strong>,<br><br>Nous avons bien reçu votre demande de contact. Notre équipe va l'examiner et vous répondra dans les plus brefs délais.",
+        'summary_title' => 'Récapitulatif de votre demande',
+        'subject_label' => 'Sujet',
+        'message_label' => 'Message',
+        'email_label' => 'Email de contact',
+        'phone_label' => 'Téléphone',
+        'date_label' => 'Date de soumission',
+        'date_format' => 'd/m/Y à H:i',
+        'next_steps_title' => 'Prochaines étapes',
+        'step_1' => 'Notre équipe examine votre demande',
+        'step_2' => 'Nous vous contacterons par email sous 24-48h',
+        'step_3' => 'Un conseiller répondra à vos questions',
+        'urgent_question' => 'Une question urgente ?',
+        'footer_auto' => 'Cet email a été envoyé automatiquement, merci de ne pas y répondre.',
+        'footer_contact' => "Pour toute question, contactez-nous à l'adresse ci-dessus.",
+        'footer_rights' => 'Tous droits réservés.',
+    ],
+];
+$t = $strings[$locale] ?? $strings['en'];
+@endphp
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{ $locale }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmation de votre demande de contact - Gamma</title>
+    <title>{{ $t['title'] }}</title>
     <style>
         * {
             margin: 0;
@@ -29,7 +77,7 @@
         }
 
         .email-header {
-            background: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%);
             padding: 40px 30px;
             text-align: center;
         }
@@ -43,7 +91,7 @@
         }
 
         .header-subtitle {
-            color: #E0E7FF;
+            color: #c4b5fd;
             font-size: 14px;
             font-weight: 400;
         }
@@ -137,8 +185,8 @@
         }
 
         .next-steps {
-            background-color: #EEF2FF;
-            border-left: 4px solid #4F46E5;
+            background-color: #f5f3ff;
+            border-left: 4px solid #8b5cf6;
             padding: 20px;
             margin: 25px 0;
             border-radius: 6px;
@@ -147,7 +195,7 @@
         .next-steps-title {
             font-size: 15px;
             font-weight: 600;
-            color: #4F46E5;
+            color: #7c3aed;
             margin-bottom: 12px;
             display: flex;
             align-items: center;
@@ -160,7 +208,7 @@
 
         .next-steps-text {
             font-size: 14px;
-            color: #4338CA;
+            color: #6d28d9;
             line-height: 1.7;
         }
 
@@ -178,7 +226,7 @@
         }
 
         .timeline-number {
-            background-color: #4F46E5;
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
             color: white;
             width: 28px;
             height: 28px;
@@ -192,7 +240,7 @@
 
         .timeline-text {
             font-size: 14px;
-            color: #4338CA;
+            color: #6d28d9;
             line-height: 1.6;
             padding-left: 12px;
             vertical-align: middle;
@@ -215,7 +263,7 @@
         .support-email {
             font-size: 15px;
             font-weight: 600;
-            color: #4F46E5;
+            color: #8b5cf6;
             text-decoration: none;
         }
 
@@ -234,7 +282,7 @@
 
         .footer-brand {
             font-weight: 600;
-            color: #4F46E5;
+            color: #8b5cf6;
             margin-top: 10px;
             display: block;
         }
@@ -272,68 +320,67 @@
     <div class="email-wrapper">
         <!-- Header -->
         <div class="email-header">
-            <div class="logo">GAMMA</div>
-            <div class="header-subtitle">Confirmation de demande de contact</div>
+            <div class="logo">GAMMA NEUTRAL</div>
+            <div class="header-subtitle">{{ $t['header_subtitle'] }}</div>
         </div>
 
         <!-- Content -->
         <div class="email-content">
             <!-- Success Icon -->
             <div class="success-icon">
-                <span class="success-checkmark">✓</span>
+                <span class="success-checkmark">&#10003;</span>
             </div>
 
             <div class="greeting">
-                Demande bien reçue !
+                {{ $t['greeting'] }}
             </div>
 
             <div class="message">
-                Bonjour <strong>{{ $contactRequest->first_name }} {{ $contactRequest->last_name }}</strong>,<br><br>
-                Nous avons bien reçu votre demande de contact. Notre équipe va l'examiner et vous répondra dans les plus brefs délais.
+                {!! $t['message'] !!}
             </div>
 
             <!-- Request Summary -->
             <div class="info-box">
                 <div class="info-title">
-                    <span class="info-icon">📋</span>
-                    Récapitulatif de votre demande
+                    <span class="info-icon">&#128203;</span>
+                    {{ $t['summary_title'] }}
                 </div>
 
                 @if($contactRequest->subject)
                 <div class="info-field">
-                    <div class="info-label">Sujet</div>
+                    <div class="info-label">{{ $t['subject_label'] }}</div>
                     <div class="info-value">{{ $contactRequest->subject }}</div>
                 </div>
                 @endif
 
                 <div class="info-field">
-                    <div class="info-label">Message</div>
+                    <div class="info-label">{{ $t['message_label'] }}</div>
                     <div class="info-value">{{ $contactRequest->message }}</div>
                 </div>
 
                 <div class="info-field">
-                    <div class="info-label">Email de contact</div>
+                    <div class="info-label">{{ $t['email_label'] }}</div>
                     <div class="info-value">{{ $contactRequest->email }}</div>
                 </div>
 
                 @if($contactRequest->phone)
                 <div class="info-field">
-                    <div class="info-label">Téléphone</div>
+                    <div class="info-label">{{ $t['phone_label'] }}</div>
                     <div class="info-value">{{ $contactRequest->phone }}</div>
                 </div>
                 @endif
 
                 <div class="info-field">
-                    <div class="info-label">Date de soumission</div>
-                    <div class="info-value">{{ $contactRequest->created_at->format('d/m/Y à H:i') }}</div>
+                    <div class="info-label">{{ $t['date_label'] }}</div>
+                    <div class="info-value">{{ $contactRequest->created_at->format($t['date_format']) }}</div>
                 </div>
             </div>
 
             <!-- Next Steps -->
             <div class="next-steps">
                 <div class="next-steps-title">
-                    <span class="next-steps-icon">🚀</span>
-                    Prochaines étapes
+                    <span class="next-steps-icon">&#128640;</span>
+                    {{ $t['next_steps_title'] }}
                 </div>
                 <div class="timeline-item">
                     <table cellpadding="0" cellspacing="0" border="0">
@@ -342,7 +389,7 @@
                                 <span class="timeline-number">1</span>
                             </td>
                             <td class="timeline-text" style="vertical-align: top;">
-                                Notre équipe examine votre demande
+                                {{ $t['step_1'] }}
                             </td>
                         </tr>
                     </table>
@@ -354,7 +401,7 @@
                                 <span class="timeline-number">2</span>
                             </td>
                             <td class="timeline-text" style="vertical-align: top;">
-                                Nous vous contacterons par email sous 24-48h
+                                {{ $t['step_2'] }}
                             </td>
                         </tr>
                     </table>
@@ -366,7 +413,7 @@
                                 <span class="timeline-number">3</span>
                             </td>
                             <td class="timeline-text" style="vertical-align: top;">
-                                Un conseiller répondra à vos questions
+                                {{ $t['step_3'] }}
                             </td>
                         </tr>
                     </table>
@@ -376,10 +423,10 @@
             <!-- Support Section -->
             <div class="support-section">
                 <div class="support-text">
-                    Une question urgente ?
+                    {{ $t['urgent_question'] }}
                 </div>
-                <a href="mailto:{{ env('ADMIN_EMAIL', 'support@gammaneutral.com') }}" class="support-email">
-                    {{ env('ADMIN_EMAIL', 'support@gammaneutral.com') }}
+                <a href="mailto:{{ config('mail.admin_email', 'support@gammaneutral.com') }}" class="support-email">
+                    {{ config('mail.admin_email', 'support@gammaneutral.com') }}
                 </a>
             </div>
         </div>
@@ -387,11 +434,11 @@
         <!-- Footer -->
         <div class="email-footer">
             <div class="footer-text">
-                Cet email a été envoyé automatiquement, merci de ne pas y répondre.<br>
-                Pour toute question, contactez-nous à l'adresse ci-dessus.
+                {{ $t['footer_auto'] }}<br>
+                {{ $t['footer_contact'] }}
             </div>
-            <span class="footer-brand">Gamma API</span>
-            <div class="footer-year">© {{ date('Y') }} Gamma. Tous droits réservés.</div>
+            <span class="footer-brand">Gamma Neutral Consulting</span>
+            <div class="footer-year">&copy; {{ date('Y') }} Gamma Neutral Consulting Inc. {{ $t['footer_rights'] }}</div>
         </div>
     </div>
 </body>
