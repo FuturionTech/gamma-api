@@ -1,0 +1,771 @@
+"Admin-facing service entity — returns all translations, not locale-filtered."
+type ServiceForAdmin {
+  id: ID!
+  slug: String!
+  icon: String
+  iconColor: String
+  category: String
+  order: Int!
+  isActive: Boolean!
+  publishedAt: DateTime
+  translations: [ServiceTranslationForAdmin!]!
+  stats: [ServiceStatForAdmin!]!
+  painPoints: [ServicePainPointForAdmin!]!
+  deliveryItems: [ServiceDeliveryItemForAdmin!]!
+  capabilityGroups: [ServiceCapabilityGroupForAdmin!]!
+  useCases: [ServiceUseCaseForAdmin!]!
+  approachSteps: [ServiceApproachStepForAdmin!]!
+  industryApplications: [ServiceIndustryApplicationForAdmin!]!
+  technologies: [ServiceTechnologyForAdmin!]!
+  businessImpacts: [ServiceBusinessImpactForAdmin!]!
+  differentiators: [ServiceDifferentiatorForAdmin!]!
+  features: [ServiceFeatureForAdmin!]!
+  benefits: [ServiceBenefitForAdmin!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type ServiceTranslationForAdmin {
+  locale: String!
+  title: String
+  shortDescription: String
+  description: String
+  metaTitle: String
+  metaDescription: String
+  metaKeywords: String
+  heroTagline: String
+  heroHeadline: String
+  heroSubheadline: String
+  heroCtaPrimaryLabel: String
+  heroCtaSecondaryLabel: String
+  challengeTitle: String
+  challengeDescription: String
+  deliveryTitle: String
+  deliveryDescription: String
+  capabilitiesTitle: String
+  useCasesTitle: String
+  useCasesDescription: String
+  approachTitle: String
+  approachDescription: String
+  industryTitle: String
+  industryDescription: String
+  technologiesTitle: String
+  technologiesDescription: String
+  businessImpactTitle: String
+  businessImpactDescription: String
+  differentiatorsTitle: String
+  closingTitle: String
+  closingSubtitle: String
+  publishedAt: DateTime
+}
+
+# ---------------------------------------------------------------------------
+# Child ForAdmin types (12 base + 2 nested)
+# ---------------------------------------------------------------------------
+
+type ServiceStatForAdmin {
+  id: ID!
+  order: Int!
+  icon: String
+  translations: [ServiceStatTranslationForAdmin!]!
+}
+
+type ServiceStatTranslationForAdmin {
+  locale: String!
+  value: String!
+  label: String!
+}
+
+type ServicePainPointForAdmin {
+  id: ID!
+  order: Int!
+  translations: [ServicePainPointTranslationForAdmin!]!
+}
+
+type ServicePainPointTranslationForAdmin {
+  locale: String!
+  text: String!
+}
+
+type ServiceDeliveryItemForAdmin {
+  id: ID!
+  order: Int!
+  icon: String
+  translations: [ServiceDeliveryItemTranslationForAdmin!]!
+}
+
+type ServiceDeliveryItemTranslationForAdmin {
+  locale: String!
+  text: String!
+}
+
+type ServiceCapabilityGroupForAdmin {
+  id: ID!
+  order: Int!
+  icon: String
+  translations: [ServiceCapabilityGroupTranslationForAdmin!]!
+  items: [ServiceCapabilityItemForAdmin!]!
+}
+
+type ServiceCapabilityGroupTranslationForAdmin {
+  locale: String!
+  name: String!
+}
+
+type ServiceCapabilityItemForAdmin {
+  id: ID!
+  order: Int!
+  translations: [ServiceCapabilityItemTranslationForAdmin!]!
+}
+
+type ServiceCapabilityItemTranslationForAdmin {
+  locale: String!
+  name: String!
+}
+
+type ServiceUseCaseForAdmin {
+  id: ID!
+  order: Int!
+  translations: [ServiceUseCaseTranslationForAdmin!]!
+}
+
+type ServiceUseCaseTranslationForAdmin {
+  locale: String!
+  text: String!
+}
+
+type ServiceApproachStepForAdmin {
+  id: ID!
+  order: Int!
+  icon: String
+  translations: [ServiceApproachStepTranslationForAdmin!]!
+}
+
+type ServiceApproachStepTranslationForAdmin {
+  locale: String!
+  title: String!
+  description: String
+}
+
+type ServiceIndustryApplicationForAdmin {
+  id: ID!
+  order: Int!
+  icon: String
+  translations: [ServiceIndustryApplicationTranslationForAdmin!]!
+  useCases: [ServiceIndustryUseCaseForAdmin!]!
+}
+
+type ServiceIndustryApplicationTranslationForAdmin {
+  locale: String!
+  name: String!
+  description: String
+}
+
+type ServiceIndustryUseCaseForAdmin {
+  id: ID!
+  order: Int!
+  translations: [ServiceIndustryUseCaseTranslationForAdmin!]!
+}
+
+type ServiceIndustryUseCaseTranslationForAdmin {
+  locale: String!
+  text: String!
+}
+
+type ServiceTechnologyForAdmin {
+  id: ID!
+  order: Int!
+  icon: String
+  translations: [ServiceTechnologyTranslationForAdmin!]!
+}
+
+type ServiceTechnologyTranslationForAdmin {
+  locale: String!
+  name: String!
+}
+
+type ServiceBusinessImpactForAdmin {
+  id: ID!
+  order: Int!
+  icon: String
+  translations: [ServiceBusinessImpactTranslationForAdmin!]!
+}
+
+type ServiceBusinessImpactTranslationForAdmin {
+  locale: String!
+  title: String!
+  description: String
+}
+
+type ServiceDifferentiatorForAdmin {
+  id: ID!
+  order: Int!
+  icon: String
+  translations: [ServiceDifferentiatorTranslationForAdmin!]!
+}
+
+type ServiceDifferentiatorTranslationForAdmin {
+  locale: String!
+  title: String!
+  description: String
+}
+
+type ServiceFeatureForAdmin {
+  id: ID!
+  order: Int!
+  icon: String
+  translations: [ServiceFeatureTranslationForAdmin!]!
+}
+
+type ServiceFeatureTranslationForAdmin {
+  locale: String!
+  title: String!
+  description: String
+}
+
+type ServiceBenefitForAdmin {
+  id: ID!
+  order: Int!
+  icon: String
+  translations: [ServiceBenefitTranslationForAdmin!]!
+}
+
+type ServiceBenefitTranslationForAdmin {
+  locale: String!
+  title: String!
+  description: String
+}
+
+# ---------------------------------------------------------------------------
+# Admin queries
+# ---------------------------------------------------------------------------
+
+extend type Query {
+  "Return a single service by ID with ALL translations and ALL child relations."
+  serviceForAdmin(id: ID!): ServiceForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Queries\\Admin\\ServiceForAdminQuery")
+
+  "Return all services (optionally filtered by isActive) with translations only."
+  servicesForAdmin(isActive: Boolean): [ServiceForAdmin!]!
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Queries\\Admin\\ServicesForAdminQuery")
+}
+
+# ---------------------------------------------------------------------------
+# Parent service inputs
+# ---------------------------------------------------------------------------
+
+input CreateServiceAdminInput {
+  slug: String!
+  icon: String
+  iconColor: String
+  category: String
+  order: Int
+  isActive: Boolean
+  translations: [ServiceTranslationInput!]!
+}
+
+input UpdateServiceAdminInput {
+  slug: String
+  icon: String
+  iconColor: String
+  category: String
+  order: Int
+  isActive: Boolean
+  translations: [ServiceTranslationInput!]
+}
+
+input ServiceTranslationInput {
+  locale: String!
+  title: String
+  shortDescription: String
+  description: String
+  metaTitle: String
+  metaDescription: String
+  metaKeywords: String
+  heroTagline: String
+  heroHeadline: String
+  heroSubheadline: String
+  heroCtaPrimaryLabel: String
+  heroCtaSecondaryLabel: String
+  challengeTitle: String
+  challengeDescription: String
+  deliveryTitle: String
+  deliveryDescription: String
+  capabilitiesTitle: String
+  useCasesTitle: String
+  useCasesDescription: String
+  approachTitle: String
+  approachDescription: String
+  industryTitle: String
+  industryDescription: String
+  technologiesTitle: String
+  technologiesDescription: String
+  businessImpactTitle: String
+  businessImpactDescription: String
+  differentiatorsTitle: String
+  closingTitle: String
+  closingSubtitle: String
+}
+
+# ---------------------------------------------------------------------------
+# Child input types
+# ---------------------------------------------------------------------------
+
+input ServiceStatInput {
+  order: Int
+  icon: String
+  translations: [ServiceStatTranslationInput!]!
+}
+
+input ServiceStatTranslationInput {
+  locale: String!
+  value: String!
+  label: String!
+}
+
+input ServicePainPointInput {
+  order: Int
+  translations: [ServicePainPointTranslationInput!]!
+}
+
+input ServicePainPointTranslationInput {
+  locale: String!
+  text: String!
+}
+
+input ServiceDeliveryItemInput {
+  order: Int
+  icon: String
+  translations: [ServiceDeliveryItemTranslationInput!]!
+}
+
+input ServiceDeliveryItemTranslationInput {
+  locale: String!
+  text: String!
+}
+
+input ServiceCapabilityGroupInput {
+  order: Int
+  icon: String
+  translations: [ServiceCapabilityGroupTranslationInput!]!
+}
+
+input ServiceCapabilityGroupTranslationInput {
+  locale: String!
+  name: String!
+}
+
+input ServiceCapabilityItemInput {
+  order: Int
+  translations: [ServiceCapabilityItemTranslationInput!]!
+}
+
+input ServiceCapabilityItemTranslationInput {
+  locale: String!
+  name: String!
+}
+
+input ServiceUseCaseInput {
+  order: Int
+  translations: [ServiceUseCaseTranslationInput!]!
+}
+
+input ServiceUseCaseTranslationInput {
+  locale: String!
+  text: String!
+}
+
+input ServiceApproachStepInput {
+  order: Int
+  icon: String
+  translations: [ServiceApproachStepTranslationInput!]!
+}
+
+input ServiceApproachStepTranslationInput {
+  locale: String!
+  title: String!
+  description: String
+}
+
+input ServiceIndustryApplicationInput {
+  order: Int
+  icon: String
+  translations: [ServiceIndustryApplicationTranslationInput!]!
+}
+
+input ServiceIndustryApplicationTranslationInput {
+  locale: String!
+  name: String!
+  description: String
+}
+
+input ServiceIndustryUseCaseInput {
+  order: Int
+  translations: [ServiceIndustryUseCaseTranslationInput!]!
+}
+
+input ServiceIndustryUseCaseTranslationInput {
+  locale: String!
+  text: String!
+}
+
+input ServiceTechnologyInput {
+  order: Int
+  icon: String
+  translations: [ServiceTechnologyTranslationInput!]!
+}
+
+input ServiceTechnologyTranslationInput {
+  locale: String!
+  name: String!
+}
+
+input ServiceBusinessImpactInput {
+  order: Int
+  icon: String
+  translations: [ServiceBusinessImpactTranslationInput!]!
+}
+
+input ServiceBusinessImpactTranslationInput {
+  locale: String!
+  title: String!
+  description: String
+}
+
+input ServiceDifferentiatorInput {
+  order: Int
+  icon: String
+  translations: [ServiceDifferentiatorTranslationInput!]!
+}
+
+input ServiceDifferentiatorTranslationInput {
+  locale: String!
+  title: String!
+  description: String
+}
+
+input ServiceFeatureInput {
+  order: Int
+  icon: String
+  translations: [ServiceFeatureTranslationInput!]!
+}
+
+input ServiceFeatureTranslationInput {
+  locale: String!
+  title: String!
+  description: String
+}
+
+input ServiceBenefitInput {
+  order: Int
+  icon: String
+  translations: [ServiceBenefitTranslationInput!]!
+}
+
+input ServiceBenefitTranslationInput {
+  locale: String!
+  title: String!
+  description: String
+}
+
+# ---------------------------------------------------------------------------
+# Parent service mutations
+# ---------------------------------------------------------------------------
+
+extend type Mutation {
+  createServiceAdmin(input: CreateServiceAdminInput!): ServiceForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\UpsertService@create")
+
+  updateServiceAdmin(id: ID!, input: UpdateServiceAdminInput!): ServiceForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\UpsertService@update")
+
+  deleteServiceAdmin(id: ID!): Boolean
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\DeleteService")
+
+  publishService(id: ID!): ServiceForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\PublishService@publish")
+
+  unpublishService(id: ID!): ServiceForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\PublishService@unpublish")
+
+  publishServiceTranslation(serviceId: ID!, locale: String!): ServiceTranslationForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\PublishService@publishTranslation")
+
+  unpublishServiceTranslation(serviceId: ID!, locale: String!): ServiceTranslationForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\PublishService@unpublishTranslation")
+
+  # ---------------------------------------------------------------------------
+  # Child CRUD mutations — ServiceStat
+  # ---------------------------------------------------------------------------
+  createServiceStat(serviceId: ID!, input: ServiceStatInput!): ServiceStatForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@createStat")
+
+  updateServiceStat(id: ID!, input: ServiceStatInput!): ServiceStatForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@updateStat")
+
+  deleteServiceStat(id: ID!): Boolean
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@deleteStat")
+
+  reorderServiceStats(serviceId: ID!, orderedIds: [ID!]!): [ServiceStatForAdmin!]!
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@reorderStats")
+
+  # ---------------------------------------------------------------------------
+  # Child CRUD mutations — ServicePainPoint
+  # ---------------------------------------------------------------------------
+  createServicePainPoint(serviceId: ID!, input: ServicePainPointInput!): ServicePainPointForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@createPainPoint")
+
+  updateServicePainPoint(id: ID!, input: ServicePainPointInput!): ServicePainPointForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@updatePainPoint")
+
+  deleteServicePainPoint(id: ID!): Boolean
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@deletePainPoint")
+
+  reorderServicePainPoints(serviceId: ID!, orderedIds: [ID!]!): [ServicePainPointForAdmin!]!
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@reorderPainPoints")
+
+  # ---------------------------------------------------------------------------
+  # Child CRUD mutations — ServiceDeliveryItem
+  # ---------------------------------------------------------------------------
+  createServiceDeliveryItem(serviceId: ID!, input: ServiceDeliveryItemInput!): ServiceDeliveryItemForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@createDeliveryItem")
+
+  updateServiceDeliveryItem(id: ID!, input: ServiceDeliveryItemInput!): ServiceDeliveryItemForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@updateDeliveryItem")
+
+  deleteServiceDeliveryItem(id: ID!): Boolean
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@deleteDeliveryItem")
+
+  reorderServiceDeliveryItems(serviceId: ID!, orderedIds: [ID!]!): [ServiceDeliveryItemForAdmin!]!
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@reorderDeliveryItems")
+
+  # ---------------------------------------------------------------------------
+  # Child CRUD mutations — ServiceCapabilityGroup
+  # ---------------------------------------------------------------------------
+  createServiceCapabilityGroup(serviceId: ID!, input: ServiceCapabilityGroupInput!): ServiceCapabilityGroupForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@createCapabilityGroup")
+
+  updateServiceCapabilityGroup(id: ID!, input: ServiceCapabilityGroupInput!): ServiceCapabilityGroupForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@updateCapabilityGroup")
+
+  deleteServiceCapabilityGroup(id: ID!): Boolean
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@deleteCapabilityGroup")
+
+  reorderServiceCapabilityGroups(serviceId: ID!, orderedIds: [ID!]!): [ServiceCapabilityGroupForAdmin!]!
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@reorderCapabilityGroups")
+
+  # ---------------------------------------------------------------------------
+  # Child CRUD mutations — ServiceCapabilityItem
+  # ---------------------------------------------------------------------------
+  createServiceCapabilityItem(capabilityGroupId: ID!, input: ServiceCapabilityItemInput!): ServiceCapabilityItemForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@createCapabilityItem")
+
+  updateServiceCapabilityItem(id: ID!, input: ServiceCapabilityItemInput!): ServiceCapabilityItemForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@updateCapabilityItem")
+
+  deleteServiceCapabilityItem(id: ID!): Boolean
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@deleteCapabilityItem")
+
+  reorderServiceCapabilityItems(capabilityGroupId: ID!, orderedIds: [ID!]!): [ServiceCapabilityItemForAdmin!]!
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@reorderCapabilityItems")
+
+  # ---------------------------------------------------------------------------
+  # Child CRUD mutations — ServiceUseCase
+  # ---------------------------------------------------------------------------
+  createServiceUseCase(serviceId: ID!, input: ServiceUseCaseInput!): ServiceUseCaseForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@createUseCase")
+
+  updateServiceUseCase(id: ID!, input: ServiceUseCaseInput!): ServiceUseCaseForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@updateUseCase")
+
+  deleteServiceUseCase(id: ID!): Boolean
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@deleteUseCase")
+
+  reorderServiceUseCases(serviceId: ID!, orderedIds: [ID!]!): [ServiceUseCaseForAdmin!]!
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@reorderUseCases")
+
+  # ---------------------------------------------------------------------------
+  # Child CRUD mutations — ServiceApproachStep
+  # ---------------------------------------------------------------------------
+  createServiceApproachStep(serviceId: ID!, input: ServiceApproachStepInput!): ServiceApproachStepForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@createApproachStep")
+
+  updateServiceApproachStep(id: ID!, input: ServiceApproachStepInput!): ServiceApproachStepForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@updateApproachStep")
+
+  deleteServiceApproachStep(id: ID!): Boolean
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@deleteApproachStep")
+
+  reorderServiceApproachSteps(serviceId: ID!, orderedIds: [ID!]!): [ServiceApproachStepForAdmin!]!
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@reorderApproachSteps")
+
+  # ---------------------------------------------------------------------------
+  # Child CRUD mutations — ServiceIndustryApplication
+  # ---------------------------------------------------------------------------
+  createServiceIndustryApplication(serviceId: ID!, input: ServiceIndustryApplicationInput!): ServiceIndustryApplicationForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@createIndustryApplication")
+
+  updateServiceIndustryApplication(id: ID!, input: ServiceIndustryApplicationInput!): ServiceIndustryApplicationForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@updateIndustryApplication")
+
+  deleteServiceIndustryApplication(id: ID!): Boolean
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@deleteIndustryApplication")
+
+  reorderServiceIndustryApplications(serviceId: ID!, orderedIds: [ID!]!): [ServiceIndustryApplicationForAdmin!]!
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@reorderIndustryApplications")
+
+  # ---------------------------------------------------------------------------
+  # Child CRUD mutations — ServiceIndustryUseCase
+  # ---------------------------------------------------------------------------
+  createServiceIndustryUseCase(industryApplicationId: ID!, input: ServiceIndustryUseCaseInput!): ServiceIndustryUseCaseForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@createIndustryUseCase")
+
+  updateServiceIndustryUseCase(id: ID!, input: ServiceIndustryUseCaseInput!): ServiceIndustryUseCaseForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@updateIndustryUseCase")
+
+  deleteServiceIndustryUseCase(id: ID!): Boolean
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@deleteIndustryUseCase")
+
+  reorderServiceIndustryUseCases(industryApplicationId: ID!, orderedIds: [ID!]!): [ServiceIndustryUseCaseForAdmin!]!
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@reorderIndustryUseCases")
+
+  # ---------------------------------------------------------------------------
+  # Child CRUD mutations — ServiceTechnology
+  # ---------------------------------------------------------------------------
+  createServiceTechnology(serviceId: ID!, input: ServiceTechnologyInput!): ServiceTechnologyForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@createTechnology")
+
+  updateServiceTechnology(id: ID!, input: ServiceTechnologyInput!): ServiceTechnologyForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@updateTechnology")
+
+  deleteServiceTechnology(id: ID!): Boolean
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@deleteTechnology")
+
+  reorderServiceTechnologies(serviceId: ID!, orderedIds: [ID!]!): [ServiceTechnologyForAdmin!]!
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@reorderTechnologies")
+
+  # ---------------------------------------------------------------------------
+  # Child CRUD mutations — ServiceBusinessImpact
+  # ---------------------------------------------------------------------------
+  createServiceBusinessImpact(serviceId: ID!, input: ServiceBusinessImpactInput!): ServiceBusinessImpactForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@createBusinessImpact")
+
+  updateServiceBusinessImpact(id: ID!, input: ServiceBusinessImpactInput!): ServiceBusinessImpactForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@updateBusinessImpact")
+
+  deleteServiceBusinessImpact(id: ID!): Boolean
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@deleteBusinessImpact")
+
+  reorderServiceBusinessImpacts(serviceId: ID!, orderedIds: [ID!]!): [ServiceBusinessImpactForAdmin!]!
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@reorderBusinessImpacts")
+
+  # ---------------------------------------------------------------------------
+  # Child CRUD mutations — ServiceDifferentiator
+  # ---------------------------------------------------------------------------
+  createServiceDifferentiator(serviceId: ID!, input: ServiceDifferentiatorInput!): ServiceDifferentiatorForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@createDifferentiator")
+
+  updateServiceDifferentiator(id: ID!, input: ServiceDifferentiatorInput!): ServiceDifferentiatorForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@updateDifferentiator")
+
+  deleteServiceDifferentiator(id: ID!): Boolean
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@deleteDifferentiator")
+
+  reorderServiceDifferentiators(serviceId: ID!, orderedIds: [ID!]!): [ServiceDifferentiatorForAdmin!]!
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@reorderDifferentiators")
+
+  # ---------------------------------------------------------------------------
+  # Child CRUD mutations — ServiceFeature
+  # ---------------------------------------------------------------------------
+  createServiceFeature2(serviceId: ID!, input: ServiceFeatureInput!): ServiceFeatureForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@createFeature")
+
+  updateServiceFeature2(id: ID!, input: ServiceFeatureInput!): ServiceFeatureForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@updateFeature")
+
+  deleteServiceFeature2(id: ID!): Boolean
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@deleteFeature")
+
+  reorderServiceFeatures(serviceId: ID!, orderedIds: [ID!]!): [ServiceFeatureForAdmin!]!
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@reorderFeatures")
+
+  # ---------------------------------------------------------------------------
+  # Child CRUD mutations — ServiceBenefit
+  # ---------------------------------------------------------------------------
+  createServiceBenefit2(serviceId: ID!, input: ServiceBenefitInput!): ServiceBenefitForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@createBenefit")
+
+  updateServiceBenefit2(id: ID!, input: ServiceBenefitInput!): ServiceBenefitForAdmin
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@updateBenefit")
+
+  deleteServiceBenefit2(id: ID!): Boolean
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@deleteBenefit")
+
+  reorderServiceBenefits(serviceId: ID!, orderedIds: [ID!]!): [ServiceBenefitForAdmin!]!
+    @guard(with: ["sanctum"])
+    @field(resolver: "App\\GraphQL\\Mutations\\Admin\\ServiceChildCrud@reorderBenefits")
+}
