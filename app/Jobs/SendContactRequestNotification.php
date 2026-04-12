@@ -28,7 +28,7 @@ class SendContactRequestNotification implements ShouldQueue
      */
     public function handle(): void
     {
-        $adminEmail = env('ADMIN_EMAIL', 'acompaore@futurion.tech');
+        $adminEmail = config('mail.admin_email');
 
         // Send notification to admin
         Mail::to($adminEmail)->send(

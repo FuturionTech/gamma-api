@@ -111,8 +111,20 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'no-reply@gammaneutral.com'),
+        'name' => env('MAIL_FROM_NAME', 'Gamma Neutral Consulting'),
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Admin Notification Email
+    |--------------------------------------------------------------------------
+    |
+    | Contact form submissions and other admin notifications are sent to
+    | this address. Override via ADMIN_EMAIL in .env.
+    |
+    */
+
+    'admin_email' => env('ADMIN_EMAIL', 'acompaore@futurion.tech'),
 
 ];
