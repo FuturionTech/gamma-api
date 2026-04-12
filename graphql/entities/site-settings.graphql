@@ -1,0 +1,22 @@
+type SiteSetting {
+    key: String!
+    value: String
+    type: String!
+    group: String!
+}
+
+extend type Query {
+    "Get all site settings, optionally filtered by group"
+    siteSettings(group: String): [SiteSetting!]!
+        @field(resolver: "App\\GraphQL\\Queries\\SiteSettingsQuery")
+
+    "Get a single site setting by key"
+    siteSetting(key: String!): SiteSetting
+        @field(resolver: "App\\GraphQL\\Queries\\SiteSettingsQuery@single")
+}
+
+extend type Mutation {
+    updateSiteSetting(key: String!, value: String): SiteSetting
+        @guard(with: ["sanctum"])
+        @field(resolver: "App\\GraphQL\\Mutations\\Admin\\UpdateSiteSetting")
+}
