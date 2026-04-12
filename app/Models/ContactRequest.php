@@ -20,10 +20,17 @@ class ContactRequest extends Model
         'message',
         'project_type',
         'status',
+        'locale',
     ];
 
     protected static function booted(): void
     {
+        static::creating(function (ContactRequest $contactRequest) {
+            if (empty($contactRequest->locale)) {
+                $contactRequest->locale = app()->getLocale();
+            }
+        });
+
         static::created(function (ContactRequest $contactRequest) {
             SendContactRequestNotification::dispatch($contactRequest);
         });
