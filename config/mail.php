@@ -125,6 +125,6 @@ return [
     |
     */
 
-    'admin_email' => env('ADMIN_EMAIL', 'acompaore@futurion.tech'),
+    'admin_email' => env('ADMIN_EMAIL', 'info@gammaneutral.com'),
 
 ];
