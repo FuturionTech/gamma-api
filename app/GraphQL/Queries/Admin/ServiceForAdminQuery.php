@@ -8,36 +8,44 @@ use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 
 final class ServiceForAdminQuery
 {
+    /** Eager-load paths used by the full service admin projection. */
+    public const EAGER_LOADS = [
+        'translations',
+        'stats.translations',
+        'painPoints.translations',
+        'deliveryItems.translations',
+        'capabilityGroups.translations',
+        'capabilityGroups.items.translations',
+        'useCases.translations',
+        'approachSteps.translations',
+        'industryApplications.translations',
+        'industryApplications.useCases.translations',
+        'technologies.translations',
+        'businessImpacts.translations',
+        'differentiators.translations',
+        'features.translations',
+        'benefits.translations',
+    ];
+
     public function __invoke(mixed $root, array $args, GraphQLContext $context, ResolveInfo $resolveInfo): ?array
     {
         $service = Service::query()
-            ->with([
-                'translations',
-                'stats.translations',
-                'painPoints.translations',
-                'deliveryItems.translations',
-                'capabilityGroups.translations',
-                'capabilityGroups.items.translations',
-                'useCases.translations',
-                'approachSteps.translations',
-                'industryApplications.translations',
-                'industryApplications.useCases.translations',
-                'technologies.translations',
-                'businessImpacts.translations',
-                'differentiators.translations',
-                'features.translations',
-                'benefits.translations',
-            ])
+            ->with(self::EAGER_LOADS)
             ->find($args['id']);
 
         if (! $service) {
             return null;
         }
 
-        return $this->projectService($service);
+        return self::projectService($service);
     }
 
-    private function projectService(Service $service): array
+    /**
+     * Project a Service model to its admin GraphQL shape (camelCase keys).
+     *
+     * Static so mutation resolvers can reuse the same projection.
+     */
+    public static function projectService(Service $service): array
     {
         return [
             'id'          => $service->id,
@@ -48,31 +56,34 @@ final class ServiceForAdminQuery
             'order'       => $service->order,
             'isActive'    => $service->is_active,
             'publishedAt' => $service->published_at,
-            'translations'          => $service->translations->map(fn ($t) => $this->projectTranslation($t))->all(),
-            'stats'                 => $service->stats->map(fn ($c) => $this->projectChild($c))->all(),
-            'painPoints'            => $service->painPoints->map(fn ($c) => $this->projectChild($c))->all(),
-            'deliveryItems'         => $service->deliveryItems->map(fn ($c) => $this->projectChild($c))->all(),
+            'translations'          => $service->translations->map(fn ($t) => self::projectTranslation($t))->all(),
+            'stats'                 => $service->stats->map(fn ($c) => self::projectChild($c))->all(),
+            'painPoints'            => $service->painPoints->map(fn ($c) => self::projectChild($c))->all(),
+            'deliveryItems'         => $service->deliveryItems->map(fn ($c) => self::projectChild($c))->all(),
             'capabilityGroups'      => $service->capabilityGroups->map(fn ($g) => array_merge(
-                $this->projectChild($g),
-                ['items' => $g->items->map(fn ($i) => $this->projectChild($i))->all()]
+                self::projectChild($g),
+                ['items' => $g->items->map(fn ($i) => self::projectChild($i))->all()]
             ))->all(),
-            'useCases'              => $service->useCases->map(fn ($c) => $this->projectChild($c))->all(),
-            'approachSteps'         => $service->approachSteps->map(fn ($c) => $this->projectChild($c))->all(),
+            'useCases'              => $service->useCases->map(fn ($c) => self::projectChild($c))->all(),
+            'approachSteps'         => $service->approachSteps->map(fn ($c) => self::projectChild($c))->all(),
             'industryApplications'  => $service->industryApplications->map(fn ($ind) => array_merge(
-                $this->projectChild($ind),
-                ['useCases' => $ind->useCases->map(fn ($uc) => $this->projectChild($uc))->all()]
+                self::projectChild($ind),
+                ['useCases' => $ind->useCases->map(fn ($uc) => self::projectChild($uc))->all()]
             ))->all(),
-            'technologies'          => $service->technologies->map(fn ($c) => $this->projectChild($c))->all(),
-            'businessImpacts'       => $service->businessImpacts->map(fn ($c) => $this->projectChild($c))->all(),
-            'differentiators'       => $service->differentiators->map(fn ($c) => $this->projectChild($c))->all(),
-            'features'              => $service->features->map(fn ($c) => $this->projectChild($c))->all(),
-            'benefits'              => $service->benefits->map(fn ($c) => $this->projectChild($c))->all(),
+            'technologies'          => $service->technologies->map(fn ($c) => self::projectChild($c))->all(),
+            'businessImpacts'       => $service->businessImpacts->map(fn ($c) => self::projectChild($c))->all(),
+            'differentiators'       => $service->differentiators->map(fn ($c) => self::projectChild($c))->all(),
+            'features'              => $service->features->map(fn ($c) => self::projectChild($c))->all(),
+            'benefits'              => $service->benefits->map(fn ($c) => self::projectChild($c))->all(),
             'createdAt'             => $service->created_at,
             'updatedAt'             => $service->updated_at,
         ];
     }
 
-    private function projectTranslation(object $translation): array
+    /**
+     * Project a ServiceTranslation to its admin GraphQL shape.
+     */
+    public static function projectTranslation(object $translation): array
     {
         return [
             'locale'               => $translation->locale,
@@ -115,7 +126,7 @@ final class ServiceForAdminQuery
      * Uses the translation model's $fillable to dynamically extract content
      * fields, so this works generically for any child type (stats, painPoints, etc.).
      */
-    private function projectChild(object $child): array
+    public static function projectChild(object $child): array
     {
         $result = [
             'id'    => $child->id,
