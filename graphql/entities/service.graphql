@@ -193,8 +193,8 @@ extend type Query {
     services(is_active: Boolean, limit: Int): [Service!]!
         @field(resolver: "App\\GraphQL\\Queries\\ServicesList")
 
-    "Return a single service by slug with the full grouped content tree."
-    service(slug: String!): Service
+    "Return a single service by slug (public, active only) or by ID (admin, any status)."
+    service(slug: String, id: ID): Service
         @field(resolver: "App\\GraphQL\\Queries\\ServiceDetail")
 }
 

@@ -9,37 +9,46 @@ use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
 final class ServiceDetail
 {
     /**
-     * Resolve the `service(slug: String!)` query.
+     * Resolve the `service(slug: String, id: ID)` query.
      *
-     * Loads a single service by slug with every relation eager-loaded,
-     * then projects the flat service_translations columns and child
-     * collections into the grouped tree shape the frontend expects.
+     * Two lookup modes:
+     *   - `slug` (public): only returns active services.
+     *   - `id` (admin):    returns the service regardless of is_active,
+     *                      so the admin UI can edit draft/inactive entries.
      *
-     * Locale is resolved from the SetLocaleFromHeader middleware,
-     * so calling $service->title implicitly returns the active locale
-     * via astrotomic's property fallback.
+     * Loads every relation eager-loaded, then projects the flat
+     * service_translations columns and child collections into the grouped
+     * tree shape the frontend expects. Locale is resolved from the
+     * SetLocaleFromHeader middleware, so `$service->title` implicitly
+     * returns the active locale via astrotomic's property fallback.
      */
     public function __invoke(mixed $root, array $args, GraphQLContext $context, ResolveInfo $resolveInfo): ?array
     {
+        $query = Service::query()->with([
+            'stats',
+            'painPoints',
+            'deliveryItems',
+            'capabilityGroups.items',
+            'useCases',
+            'approachSteps',
+            'industryApplications.useCases',
+            'technologies',
+            'businessImpacts',
+            'differentiators',
+            'features',
+            'benefits',
+        ]);
+
+        if (! empty($args['id'])) {
+            $query->whereKey($args['id']);
+        } elseif (! empty($args['slug'])) {
+            $query->where('slug', $args['slug'])->where('is_active', true);
+        } else {
+            return null;
+        }
+
         /** @var Service|null $service */
-        $service = Service::query()
-            ->with([
-                'stats',
-                'painPoints',
-                'deliveryItems',
-                'capabilityGroups.items',
-                'useCases',
-                'approachSteps',
-                'industryApplications.useCases',
-                'technologies',
-                'businessImpacts',
-                'differentiators',
-                'features',
-                'benefits',
-            ])
-            ->where('slug', $args['slug'])
-            ->where('is_active', true)
-            ->first();
+        $service = $query->first();
 
         if ($service === null) {
             return null;
