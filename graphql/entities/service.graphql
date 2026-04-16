@@ -268,7 +268,7 @@ extend type Mutation {
         @field(resolver: "App\\GraphQL\\Mutations\\ServiceFeatureCrud@delete")
         @guard(with: ["sanctum"])
 
-    reorderServiceFeatures2(serviceId: ID!, orderedIds: [ID!]!): Boolean!
+    sortServiceFeatures(serviceId: ID!, orderedIds: [ID!]!): Boolean!
         @field(resolver: "App\\GraphQL\\Mutations\\ServiceFeatureCrud@reorder")
         @guard(with: ["sanctum"])
 }
