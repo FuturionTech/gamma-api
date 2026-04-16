@@ -227,6 +227,22 @@ input UpdateServiceInput {
     locale: String
 }
 
+input CreateServiceFeatureInput {
+    title: String! @rules(apply: ["required", "max:255"])
+    description: String
+    icon: String
+    order: Int
+    locale: String
+}
+
+input UpdateServiceFeatureInput {
+    title: String @rules(apply: ["max:255"])
+    description: String
+    icon: String
+    order: Int
+    locale: String
+}
+
 extend type Mutation {
     createService(input: CreateServiceInput!): Service!
         @field(resolver: "App\\GraphQL\\Mutations\\ServiceCrud@create")
@@ -238,6 +254,18 @@ extend type Mutation {
 
     deleteService(id: ID!): DeleteResponse!
         @field(resolver: "App\\GraphQL\\Mutations\\ServiceCrud@delete")
+        @guard(with: ["sanctum"])
+
+    createServiceFeature(serviceId: ID!, input: CreateServiceFeatureInput!): ServiceFeature!
+        @field(resolver: "App\\GraphQL\\Mutations\\ServiceFeatureCrud@create")
+        @guard(with: ["sanctum"])
+
+    updateServiceFeature(id: ID!, input: UpdateServiceFeatureInput!): ServiceFeature!
+        @field(resolver: "App\\GraphQL\\Mutations\\ServiceFeatureCrud@update")
+        @guard(with: ["sanctum"])
+
+    deleteServiceFeature(id: ID!): DeleteResponse!
+        @field(resolver: "App\\GraphQL\\Mutations\\ServiceFeatureCrud@delete")
         @guard(with: ["sanctum"])
 }
 
