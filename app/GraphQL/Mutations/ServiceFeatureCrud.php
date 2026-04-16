@@ -55,6 +55,21 @@ class ServiceFeatureCrud
         });
     }
 
+    public function reorder(mixed $root, array $args): bool
+    {
+        $serviceId = $args['serviceId'];
+        $orderedIds = $args['orderedIds'];
+
+        return DB::transaction(function () use ($serviceId, $orderedIds) {
+            foreach ($orderedIds as $index => $id) {
+                ServiceFeature::where('id', $id)
+                    ->where('service_id', $serviceId)
+                    ->update(['order' => $index]);
+            }
+            return true;
+        });
+    }
+
     public function delete(mixed $root, array $args): array
     {
         try {
