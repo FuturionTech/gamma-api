@@ -17,6 +17,7 @@ use Illuminate\Support\Str;
 class ServiceCrud
 {
     private const DEFAULT_LOCALE = 'en';
+    private const SUPPORTED_LOCALES = ['en', 'fr'];
 
     public function create(mixed $root, array $args): Service
     {
@@ -79,8 +80,17 @@ class ServiceCrud
         }
     }
 
+    private function resolveLocale(array $input): string
+    {
+        $locale = $input['locale'] ?? self::DEFAULT_LOCALE;
+
+        return in_array($locale, self::SUPPORTED_LOCALES, true) ? $locale : self::DEFAULT_LOCALE;
+    }
+
     private function writeTranslation(Service $service, array $input): void
     {
+        $locale = $this->resolveLocale($input);
+
         $translatable = [
             'title' => $input['title'] ?? null,
             'short_description' => $input['short_description'] ?? null,
@@ -93,6 +103,6 @@ class ServiceCrud
             return;
         }
 
-        $service->translateOrNew(self::DEFAULT_LOCALE)->fill($payload)->save();
+        $service->translateOrNew($locale)->fill($payload)->save();
     }
 }
