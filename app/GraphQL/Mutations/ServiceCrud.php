@@ -87,17 +87,33 @@ class ServiceCrud
         return in_array($locale, self::SUPPORTED_LOCALES, true) ? $locale : self::DEFAULT_LOCALE;
     }
 
+    private const TRANSLATABLE_KEYS = [
+        'title', 'short_description', 'description',
+        'meta_title', 'meta_description', 'meta_keywords',
+        'hero_tagline', 'hero_headline', 'hero_subheadline',
+        'hero_cta_primary_label', 'hero_cta_secondary_label',
+        'challenge_title', 'challenge_description',
+        'delivery_title', 'delivery_description',
+        'capabilities_title',
+        'use_cases_title', 'use_cases_description',
+        'approach_title', 'approach_description',
+        'industry_title', 'industry_description',
+        'technologies_title', 'technologies_description',
+        'business_impact_title', 'business_impact_description',
+        'differentiators_title',
+        'closing_title', 'closing_subtitle',
+    ];
+
     private function writeTranslation(Service $service, array $input): void
     {
         $locale = $this->resolveLocale($input);
 
-        $translatable = [
-            'title' => $input['title'] ?? null,
-            'short_description' => $input['short_description'] ?? null,
-            'description' => $input['description'] ?? null,
-        ];
-
-        $payload = array_filter($translatable, static fn ($v) => $v !== null);
+        $payload = [];
+        foreach (self::TRANSLATABLE_KEYS as $key) {
+            if (array_key_exists($key, $input)) {
+                $payload[$key] = $input[$key];
+            }
+        }
 
         if (empty($payload)) {
             return;

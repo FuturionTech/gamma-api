@@ -225,6 +225,32 @@ input UpdateServiceInput {
     is_active: Boolean
     "Locale for translatable fields. Defaults to en."
     locale: String
+    meta_title: String
+    meta_description: String
+    meta_keywords: String
+    hero_tagline: String
+    hero_headline: String
+    hero_subheadline: String
+    hero_cta_primary_label: String
+    hero_cta_secondary_label: String
+    challenge_title: String
+    challenge_description: String
+    delivery_title: String
+    delivery_description: String
+    capabilities_title: String
+    use_cases_title: String
+    use_cases_description: String
+    approach_title: String
+    approach_description: String
+    industry_title: String
+    industry_description: String
+    technologies_title: String
+    technologies_description: String
+    business_impact_title: String
+    business_impact_description: String
+    differentiators_title: String
+    closing_title: String
+    closing_subtitle: String
 }
 
 input CreateServiceFeatureInput {
