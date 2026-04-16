@@ -1,0 +1,36 @@
+type ServiceCategory {
+    id: ID!
+    name: String!
+    slug: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreateServiceCategoryInput {
+    name: String! @rules(apply: ["required", "max:255"])
+    slug: String
+}
+
+input UpdateServiceCategoryInput {
+    name: String @rules(apply: ["max:255"])
+    slug: String
+}
+
+extend type Query {
+    serviceCategories: [ServiceCategory!]! @all(model: "ServiceCategory")
+    serviceCategory(id: ID! @eq): ServiceCategory @find(model: "ServiceCategory")
+}
+
+extend type Mutation {
+    createServiceCategory(input: CreateServiceCategoryInput! @spread): ServiceCategory!
+        @create(model: "ServiceCategory")
+        @guard(with: ["sanctum"])
+
+    updateServiceCategory(id: ID!, input: UpdateServiceCategoryInput! @spread): ServiceCategory!
+        @update(model: "ServiceCategory")
+        @guard(with: ["sanctum"])
+
+    deleteServiceCategory(id: ID!): DeleteResponse!
+        @field(resolver: "App\\GraphQL\\Mutations\\DeleteServiceCategory")
+        @guard(with: ["sanctum"])
+}
