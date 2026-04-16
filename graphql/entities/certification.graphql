@@ -13,8 +13,17 @@ type Certification {
 type CertificationCategory {
     id: ID!
     name: String!
+    certifications_count: Int @count(relation: "certifications")
     created_at: DateTime!
     updated_at: DateTime!
+}
+
+input CreateCertificationCategoryInput {
+    name: String! @rules(apply: ["required", "max:255"])
+}
+
+input UpdateCertificationCategoryInput {
+    name: String @rules(apply: ["max:255"])
 }
 
 input CreateCertificationInput {
@@ -39,11 +48,18 @@ extend type Query {
         first: Int = 15
         page: Int
     ): [Certification!]! @paginate
+
+    certificationCategories: [CertificationCategory!]! @all(model: "CertificationCategory")
+    certificationCategory(id: ID! @eq): CertificationCategory @find(model: "CertificationCategory")
 }
 
 extend type Mutation {
     createCertification(input: CreateCertificationInput! @spread): Certification! @create @guard(with: ["sanctum"])
     updateCertification(id: ID!, input: UpdateCertificationInput! @spread): Certification! @update @guard(with: ["sanctum"])
     deleteCertification(id: ID!): DeleteResponse! @delete(model: "Certification") @guard(with: ["sanctum"])
+
+    createCertificationCategory(input: CreateCertificationCategoryInput! @spread): CertificationCategory! @create(model: "CertificationCategory") @guard(with: ["sanctum"])
+    updateCertificationCategory(id: ID!, input: UpdateCertificationCategoryInput! @spread): CertificationCategory! @update(model: "CertificationCategory") @guard(with: ["sanctum"])
+    deleteCertificationCategory(id: ID!): DeleteResponse! @field(resolver: "App\\GraphQL\\Mutations\\DeleteCertificationCategory") @guard(with: ["sanctum"])
 }
 

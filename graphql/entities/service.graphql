@@ -198,3 +198,42 @@ extend type Query {
         @field(resolver: "App\\GraphQL\\Queries\\ServiceDetail")
 }
 
+"Thin input for the card-level service editor. For the full multi-section editor use CreateServiceAdminInput."
+input CreateServiceInput {
+    title: String! @rules(apply: ["required", "max:255"])
+    short_description: String
+    description: String
+    icon: String
+    icon_color: String
+    category: String
+    slug: String
+    order: Int
+    is_active: Boolean
+}
+
+input UpdateServiceInput {
+    title: String @rules(apply: ["max:255"])
+    short_description: String
+    description: String
+    icon: String
+    icon_color: String
+    category: String
+    slug: String
+    order: Int
+    is_active: Boolean
+}
+
+extend type Mutation {
+    createService(input: CreateServiceInput!): Service!
+        @field(resolver: "App\\GraphQL\\Mutations\\ServiceCrud@create")
+        @guard(with: ["sanctum"])
+
+    updateService(id: ID!, input: UpdateServiceInput!): Service!
+        @field(resolver: "App\\GraphQL\\Mutations\\ServiceCrud@update")
+        @guard(with: ["sanctum"])
+
+    deleteService(id: ID!): DeleteResponse!
+        @field(resolver: "App\\GraphQL\\Mutations\\ServiceCrud@delete")
+        @guard(with: ["sanctum"])
+}
+
