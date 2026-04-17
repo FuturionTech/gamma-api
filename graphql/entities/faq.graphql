@@ -3,6 +3,8 @@ type FAQ {
     question: String!
     answer: String!
     category: String
+    faq_category_id: ID
+    faqCategory: FaqCategory @belongsTo
     order: Int!
     is_active: Boolean!
     created_at: DateTime!
@@ -13,6 +15,7 @@ input CreateFAQInput {
     question: String! @rules(apply: ["required"])
     answer: String! @rules(apply: ["required"])
     category: String
+    faq_category_id: ID @rules(apply: ["exists:faq_categories,id"])
     order: Int
     is_active: Boolean
 }
@@ -21,6 +24,7 @@ input UpdateFAQInput {
     question: String
     answer: String
     category: String
+    faq_category_id: ID @rules(apply: ["exists:faq_categories,id"])
     order: Int
     is_active: Boolean
 }
@@ -28,6 +32,7 @@ input UpdateFAQInput {
 extend type Query {
     faqs(
         category: String @eq
+        faq_category_id: ID @eq
         is_active: Boolean @eq
         limit: Int @rules(apply: ["max:100"])
     ): [FAQ!]! @all
@@ -40,4 +45,3 @@ extend type Mutation {
     updateFAQ(id: ID!, input: UpdateFAQInput! @spread): FAQ! @update @guard(with: ["sanctum"])
     deleteFAQ(id: ID!): DeleteResponse! @delete(model: "FAQ") @guard(with: ["sanctum"])
 }
-
