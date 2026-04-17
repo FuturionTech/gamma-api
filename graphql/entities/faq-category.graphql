@@ -1,0 +1,36 @@
+type FaqCategory {
+    id: ID!
+    name: String!
+    slug: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreateFaqCategoryInput {
+    name: String! @rules(apply: ["required", "max:255"])
+    slug: String
+}
+
+input UpdateFaqCategoryInput {
+    name: String @rules(apply: ["max:255"])
+    slug: String
+}
+
+extend type Query {
+    faqCategories: [FaqCategory!]! @all(model: "FaqCategory")
+    faqCategory(id: ID! @eq): FaqCategory @find(model: "FaqCategory")
+}
+
+extend type Mutation {
+    createFaqCategory(input: CreateFaqCategoryInput! @spread): FaqCategory!
+        @create(model: "FaqCategory")
+        @guard(with: ["sanctum"])
+
+    updateFaqCategory(id: ID!, input: UpdateFaqCategoryInput! @spread): FaqCategory!
+        @update(model: "FaqCategory")
+        @guard(with: ["sanctum"])
+
+    deleteFaqCategory(id: ID!): DeleteResponse!
+        @field(resolver: "App\\GraphQL\\Mutations\\DeleteFaqCategory")
+        @guard(with: ["sanctum"])
+}
