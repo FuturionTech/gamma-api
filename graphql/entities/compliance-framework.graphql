@@ -1,0 +1,48 @@
+type ComplianceFramework {
+    id: ID!
+    name: String!
+    slug: String!
+    description: String
+    order: Int!
+    is_active: Boolean!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreateComplianceFrameworkInput {
+    name: String! @rules(apply: ["required", "max:255"])
+    slug: String
+    description: String
+    order: Int
+    is_active: Boolean
+}
+
+input UpdateComplianceFrameworkInput {
+    name: String @rules(apply: ["max:255"])
+    slug: String
+    description: String
+    order: Int
+    is_active: Boolean
+}
+
+extend type Query {
+    complianceFrameworks(is_active: Boolean @eq): [ComplianceFramework!]!
+        @all(model: "ComplianceFramework", scopes: ["ordered"])
+
+    complianceFramework(id: ID! @eq): ComplianceFramework
+        @find(model: "ComplianceFramework")
+}
+
+extend type Mutation {
+    createComplianceFramework(input: CreateComplianceFrameworkInput! @spread): ComplianceFramework!
+        @create(model: "ComplianceFramework")
+        @guard(with: ["sanctum"])
+
+    updateComplianceFramework(id: ID!, input: UpdateComplianceFrameworkInput! @spread): ComplianceFramework!
+        @update(model: "ComplianceFramework")
+        @guard(with: ["sanctum"])
+
+    deleteComplianceFramework(id: ID!): DeleteResponse!
+        @field(resolver: "App\\GraphQL\\Mutations\\DeleteComplianceFramework")
+        @guard(with: ["sanctum"])
+}
